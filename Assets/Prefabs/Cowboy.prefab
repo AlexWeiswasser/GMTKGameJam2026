@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4681775538939350429}
   - component: {fileID: 2862016653264048610}
   m_Layer: 0
-  m_Name: Barrel
+  m_Name: GunSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,8 +199,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1881278025
-  m_SortingLayer: 1
+  m_SortingLayerID: 577548337
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: fcf204a17de290a488f6f2ed2d2a1074, type: 3}
@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimScript
   gunTransform: {fileID: 2923612213806403035}
+  gunSprite: {fileID: 2862016653264048610}
 --- !u!1 &5128560024803116672
 GameObject:
   m_ObjectHideFlags: 0
