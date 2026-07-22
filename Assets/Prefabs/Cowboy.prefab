@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 8259275662457604754}
   - component: {fileID: 7743094426229523484}
   - component: {fileID: 2672484136828803075}
+  - component: {fileID: 6552402806627053603}
   m_Layer: 0
   m_Name: Cowboy
   m_TagString: Untagged
@@ -662,6 +663,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AimScript
   gunTransform: {fileID: 2923612213806403035}
   gunSprite: {fileID: 2862016653264048610}
+--- !u!114 &6552402806627053603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252988276482786609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5c25ab6a75fa340b225a70bf3c40c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupScript
 --- !u!1 &4310066813356169415
 GameObject:
   m_ObjectHideFlags: 0

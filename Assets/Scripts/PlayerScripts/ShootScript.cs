@@ -12,7 +12,7 @@ public class ShootScript : MonoBehaviour
 	{
 		if(context.performed)
 		{
-			Bullet bullet = GetBullet();
+			Bullet bullet = FireBullet();
 			if (bullet != null)
 			{
 				Vector2 direction = (bulletSpawnPos.position - transform.position).normalized;

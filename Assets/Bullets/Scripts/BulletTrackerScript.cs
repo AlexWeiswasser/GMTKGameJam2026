@@ -4,20 +4,30 @@ public class BulletTrackerScript : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		EventBus<OnBulletGain>.Subscribe(SetVisuals);
+		EventBus<OnReload>.Subscribe(SetVisuals);
 		EventBus<OnBulletFire>.Subscribe(SetVisuals);
 	}
 
 	private void OnDisable()
 	{
-		EventBus<OnBulletGain>.Unsubscribe(SetVisuals);
+		EventBus<OnReload>.Unsubscribe(SetVisuals);
 		EventBus<OnBulletFire>.Unsubscribe(SetVisuals);
 	}
 
 	[Header("References")]
     [SerializeField] SpriteRenderer[] bulletRenderers;
 
-	private void SetVisuals(OnBulletGain gainData) { bulletRenderers[gainData.bulletNumber].enabled = true; }
+	private void SetVisuals(OnReload gainData) 
+	{
+		for (int i = 0; i < BulletStorageScript.bulletCount; i++)
+		{
+			if (bulletRenderers[i].enabled)
+			{
+				bulletRenderers[i].enabled = true;
+			}
+		}
+	}
+
 	private void SetVisuals(OnBulletFire fireData)
 	{
 		bulletRenderers[fireData.bulletNumber].enabled = false; 

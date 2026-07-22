@@ -3,7 +3,10 @@ using UnityEngine;
 
 public static class BulletStorageScript
 {
-	static Stack<Bullet> bulletStack = new Stack<Bullet>();
+	// Bullet tracking
+	static List<Bullet> bulletList = new List<Bullet>();
+	public static int bulletCount = bulletList.Count;
+	static int currentBulletIndex = 0;
 
 	public class Bullet
 	{
@@ -16,12 +19,14 @@ public static class BulletStorageScript
 		public void IncreaseSpeed(float increase) { speedIncrease += increase; }
 	}
 
-	public static Bullet GetBullet()
+	public static Bullet FireBullet()
 	{
-		if (bulletStack.Count == 0) return null;
+		if (bulletList.Count == 0 || currentBulletIndex >= bulletCount) return null;
 		else
 		{
-			Bullet oldBullet = bulletStack.Pop();
+			Bullet oldBullet = bulletList[currentBulletIndex];
+			currentBulletIndex++;
+
 			EventBus<OnBulletFire>.Call(new OnBulletFire { bulletNumber = oldBullet.bulletIndex });
 			return oldBullet;
 		}
@@ -29,12 +34,18 @@ public static class BulletStorageScript
 
 	public static void AddBullet(Bullet newBullet)
 	{
-		if (bulletStack.Count == 6) return;
+		if (bulletList.Count == 6) return;
 		else
 		{
-			newBullet.SetIndex(bulletStack.Count);
-			EventBus<OnBulletGain>.Call(new OnBulletGain { bulletNumber = bulletStack.Count });
-			bulletStack.Push(newBullet);
+			newBullet.SetIndex(bulletList.Count);
+			bulletList.Add(newBullet);
+			Reload();
 		}
+	}
+
+	public static void Reload()
+	{
+		currentBulletIndex = 0;
+		EventBus<OnReload>.Call(new OnReload { });
 	}
 }
