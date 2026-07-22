@@ -17,11 +17,11 @@ public class BulletTrackerScript : MonoBehaviour
 	[Header("References")]
     [SerializeField] SpriteRenderer[] bulletRenderers;
 
-	private void SetVisuals(OnReload gainData) 
+	private void SetVisuals(OnReload reloadData) 
 	{
 		for (int i = 0; i < BulletStorageScript.bulletCount; i++)
 		{
-			if (bulletRenderers[i].enabled)
+			if (!bulletRenderers[i].enabled)
 			{
 				bulletRenderers[i].enabled = true;
 			}
@@ -30,6 +30,8 @@ public class BulletTrackerScript : MonoBehaviour
 
 	private void SetVisuals(OnBulletFire fireData)
 	{
+		Debug.Log(fireData.bulletNumber);
+
 		bulletRenderers[fireData.bulletNumber].enabled = false; 
 
 		for(int i = fireData.bulletNumber + 1; i < bulletRenderers.Length; i++)

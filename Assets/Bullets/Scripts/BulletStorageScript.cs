@@ -5,7 +5,7 @@ public static class BulletStorageScript
 {
 	// Bullet tracking
 	static List<Bullet> bulletList = new List<Bullet>();
-	public static int bulletCount = bulletList.Count;
+	public static int bulletCount => bulletList.Count;
 	static int currentBulletIndex = 0;
 
 	public class Bullet
@@ -27,9 +27,8 @@ public static class BulletStorageScript
 			Bullet oldBullet = bulletList[currentBulletIndex];
 			currentBulletIndex++;
 
-			if (currentBulletIndex >= bulletCount) Reload();
-
 			EventBus<OnBulletFire>.Call(new OnBulletFire { bulletNumber = oldBullet.bulletIndex });
+			if (currentBulletIndex >= bulletCount) Reload();
 			return oldBullet;
 		}
 	}
