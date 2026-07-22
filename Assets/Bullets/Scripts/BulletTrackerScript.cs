@@ -21,20 +21,15 @@ public class BulletTrackerScript : MonoBehaviour
 	{
 		for (int i = 0; i < BulletStorageScript.bulletCount; i++)
 		{
-			if (!bulletRenderers[i].enabled)
-			{
-				bulletRenderers[i].enabled = true;
-			}
+			bulletRenderers[i].enabled = true;
 		}
 	}
 
 	private void SetVisuals(OnBulletFire fireData)
 	{
-		Debug.Log(fireData.bulletNumber);
+		bulletRenderers[0].enabled = false; 
 
-		bulletRenderers[fireData.bulletNumber].enabled = false; 
-
-		for(int i = fireData.bulletNumber + 1; i < bulletRenderers.Length; i++)
+		for(int i = 0; i < bulletRenderers.Length; i++)
 		{
 			if (bulletRenderers[i].enabled)
 			{
