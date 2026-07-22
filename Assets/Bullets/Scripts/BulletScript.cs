@@ -9,7 +9,12 @@ public class BulletScript : MonoBehaviour
 	[Header("Stats")]
 	[SerializeField] float speed; 
 
-	private void Awake()
+	public void Init(float speedChange)
+	{
+		speed += speedChange;
+	}
+
+	private void Start()
 	{
 		// Rotation
 		Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
@@ -21,5 +26,8 @@ public class BulletScript : MonoBehaviour
 
 		// Velocity
 		rb.linearVelocity = speed * direction;
+
+		// Lifetime
+		Destroy(gameObject, 5);
 	}
 }
