@@ -5,6 +5,18 @@ TextureImporter:
   - first:
       213: -4750761433519615375
     second: Cursor_0
+  - first:
+      213: -3340349168363038409
+    second: Cursor_1
+  - first:
+      213: -8894989074114120652
+    second: Cursor_2
+  - first:
+      213: 8084253176091754095
+    second: Cursor_3
+  - first:
+      213: -3647630677443473183
+    second: Cursor_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +36,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -57,7 +69,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 7
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -104,9 +116,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 7
-        height: 7
+        y: 31
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +129,94 @@ TextureImporter:
       bones: []
       spriteID: 172107695a7e11eb0800000000000000
       internalID: -4750761433519615375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73913f91122b4a1d0800000000000000
+      internalID: -3340349168363038409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 31
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43472749096ae8480800000000000000
+      internalID: -8894989074114120652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6eb5437e69013070800000000000000
+      internalID: 8084253176091754095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor_4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e01a2f8933016dc0800000000000000
+      internalID: -3647630677443473183
       vertices: []
       indices: 
       edges: []
@@ -136,6 +236,10 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Cursor_0: -4750761433519615375
+      Cursor_1: -3340349168363038409
+      Cursor_2: -8894989074114120652
+      Cursor_3: 8084253176091754095
+      Cursor_4: -3647630677443473183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
