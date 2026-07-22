@@ -9,3 +9,7 @@ public static class EventBus<T> where T : IEvent
 	public static void Unsubscribe(Action<T> handler) => OnEvent -= handler;
 	public static void Call(T evt) => OnEvent?.Invoke(evt);
 }
+
+// Bullet events
+public struct OnBulletGain : IEvent { public int bulletNumber; }
+public struct OnBulletFire : IEvent { public int bulletNumber; }
