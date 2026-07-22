@@ -27,6 +27,8 @@ public static class BulletStorageScript
 			Bullet oldBullet = bulletList[currentBulletIndex];
 			currentBulletIndex++;
 
+			if (currentBulletIndex >= bulletCount) Reload();
+
 			EventBus<OnBulletFire>.Call(new OnBulletFire { bulletNumber = oldBullet.bulletIndex });
 			return oldBullet;
 		}
