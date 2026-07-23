@@ -13,8 +13,6 @@ public class OilPatchScript : MonoBehaviour
 
 		foreach (Collider2D hit in hits)
 		{
-			Debug.Log(hit.tag);
-
 			if (hit.CompareTag("Fire"))
 			{
 				Transform newFire = Instantiate(hit.gameObject, transform.position, Quaternion.identity).transform;
