@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 77186e57d7bc765499320d7ae57b52f4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.87214184, a: 1}
+  m_Color: {r: 0.29559743, g: 0, b: 0.25734368, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54306e14e028f144c9eec35201968ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OilBullet
+  creator: {fileID: 0}
   rb: {fileID: 4621495147039580324}
   speed: 35
+  rarity: 0
   oilSpill: {fileID: 1787986210466843351, guid: 0dae072490ce8d7499f5c7bc239ed06e, type: 3}
