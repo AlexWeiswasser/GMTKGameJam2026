@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &56839995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2065210265997213460, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-  m_PrefabInstance: {fileID: 4811260599306718657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
 --- !u!1 &72757575
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,33 +316,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
---- !u!114 &159534337 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6562845315525290527, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-  m_PrefabInstance: {fileID: 4811260599306718657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
 --- !u!224 &271952061 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6041692129820870084, guid: 926f5082971b87a43a79d172243ae548, type: 3}
   m_PrefabInstance: {fileID: 4811260599306718657}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &276936714 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3753283281250646318, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-  m_PrefabInstance: {fileID: 4811260599306718657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
 --- !u!1 &297127539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6806,28 +6773,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1287764430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5530833572545034597, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-  m_PrefabInstance: {fileID: 4811260599306718657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
---- !u!114 &1315424240 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7662269794088703409, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-  m_PrefabInstance: {fileID: 4811260599306718657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
 --- !u!1 &1343293480
 GameObject:
   m_ObjectHideFlags: 0
@@ -7756,17 +7701,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1826973936 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7644566833203984762, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-  m_PrefabInstance: {fileID: 4811260599306718657}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
 --- !u!1001 &1958041109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7988,34 +7922,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1504444349}
     m_Modifications:
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: chamberObjects.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: 'chamberObjects.Array.data[0]'
-      value: 
-      objectReference: {fileID: 276936714}
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: 'chamberObjects.Array.data[1]'
-      value: 
-      objectReference: {fileID: 159534337}
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: 'chamberObjects.Array.data[2]'
-      value: 
-      objectReference: {fileID: 1315424240}
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: 'chamberObjects.Array.data[3]'
-      value: 
-      objectReference: {fileID: 1287764430}
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: 'chamberObjects.Array.data[4]'
-      value: 
-      objectReference: {fileID: 56839995}
-    - target: {fileID: 5350801068473541685, guid: 926f5082971b87a43a79d172243ae548, type: 3}
-      propertyPath: 'chamberObjects.Array.data[5]'
-      value: 
-      objectReference: {fileID: 1826973936}
     - target: {fileID: 6041692129820870084, guid: 926f5082971b87a43a79d172243ae548, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
