@@ -18,14 +18,16 @@ public class AimScript : MonoBehaviour
 	private void OnEnable()
 	{
 		EventBus<OnBulletFire>.Subscribe(Recoil);
+		EventBus<StartReload>.Subscribe(Reload);
 	}
 
     private void OnDisable()
     {
         EventBus<OnBulletFire>.Unsubscribe(Recoil);
-    }
+		EventBus<StartReload>.Unsubscribe(Reload);
+	}
 
-    private void Update()
+	private void Update()
 	{
 		Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
 		Vector2 cursorWorldPos = (Vector2)Camera.main.ScreenToWorldPoint(mouseScreenPos);
@@ -48,5 +50,15 @@ public class AimScript : MonoBehaviour
 		{
 			radius = value;
 		});
+	}
+
+	private void Reload(StartReload reloadData)
+	{
+		Invoke("ReloadDone", reloadData.reloadTime);
+	}
+
+	private void ReloadDone()
+	{
+		BulletStorageScript.Reload();
 	}
 }

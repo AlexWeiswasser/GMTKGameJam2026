@@ -6,13 +6,13 @@ public class BulletTrackerScript : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		EventBus<OnReload>.Subscribe(Reload);
+		EventBus<OnReload>.Subscribe(SetVisuals);
 		EventBus<OnBulletFire>.Subscribe(SetVisuals);
 	}
 
 	private void OnDisable()
 	{
-		EventBus<OnReload>.Unsubscribe(Reload);
+		EventBus<OnReload>.Unsubscribe(SetVisuals);
 		EventBus<OnBulletFire>.Unsubscribe(SetVisuals);
 	}
 
@@ -33,17 +33,6 @@ public class BulletTrackerScript : MonoBehaviour
 
 	private Tween jumpTween;
 	private TrackerMode currentMode = TrackerMode.ShootingMode;
-
-	private void Reload(OnReload reloadData)
-	{
-		Invoke("ReloadDone", reloadData.reloadTime);
-	}
-
-	private void ReloadDone()
-	{
-		BulletStorageScript.Reload();
-		SetVisuals();
-	}
 
 	public void SetMode(TrackerMode mode)
 	{

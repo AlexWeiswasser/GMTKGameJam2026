@@ -27,7 +27,7 @@ public static class BulletStorageScript
 			currentBulletIndex--;
 
 			EventBus<OnBulletFire>.Call(new OnBulletFire { bulletNumber = oldBullet.bulletIndex });
-			if (currentBulletIndex < 0) EventBus<OnReload>.Call(new OnReload { reloadTime = reloadTime });
+			if (currentBulletIndex < 0) EventBus<StartReload>.Call(new StartReload { reloadTime = reloadTime });
 			return oldBullet;
 		}
 	}
@@ -39,9 +39,13 @@ public static class BulletStorageScript
 		{
 			newBullet.SetIndex(bulletList.Count);
 			bulletList.Add(newBullet);
-			EventBus<OnReload>.Call(new OnReload { reloadTime = 0 });
+			EventBus<StartReload>.Call(new StartReload { reloadTime = 0 });
 		}
 	}
 
-	public static void Reload() { currentBulletIndex = lastBulletIndex; }
+	public static void Reload() 
+	{
+		currentBulletIndex = lastBulletIndex;
+		EventBus<OnReload>.Call(new OnReload { });
+	}
 }
