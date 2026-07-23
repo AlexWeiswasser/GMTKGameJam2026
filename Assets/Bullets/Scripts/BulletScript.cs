@@ -12,6 +12,7 @@ public class BulletScript : MonoBehaviour
 
 	public enum BulletType
 	{
+		Default,
 		Oil,
 		Fire,
 		FullMetalJacket,

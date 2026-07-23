@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OilBullet
   creator: {fileID: 0}
   speed: 35
-  type: 0
+  type: 1
   rarity: 1
   damage: 10
   oilSpill: {fileID: 1787986210466843351, guid: 0dae072490ce8d7499f5c7bc239ed06e, type: 3}
