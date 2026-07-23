@@ -172,6 +172,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JacketBullet
   creator: {fileID: 0}
   speed: 35
-  type: 2
+  type: 3
   rarity: 0
   damage: 11
