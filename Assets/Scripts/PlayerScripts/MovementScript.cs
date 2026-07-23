@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class MovementScript : MonoBehaviour
 {
@@ -27,7 +28,11 @@ public class MovementScript : MonoBehaviour
 
 	bool animating = false;
 	[HideInInspector] public bool canMove = true;
-	[HideInInspector] public bool isWet = false; 
+	[HideInInspector] public bool isWet = false;
+
+	// Veclocities
+	Vector2 movementVelocity;
+	Vector2 externalVelocity;
 
 	public void MoveLeft(InputAction.CallbackContext context) { if (context.performed) heldDown[0] = true; else heldDown[0] = false; }
 	public void MoveRight(InputAction.CallbackContext context) { if(context.performed) heldDown[1] = true; else heldDown[1] = false; }
@@ -60,27 +65,25 @@ public class MovementScript : MonoBehaviour
 	private void FixedUpdate()
 	{
 		rb.linearDamping = damping;
-
 		if (!canMove) return;
 
-		bool anyHeldDown = heldDown[0] || heldDown[1] || heldDown[2] || heldDown[3];
-
-		if (heldDown[0])
-			rb.AddForce(Vector2.left * acceleration);
-		if (heldDown[1])
-			rb.AddForce(Vector2.right * acceleration);
-		if (heldDown[2])
-			rb.AddForce(Vector2.down * acceleration);
-		if (heldDown[3])
-			rb.AddForce(Vector2.up * acceleration);
-
 		float currentMaxSpeed = maxSpeed;
-		if(isWet) currentMaxSpeed *= .8f;
+		if (isWet) currentMaxSpeed *= .8f;
 
-		rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
-		rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);
+		Vector2 input = Vector2.zero;
+		if (heldDown[0]) input.x -= 1;
+		if (heldDown[1]) input.x += 1;
+		if (heldDown[2]) input.y -= 1;
+		if (heldDown[3]) input.y += 1;
+		input = input.normalized;
 
-		if (!animating && anyHeldDown)
+		movementVelocity = Vector2.MoveTowards( 
+			movementVelocity,
+			input * currentMaxSpeed,
+			acceleration * Time.fixedDeltaTime);
+		rb.linearVelocity = movementVelocity + externalVelocity;
+
+		if (!animating && input != Vector2.zero)
 		{
 			animating = true;
 			spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
