@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8973342537510133485}
   - component: {fileID: 2695146288055683533}
   - component: {fileID: 4375508017589705424}
+  - component: {fileID: -7138817897492823134}
   m_Layer: 6
   m_Name: OIl
   m_TagString: Oil
@@ -128,3 +129,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-7138817897492823134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787986210466843351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50cd383542819a42aa77b613469edb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OilPatchScript
+  fireLayerMask:
+    serializedVersion: 2
+    m_Bits: 64

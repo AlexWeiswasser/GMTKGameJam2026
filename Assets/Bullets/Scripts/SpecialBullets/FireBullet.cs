@@ -32,8 +32,8 @@ public class FireBullet : BulletScript
 			Vector3 scale = collision.transform.localScale;
 			Destroy(collision.gameObject);
 
-			Transform oil = Instantiate(fire, transform.position, Quaternion.identity).transform;
-			oil.localScale = scale;
+			Transform newFire = Instantiate(fire, transform.position, Quaternion.identity).transform;
+			newFire.localScale = scale;
 		}
 	}
 }

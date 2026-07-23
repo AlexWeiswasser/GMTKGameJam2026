@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Oil
+  - Fire
   layers:
   - Default
   - TransparentFX
