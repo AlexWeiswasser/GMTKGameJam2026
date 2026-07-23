@@ -7,7 +7,6 @@ public class OilBullet : BulletScript
 
 	// Prefabs
 	[SerializeField] GameObject oilSpill;
-	[SerializeField] GameObject bigOilSpill;
 
 	private void Update()
 	{
@@ -21,6 +20,6 @@ public class OilBullet : BulletScript
 
 	protected override void OnBulletDeath()
 	{
-		Transform oil = Instantiate(bigOilSpill, transform.position, Quaternion.identity).transform;
+		Instantiate(oilSpill, transform.position, Quaternion.identity);
 	}
 }

@@ -3,10 +3,21 @@ using UnityEngine;
 
 public class OilPatchScript : MonoBehaviour
 {
-	bool onFire = false; 
+	[SerializeField] Animator animator;
+	[SerializeField] SpriteRenderer oilFire;
 
-	public void SetOnFire()
+	bool onFire = false;
+
+    public void Awake()
+    {
+        int oilType = UnityEngine.Random.Range(0, 3);
+		animator.Play("Oil" + oilType.ToString());
+    }
+
+    public void SetOnFire()
 	{
+		oilFire.enabled = true;
+		animator.SetTrigger("Burn");
 		Destroy(gameObject, 5f);
 		onFire = true; 
 	}
