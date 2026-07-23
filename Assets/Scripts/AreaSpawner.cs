@@ -3,16 +3,25 @@ using UnityEngine;
 
 public class AreaSpawner : MonoBehaviour
 {
-    [SerializeField] Vector2 areaSize;
-    [SerializeField] Transform areaSpawnerParent;
-    [SerializeField] GameObject[] areas;
+    [SerializeField] AreaType[] areaTypes;
+
+    [Serializable]
+    public class AreaType
+    {
+        public Vector2 areaSize;
+        public Transform areaSpawnerParent;
+        public GameObject[] areas;
+    }
 
     void Start()
     {
-        foreach (Transform zone in areaSpawnerParent.GetComponentInChildren<Transform>())
+        foreach (AreaType areaType in areaTypes)
         {
-            GameObject area = Instantiate(areas[UnityEngine.Random.Range(0, areas.Length)], transform);
-            area.transform.position = new Vector2(zone.position.x - (areaSize.x / 2), zone.position.y + (areaSize.y / 2));
+            foreach (Transform zone in areaType.areaSpawnerParent.GetComponentInChildren<Transform>())
+            {
+                GameObject area = Instantiate(areaType.areas[UnityEngine.Random.Range(0, areaType.areas.Length)], transform);
+                area.transform.position = new Vector2(zone.position.x - (areaType.areaSize.x / 2), zone.position.y + (areaType.areaSize.y / 2));
+            }
         }
     }
 }

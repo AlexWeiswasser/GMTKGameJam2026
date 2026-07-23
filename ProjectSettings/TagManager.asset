@@ -48,6 +48,9 @@ TagManager:
   - name: Decor
     uniqueID: 1881278025
     locked: 0
+  - name: Player
+    uniqueID: 963910407
+    locked: 0
   - name: Gun
     uniqueID: 577548337
     locked: 0

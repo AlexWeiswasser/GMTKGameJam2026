@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,8 @@ public class AimScript : MonoBehaviour
 	[Header("References")]
 	[SerializeField] Transform gunTransform;
 	[SerializeField] SpriteRenderer gunSprite;
+
+	public static event Action<bool> OnGunFlip;
 
 	private void Update()
 	{
@@ -18,6 +21,7 @@ public class AimScript : MonoBehaviour
 
 		bool flip = angle < -90 || angle > 90 ? true : false;
 		gunSprite.flipY = flip;
+		OnGunFlip?.Invoke(flip);
 
 		float radius = Vector2.Distance(transform.position, gunTransform.position);
 		Vector2 offset = direction * radius;

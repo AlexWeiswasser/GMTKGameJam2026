@@ -8,6 +8,7 @@ public class MovementScript : MonoBehaviour
 	public static Vector2 playerPos;
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] Transform spriteObject;
+	[SerializeField] SpriteRenderer[] playerSpriteRenderers;
 
 	[Header("Stats")]
 	[SerializeField] float maxSpeed;
@@ -17,7 +18,7 @@ public class MovementScript : MonoBehaviour
 	[Header("Hop Animation")]
 	[SerializeField] float hopDuration;
 	[SerializeField] float hopStrength;
-	[SerializeField] float hopMagnitudeThreshold;
+	//[SerializeField] float hopMagnitudeThreshold;
 	[SerializeField] Ease hopEasing;
 
 	// Tracking 
@@ -30,6 +31,24 @@ public class MovementScript : MonoBehaviour
 	public void MoveDown(InputAction.CallbackContext context) { if(context.performed) heldDown[2] = true; else heldDown[2] = false; }
 	public void MoveUp(InputAction.CallbackContext context) { if(context.performed) heldDown[3] = true; else heldDown[3] = false; }
 
+	private void OnEnable()
+	{
+		AimScript.OnGunFlip += FlipSprite;
+	}
+
+	private void OnDisable()
+	{
+		AimScript.OnGunFlip -= FlipSprite;
+	}
+
+	private void FlipSprite(bool flip)
+	{
+		foreach (SpriteRenderer spr in playerSpriteRenderers)
+		{
+			spr.flipX = flip;
+		}
+	}
+
 	private void Update()
 	{
 		playerPos = transform.position;
@@ -38,6 +57,8 @@ public class MovementScript : MonoBehaviour
 	private void FixedUpdate()
 	{
 		rb.linearDamping = damping;
+
+		bool anyHeldDown = heldDown[0] || heldDown[1] || heldDown[2] || heldDown[3];
 
 		if (heldDown[0])
 			rb.AddForce(Vector2.left * acceleration);
@@ -51,7 +72,7 @@ public class MovementScript : MonoBehaviour
 		rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
 		rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);
 
-		if (!animating && rb.linearVelocity.magnitude > hopMagnitudeThreshold)
+		if (!animating && anyHeldDown)
 		{
 			animating = true;
 			spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
