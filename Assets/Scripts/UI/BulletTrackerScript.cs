@@ -16,10 +16,11 @@ public class BulletTrackerScript : MonoBehaviour
 		EventBus<OnBulletFire>.Unsubscribe(SetVisuals);
 	}
 
-    private void Start()
-    {
-        SetVisuals(new OnReload());
-    }
+	public enum TrackerMode
+	{
+		ShootingMode,
+		EditingMode,
+	}
 
 	[SerializeField] Ease easing;
     [Header("References")]
@@ -27,14 +28,30 @@ public class BulletTrackerScript : MonoBehaviour
     [SerializeField] Image[] bulletRenderers;
 
 	private Tween jumpTween;
+	private TrackerMode currentMode = TrackerMode.ShootingMode;
 
-	private void SetVisuals(OnReload reloadData) 
+    private void Start()
+    {
+        SetVisuals();
+    }
+
+	public void SetMode(TrackerMode mode)
+	{
+		currentMode = mode;
+	}
+
+	private void SetVisuals()
 	{
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
 		{
 			Color color = i < BulletStorageScript.bulletCount ? Color.white : Color.black;
 			bulletRenderers[i].color = color;
 		}
+	}
+
+	private void SetVisuals(OnReload reloadData) 
+	{
+		SetVisuals();
 		
 		if (BulletStorageScript.bulletCount > 0) RotateToBullet(BulletStorageScript.bulletCount - 1);
 
