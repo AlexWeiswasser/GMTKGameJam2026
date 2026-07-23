@@ -14,12 +14,10 @@ public class FireBullet : BulletScript
 	{
 		if(collision.CompareTag("Oil"))
 		{
-			Vector2 spawnPos = collision.transform.position;
-			Vector3 scale = collision.transform.localScale;
-			Destroy(collision.gameObject);
-
-			Transform newFire = Instantiate(fire, transform.position, Quaternion.identity).transform;
-			newFire.localScale = scale;
+			if(collision.TryGetComponent<OilPatchScript>(out var oilScript))
+			{
+				oilScript.SetOnFire();
+			}
 		}
 	}
 }

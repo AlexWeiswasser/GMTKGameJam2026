@@ -1,24 +1,27 @@
+using System;
 using UnityEngine;
 
 public class OilPatchScript : MonoBehaviour
 {
-	[SerializeField] private LayerMask fireLayerMask;
+	bool onFire = false; 
 
-	private void Start()
+	public void SetOnFire()
 	{
-		CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
-		float radius = circleCollider.radius * transform.lossyScale.x;
+		Destroy(gameObject, 5f);
+		onFire = true; 
+	}
 
-		Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, fireLayerMask);
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if (!onFire) return;
 
-		foreach (Collider2D hit in hits)
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
 		{
-			if (hit.CompareTag("Fire"))
+			if (collision.TryGetComponent<ICharInterface>(out var character))
 			{
-				Transform newFire = Instantiate(hit.gameObject, transform.position, Quaternion.identity).transform;
-				newFire.localScale = transform.localScale;
-				Destroy(gameObject);
-				break; 
+				if (!character.GetOnFire())
+					character.SetOnFire();
+				character.SetOnOilFire();
 			}
 		}
 	}
