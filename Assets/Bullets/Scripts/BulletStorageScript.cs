@@ -5,7 +5,9 @@ public static class BulletStorageScript
 {
 	// Bullet tracking
 	static List<Bullet> bulletList = new List<Bullet>();
+	public static int MaximumBulletCount => 6;
 	public static int bulletCount => bulletList.Count;
+	public static int lastBulletIndex => bulletCount - 1;
 	static int currentBulletIndex = 0;
 
 	public class Bullet
@@ -21,14 +23,14 @@ public static class BulletStorageScript
 
 	public static Bullet FireBullet()
 	{
-		if (bulletList.Count == 0 || currentBulletIndex >= bulletCount) return null;
+		if (bulletList.Count == 0 || currentBulletIndex < 0) return null;
 		else
 		{
 			Bullet oldBullet = bulletList[currentBulletIndex];
-			currentBulletIndex++;
+			currentBulletIndex--;
 
 			EventBus<OnBulletFire>.Call(new OnBulletFire { bulletNumber = oldBullet.bulletIndex });
-			if (currentBulletIndex >= bulletCount) Reload();
+			if (currentBulletIndex < 0) Reload();
 			return oldBullet;
 		}
 	}
@@ -46,7 +48,7 @@ public static class BulletStorageScript
 
 	public static void Reload()
 	{
-		currentBulletIndex = 0;
+		currentBulletIndex = lastBulletIndex;
 		EventBus<OnReload>.Call(new OnReload { });
 	}
 }
