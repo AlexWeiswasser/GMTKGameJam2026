@@ -9,6 +9,7 @@ public static class BulletStorageScript
 	public static int bulletCount => bulletList.Count;
 	public static int lastBulletIndex => bulletCount - 1;
 	public static int currentBulletIndex = 0;
+	[SerializeField] private static float reloadTime = 1f;
 
 	public class Bullet
 	{
@@ -26,7 +27,7 @@ public static class BulletStorageScript
 			currentBulletIndex--;
 
 			EventBus<OnBulletFire>.Call(new OnBulletFire { bulletNumber = oldBullet.bulletIndex });
-			if (currentBulletIndex < 0) Reload();
+			if (currentBulletIndex < 0) EventBus<OnReload>.Call(new OnReload { reloadTime = reloadTime });
 			return oldBullet;
 		}
 	}
@@ -38,13 +39,9 @@ public static class BulletStorageScript
 		{
 			newBullet.SetIndex(bulletList.Count);
 			bulletList.Add(newBullet);
-			Reload();
+			EventBus<OnReload>.Call(new OnReload { reloadTime = 0 });
 		}
 	}
 
-	public static void Reload()
-	{
-		currentBulletIndex = lastBulletIndex;
-		EventBus<OnReload>.Call(new OnReload { });
-	}
+	public static void Reload() { currentBulletIndex = lastBulletIndex; }
 }

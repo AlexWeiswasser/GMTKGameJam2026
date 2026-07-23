@@ -11,5 +11,5 @@ public static class EventBus<T> where T : IEvent
 }
 
 // Bullet events
-public struct OnReload : IEvent { }
+public struct OnReload : IEvent { public float reloadTime; }
 public struct OnBulletFire : IEvent { public int bulletNumber; }

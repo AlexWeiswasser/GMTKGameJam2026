@@ -6,19 +6,19 @@ public class BulletTrackerScript : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		EventBus<OnReload>.Subscribe(SetVisuals);
+		EventBus<OnReload>.Subscribe(Reload);
 		EventBus<OnBulletFire>.Subscribe(SetVisuals);
 	}
 
 	private void OnDisable()
 	{
-		EventBus<OnReload>.Unsubscribe(SetVisuals);
+		EventBus<OnReload>.Unsubscribe(Reload);
 		EventBus<OnBulletFire>.Unsubscribe(SetVisuals);
 	}
 
     private void Start()
     {
-        SetVisuals(new OnReload());
+        SetVisuals();
     }
 
 	[SerializeField] Ease easing;
@@ -28,7 +28,18 @@ public class BulletTrackerScript : MonoBehaviour
 
 	private Tween jumpTween;
 
-	private void SetVisuals(OnReload reloadData) 
+	private void Reload(OnReload reloadData)
+	{
+		Invoke("ReloadDone", reloadData.reloadTime);
+	}
+
+	private void ReloadDone()
+	{
+		BulletStorageScript.Reload();
+		SetVisuals();
+	}
+
+	private void SetVisuals() 
 	{
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
 		{
