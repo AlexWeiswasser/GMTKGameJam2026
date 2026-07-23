@@ -15,10 +15,6 @@ public static class BulletStorageScript
 		public GameObject bulletObject;
 		public int bulletIndex { get; private set; }
 		public void SetIndex(int index) { bulletIndex = index; }
-
-		// Stat changes
-		public float speedIncrease { get; private set; } = 0;
-		public void IncreaseSpeed(float increase) { speedIncrease += increase; }
 	}
 
 	public static Bullet FireBullet()
