@@ -1,7 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class MovementScript : MonoBehaviour
 {
