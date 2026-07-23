@@ -26,6 +26,8 @@ public class BulletTrackerScript : MonoBehaviour
 	[SerializeField] RectTransform cylinder;
     [SerializeField] Image[] bulletRenderers;
 
+	private Tween jumpTween;
+
 	private void SetVisuals(OnReload reloadData) 
 	{
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
@@ -36,7 +38,8 @@ public class BulletTrackerScript : MonoBehaviour
 		
 		if (BulletStorageScript.bulletCount > 0) RotateToBullet(BulletStorageScript.bulletCount - 1);
 
-		cylinder.DOJumpAnchorPos(cylinder.anchoredPosition, 20, 1, 0.2f);
+		jumpTween.Kill(true);
+		jumpTween = cylinder.DOJumpAnchorPos(cylinder.anchoredPosition, 20, 1, 0.2f);
 	}
 
 	private void SetVisuals(OnBulletFire fireData)
