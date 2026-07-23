@@ -7,13 +7,21 @@ public class OilPatchScript : MonoBehaviour
 	private void Start()
 	{
 		CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
-		Collider2D hit = Physics2D.OverlapCircle(transform.position, circleCollider.radius, fireLayerMask);
+		float radius = circleCollider.radius * transform.lossyScale.x;
 
-		if (hit != null && hit.CompareTag("Fire"))
+		Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, fireLayerMask);
+
+		foreach (Collider2D hit in hits)
 		{
-			Transform newFire = Instantiate(hit.gameObject, transform.position, Quaternion.identity).transform;
-			newFire.localScale = transform.localScale;
-			Destroy(gameObject);
+			Debug.Log(hit.tag);
+
+			if (hit.CompareTag("Fire"))
+			{
+				Transform newFire = Instantiate(hit.gameObject, transform.position, Quaternion.identity).transform;
+				newFire.localScale = transform.localScale;
+				Destroy(gameObject);
+				break; 
+			}
 		}
 	}
 }
