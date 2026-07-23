@@ -14,6 +14,8 @@ public class BulletScript : MonoBehaviour
 	{
 		Oil,
 		Fire,
+		FullMetalJacket,
+		Lightning
 	}
 
 	[Header("References")]

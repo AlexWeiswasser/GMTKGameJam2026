@@ -26,6 +26,8 @@ public class MovementScript : MonoBehaviour
 	bool[] heldDown = new bool[4];
 
 	bool animating = false;
+	[HideInInspector] public bool canMove = true;
+	[HideInInspector] public bool isWet = false; 
 
 	public void MoveLeft(InputAction.CallbackContext context) { if (context.performed) heldDown[0] = true; else heldDown[0] = false; }
 	public void MoveRight(InputAction.CallbackContext context) { if(context.performed) heldDown[1] = true; else heldDown[1] = false; }
@@ -59,6 +61,8 @@ public class MovementScript : MonoBehaviour
 	{
 		rb.linearDamping = damping;
 
+		if (!canMove) return;
+
 		bool anyHeldDown = heldDown[0] || heldDown[1] || heldDown[2] || heldDown[3];
 
 		if (heldDown[0])
@@ -69,6 +73,9 @@ public class MovementScript : MonoBehaviour
 			rb.AddForce(Vector2.down * acceleration);
 		if (heldDown[3])
 			rb.AddForce(Vector2.up * acceleration);
+
+		float currentMaxSpeed = maxSpeed;
+		if(isWet) currentMaxSpeed *= .8f;
 
 		rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
 		rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);

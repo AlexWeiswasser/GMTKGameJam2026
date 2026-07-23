@@ -7,11 +7,14 @@ public class ShootScript : MonoBehaviour
 	[Header("References")] 
 	[SerializeField] Transform bulletSpawnPos;
 	[SerializeField] GameObject bullet;
+	[HideInInspector] public bool canShoot = true;
 
 	public void Shoot(InputAction.CallbackContext context)
 	{
 		if(context.performed)
 		{
+			if (!canShoot) return;
+
 			Bullet bullet = FireBullet();
 			if (bullet != null)
 			{
