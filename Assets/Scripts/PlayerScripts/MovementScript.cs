@@ -20,7 +20,7 @@ public class MovementScript : MonoBehaviour
 	[SerializeField] float hopStrength;
 	//[SerializeField] float hopMagnitudeThreshold;
 	[SerializeField] Ease hopEasing;
-	[SerializeField] GameObject landParticles;
+	[SerializeField] ParticleSystem landParticles;
 
 	// Tracking 
 	bool[] heldDown = new bool[4];
@@ -78,7 +78,7 @@ public class MovementScript : MonoBehaviour
 			animating = true;
 			spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
 				.SetEase(hopEasing)
-				.OnComplete(() => { animating = false; Instantiate(landParticles, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);});
+				.OnComplete(() => { animating = false; landParticles.Play();});
 		}
 	}
 }
