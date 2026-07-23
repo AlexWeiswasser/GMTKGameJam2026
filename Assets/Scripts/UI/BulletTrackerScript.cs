@@ -43,7 +43,7 @@ public class BulletTrackerScript : MonoBehaviour
 	{
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
 		{
-			Color color = i < BulletStorageScript.bulletCount ? Color.white : Color.black;
+			Color color = i < BulletStorageScript.bulletCount ? Color.white : Color.gray5;
 			bulletRenderers[i].color = color;
 		}
 	}
@@ -65,7 +65,7 @@ public class BulletTrackerScript : MonoBehaviour
 		//Debug.Log(bulletFired);
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
 		{
-			Color color = i < bulletFired ? Color.white : Color.black;
+			Color color = i < bulletFired ? Color.white : Color.gray5;
 			bulletRenderers[i].color = color;
 		}
 		// for(int i = BulletStorageScript.lastBulletIndex; i >= 0; i--)
