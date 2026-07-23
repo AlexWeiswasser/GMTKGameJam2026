@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5562203906697998497}
   - component: {fileID: 5746847187140270548}
   - component: {fileID: 2182496851798453615}
+  - component: {fileID: 7644566833203984762}
   m_Layer: 5
   m_Name: Bullet6
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6019085519013685561, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  m_Sprite: {fileID: -1382188462, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -88,6 +89,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0293437a1fef6804a8e52899330afc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateLock
+--- !u!114 &7644566833203984762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062423206594837375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
+  savedPosition: {fileID: 1152077997678441857}
+  rectTransform: {fileID: 0}
 --- !u!1 &2342976562012816405
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +115,7 @@ GameObject:
   - component: {fileID: 8725812806947439646}
   - component: {fileID: 6378136106778370666}
   - component: {fileID: 768007661426669095}
+  - component: {fileID: 3753283281250646318}
   m_Layer: 5
   m_Name: Bullet1
   m_TagString: Untagged
@@ -176,6 +192,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0293437a1fef6804a8e52899330afc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateLock
+--- !u!114 &3753283281250646318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342976562012816405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
+  savedPosition: {fileID: 2848001728030900963}
+  rectTransform: {fileID: 0}
+--- !u!1 &2753601561196104711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4204665638073362511}
+  m_Layer: 5
+  m_Name: Bullet4Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4204665638073362511
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753601561196104711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6041692129820870084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -90}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &3036548456738625582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3121587098254063657}
+  m_Layer: 5
+  m_Name: Bullet3Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3121587098254063657
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036548456738625582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6041692129820870084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 80, y: -46}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3943410744280720656
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +288,7 @@ GameObject:
   - component: {fileID: 704663476250162367}
   - component: {fileID: 5072223145874819438}
   - component: {fileID: 789436593150983731}
+  - component: {fileID: 6562845315525290527}
   m_Layer: 5
   m_Name: Bullet2
   m_TagString: Untagged
@@ -242,7 +343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6019085519013685561, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  m_Sprite: {fileID: -1043431657, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -264,6 +365,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0293437a1fef6804a8e52899330afc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateLock
+--- !u!114 &6562845315525290527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3943410744280720656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
+  savedPosition: {fileID: 6878055773267763079}
+  rectTransform: {fileID: 0}
+--- !u!1 &4105218568173220452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6878055773267763079}
+  m_Layer: 5
+  m_Name: Bullet2Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6878055773267763079
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105218568173220452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6041692129820870084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 80, y: 46}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4634812569752843877
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +426,7 @@ GameObject:
   - component: {fileID: 5375625185834440840}
   - component: {fileID: 8426122887791581621}
   - component: {fileID: 3827998651866397704}
+  - component: {fileID: 5530833572545034597}
   m_Layer: 5
   m_Name: Bullet4
   m_TagString: Untagged
@@ -330,7 +481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6019085519013685561, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  m_Sprite: {fileID: -1167604610, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -352,6 +503,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0293437a1fef6804a8e52899330afc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateLock
+--- !u!114 &5530833572545034597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4634812569752843877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
+  savedPosition: {fileID: 4204665638073362511}
+  rectTransform: {fileID: 0}
+--- !u!1 &4673437807300829104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878160129658138227}
+  m_Layer: 5
+  m_Name: Bullet5Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &878160129658138227
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673437807300829104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6041692129820870084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: -46}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4729732564618120653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152077997678441857}
+  m_Layer: 5
+  m_Name: Bullet6Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1152077997678441857
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729732564618120653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6041692129820870084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: 46}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7092878077383616917
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +599,7 @@ GameObject:
   - component: {fileID: 2313132766541821929}
   - component: {fileID: 1327034243008040825}
   - component: {fileID: 8311675260883613631}
+  - component: {fileID: 2065210265997213460}
   m_Layer: 5
   m_Name: Bullet5
   m_TagString: Untagged
@@ -418,7 +654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6019085519013685561, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  m_Sprite: {fileID: 1382658525, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -440,6 +676,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0293437a1fef6804a8e52899330afc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateLock
+--- !u!114 &2065210265997213460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092878077383616917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
+  savedPosition: {fileID: 878160129658138227}
+  rectTransform: {fileID: 0}
+--- !u!1 &7128308750056429965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2848001728030900963}
+  m_Layer: 5
+  m_Name: Bullet1Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2848001728030900963
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128308750056429965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6041692129820870084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 90}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8092488729819073779
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,11 +757,17 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4268197255657451860}
+  - {fileID: 2848001728030900963}
   - {fileID: 940954004186144279}
+  - {fileID: 6878055773267763079}
   - {fileID: 1138398825660687965}
+  - {fileID: 3121587098254063657}
   - {fileID: 4924652825387136338}
+  - {fileID: 4204665638073362511}
   - {fileID: 1525725607400997626}
+  - {fileID: 878160129658138227}
   - {fileID: 7720262822585501176}
+  - {fileID: 1152077997678441857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -543,6 +834,13 @@ MonoBehaviour:
   - {fileID: 8426122887791581621}
   - {fileID: 1327034243008040825}
   - {fileID: 5746847187140270548}
+  chamberObjects:
+  - {fileID: 3753283281250646318}
+  - {fileID: 6562845315525290527}
+  - {fileID: 7662269794088703409}
+  - {fileID: 5530833572545034597}
+  - {fileID: 2065210265997213460}
+  - {fileID: 7644566833203984762}
 --- !u!1 &9019177162222071297
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +853,7 @@ GameObject:
   - component: {fileID: 8779589045295471461}
   - component: {fileID: 189811982301105721}
   - component: {fileID: 6126144577530726592}
+  - component: {fileID: 7662269794088703409}
   m_Layer: 5
   m_Name: Bullet3
   m_TagString: Untagged
@@ -609,7 +908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6019085519013685561, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  m_Sprite: {fileID: -647554914, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -631,3 +930,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0293437a1fef6804a8e52899330afc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateLock
+--- !u!114 &7662269794088703409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019177162222071297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21497742a0cf6e4397ddd05e537b8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChamberObject
+  savedPosition: {fileID: 3121587098254063657}
+  rectTransform: {fileID: 0}
