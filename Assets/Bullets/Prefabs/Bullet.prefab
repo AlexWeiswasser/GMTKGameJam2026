@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8158609967821888407}
   - component: {fileID: 4621495147039580324}
   - component: {fileID: -6222244898889266631}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000002, y: 2.0000005}
+  m_Size: {x: 1.0000002, y: 1.3}
   m_Direction: 0
 --- !u!50 &4621495147039580324
 Rigidbody2D:
@@ -171,4 +171,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletScript
   rb: {fileID: 4621495147039580324}
-  speed: 30
+  speed: 35

@@ -9,11 +9,6 @@ public class BulletScript : MonoBehaviour
 	[Header("Stats")]
 	[SerializeField] float speed; 
 
-	public void Init(float speedChange)
-	{
-		speed += speedChange;
-	}
-
 	private void Start()
 	{
 		// Rotation
@@ -30,4 +25,22 @@ public class BulletScript : MonoBehaviour
 		// Lifetime
 		Destroy(gameObject, 5);
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Effect"))
+			OnEffectEnter(collision);
+		else if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
+			OnCharacterEnter(collision);
+		else
+		{
+			OnBulletDeath();
+			Destroy(gameObject);
+		}
+	}
+
+
+	protected virtual void OnEffectEnter(Collider2D collision) { }
+	protected virtual void OnCharacterEnter(Collider2D collision) { }
+	protected virtual void OnBulletDeath() { }
 }

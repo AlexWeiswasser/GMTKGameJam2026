@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6949618932742505690}
   - component: {fileID: 866503624914825103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418520680573317709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4681775538939350429}
   - component: {fileID: 2862016653264048610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GunSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 7743094426229523484}
   - component: {fileID: 2672484136828803075}
   - component: {fileID: 6552402806627053603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cowboy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2923612213806403035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8741587087486552077}
   - component: {fileID: 2322490225025833766}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BodySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

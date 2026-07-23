@@ -2834,6 +2834,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup
@@ -4077,6 +4081,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (2)
@@ -4391,6 +4399,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (3)
@@ -4770,13 +4782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55142c89e295fe41be88a6fa61c69ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  areaSize: {x: 8, y: 8}
-  areaSpawnerParent: {fileID: 382363319}
-  areas:
-  - {fileID: 6790114145554617939, guid: 4688ad1023c44524bbcd80888c7a3153, type: 3}
-  - {fileID: 6790114145554617939, guid: c293eb75a41e1824b8243c398842e7f3, type: 3}
-  - {fileID: 6790114145554617939, guid: 85be5920b9b9a2044b9ec2ee7946a463, type: 3}
-  - {fileID: 6790114145554617939, guid: 7d04e63f89bcfd140a46586054600aa7, type: 3}
+  areaTypes: []
 --- !u!1 &1413386091
 GameObject:
   m_ObjectHideFlags: 0
@@ -5223,6 +5229,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (4)
@@ -5280,6 +5290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (1)
@@ -5337,6 +5351,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (5)
