@@ -8,7 +8,7 @@ public static class BulletStorageScript
 	public static int MaximumBulletCount => 6;
 	public static int bulletCount => bulletList.Count;
 	public static int lastBulletIndex => bulletCount - 1;
-	static int currentBulletIndex = 0;
+	public static int currentBulletIndex = 0;
 
 	public class Bullet
 	{
