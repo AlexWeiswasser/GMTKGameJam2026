@@ -3,10 +3,11 @@ using UnityEngine;
 public class OilBullet : BulletScript
 {
 	// Timer
-    Timer oilTimer = new Timer(.1f);
+    Timer oilTimer = new Timer(.05f, startFinished: false);
 
 	// Prefabs
 	[SerializeField] GameObject oilSpill;
+	[SerializeField] GameObject bigOilSpill;
 
 	private void Update()
 	{
@@ -20,7 +21,6 @@ public class OilBullet : BulletScript
 
 	protected override void OnBulletDeath()
 	{
-		Transform oil = Instantiate(oilSpill, transform.position, Quaternion.identity).transform;
-		oil.localScale *= 3;
+		Transform oil = Instantiate(bigOilSpill, transform.position, Quaternion.identity).transform;
 	}
 }
