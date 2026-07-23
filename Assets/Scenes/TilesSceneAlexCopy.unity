@@ -2837,7 +2837,7 @@ PrefabInstance:
     - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
+      objectReference: {fileID: 6983272080299161828, guid: 193d44389b1829b42aed45f0494d10ad, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup
@@ -4084,7 +4084,7 @@ PrefabInstance:
     - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
+      objectReference: {fileID: 6983272080299161828, guid: 193d44389b1829b42aed45f0494d10ad, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (2)
@@ -5293,7 +5293,7 @@ PrefabInstance:
     - target: {fileID: -6532287105287099959, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
+      objectReference: {fileID: 6983272080299161828, guid: 193d44389b1829b42aed45f0494d10ad, type: 3}
     - target: {fileID: 355893521167699008, guid: 6b82a5e4b371bf345ae3ca49db5336ec, type: 3}
       propertyPath: m_Name
       value: BulletPickup (1)

@@ -3,11 +3,33 @@ using UnityEngine.InputSystem;
 
 public class BulletScript : MonoBehaviour
 {
+	public enum Rarity
+	{
+		Common,
+		Uncommon,
+		Rare,
+	}
+
+	public enum BulletType
+	{
+		Oil,
+		Fire,
+	}
+
 	[Header("References")]
-	[SerializeField] Rigidbody2D rb;
+	[HideInInspector] public GameObject creator;
+	Rigidbody2D rb;
 
 	[Header("Stats")]
-	[SerializeField] float speed; 
+	[SerializeField] float speed = 35f;
+	public BulletType type;
+	public Rarity rarity;
+
+	public void Init(GameObject crea)
+	{
+		creator = crea;
+		rb = GetComponent<Rigidbody2D>();
+	}
 
 	private void Start()
 	{
@@ -31,7 +53,10 @@ public class BulletScript : MonoBehaviour
 		if (collision.gameObject.layer == LayerMask.NameToLayer("Effect"))
 			OnEffectEnter(collision);
 		else if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
+		{
+			// Damage player function goes here
 			OnCharacterEnter(collision);
+		}
 		else
 		{
 			OnBulletDeath();
