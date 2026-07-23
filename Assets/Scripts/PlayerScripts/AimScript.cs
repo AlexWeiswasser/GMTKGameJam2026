@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,21 @@ public class AimScript : MonoBehaviour
 
 	public static event Action<bool> OnGunFlip;
 
-	private void Update()
+	private readonly float MAX_RADIUS = 0.65f;
+	private readonly float MIN_RADIUS = 0.2f;
+	private float radius = 0.65f;
+
+	private void OnEnable()
+	{
+		EventBus<OnBulletFire>.Subscribe(Recoil);
+	}
+
+    private void OnDisable()
+    {
+        EventBus<OnBulletFire>.Unsubscribe(Recoil);
+    }
+
+    private void Update()
 	{
 		Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
 		Vector2 cursorWorldPos = (Vector2)Camera.main.ScreenToWorldPoint(mouseScreenPos);
@@ -23,8 +38,15 @@ public class AimScript : MonoBehaviour
 		gunSprite.flipY = flip;
 		OnGunFlip?.Invoke(flip);
 
-		float radius = Vector2.Distance(transform.position, gunTransform.position);
 		Vector2 offset = direction * radius;
 		gunTransform.position = (Vector2)transform.position + offset;
+	}
+
+	private void Recoil(OnBulletFire onBulletFire)
+	{
+		DOVirtual.Float(MIN_RADIUS, MAX_RADIUS, 0.2f, (float value) =>
+		{
+			radius = value;
+		});
 	}
 }

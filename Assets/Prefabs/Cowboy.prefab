@@ -458,8 +458,8 @@ MonoBehaviour:
   damping: 10
   hopDuration: 0.2
   hopStrength: 0.4
-  hopMagnitudeThreshold: 1
   hopEasing: 4
+  landParticles: {fileID: 8360385360012159343, guid: 8f577016192f3a6419885a4acfa71d6e, type: 3}
 --- !u!114 &7743094426229523484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,12 +615,12 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 02dfe55cd12583a46a23b59abc4b8892, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 210455e2d47f50e48b8d90193b0d9866, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.75}
+  m_Size: {x: 1.75, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
