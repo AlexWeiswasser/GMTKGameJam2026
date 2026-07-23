@@ -171,7 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireBullet
   creator: {fileID: 0}
-  rb: {fileID: 4621495147039580324}
   speed: 35
+  type: 0
   rarity: 0
-  fire: {fileID: 1787986210466843351, guid: 601d1170c2e0f91439b9129a54dfdd32, type: 3}
+  damage: 10
+  fire: {fileID: 1787986210466843351, guid: 64e3257f0633e9a43a2dba164122ce5a, type: 3}
