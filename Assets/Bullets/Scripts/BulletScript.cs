@@ -24,6 +24,7 @@ public class BulletScript : MonoBehaviour
 	[SerializeField] float speed = 35f;
 	public BulletType type;
 	public Rarity rarity;
+	public int damage = 10; 
 
 	public void Init(GameObject crea)
 	{
