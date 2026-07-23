@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8973342537510133485}
   - component: {fileID: 2695146288055683533}
   - component: {fileID: 4375508017589705424}
-  - component: {fileID: -7138817897492823134}
+  - component: {fileID: 6132702417258897560}
   m_Layer: 6
-  m_Name: OIl
+  m_Name: BigOilSpill
   m_TagString: Oil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.33962262, g: 0.24457097, b: 0.2757064, a: 1}
+  m_Sprite: {fileID: 990130353147686536, guid: 40db317dc153b3a4f813a41f8d866cfb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,8 +128,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &-7138817897492823134
+  m_Radius: 1.8
+--- !u!114 &6132702417258897560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,9 +138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1787986210466843351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b50cd383542819a42aa77b613469edb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 989dc50750ce0744cbbf39794be41098, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OilPatchScript
-  fireLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteSwapper
+  sprites:
+  - {fileID: 990130353147686536, guid: 40db317dc153b3a4f813a41f8d866cfb, type: 3}
+  - {fileID: 2085604976, guid: 40db317dc153b3a4f813a41f8d866cfb, type: 3}
+  - {fileID: -321057788, guid: 40db317dc153b3a4f813a41f8d866cfb, type: 3}
