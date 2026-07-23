@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class OilPatchScript : MonoBehaviour
@@ -7,15 +8,18 @@ public class OilPatchScript : MonoBehaviour
 	[SerializeField] SpriteRenderer oilFire;
 
 	bool onFire = false;
+	Coroutine fadeAway;
 
     public void Awake()
     {
         int oilType = UnityEngine.Random.Range(0, 3);
 		animator.Play("Oil" + oilType.ToString());
+		fadeAway = StartCoroutine(FadeAway());
     }
 
     public void SetOnFire()
 	{
+		if (fadeAway != null) StopCoroutine(fadeAway);
 		oilFire.enabled = true;
 		animator.SetTrigger("Burn");
 		Destroy(gameObject, 5f);
@@ -35,5 +39,11 @@ public class OilPatchScript : MonoBehaviour
 				character.SetOnOilFire();
 			}
 		}
+	}
+
+	private IEnumerator FadeAway()
+	{
+		yield return new WaitForSeconds(5f);
+		Destroy(gameObject);
 	}
 }
