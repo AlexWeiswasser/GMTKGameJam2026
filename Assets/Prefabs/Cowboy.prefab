@@ -449,9 +449,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementScript
   rb: {fileID: 7915714257046738282}
+  spriteObject: {fileID: 8741587087486552077}
   maxSpeed: 8
   acceleration: 80
   damping: 10
+  hopDuration: 0.2
+  hopStrength: 0.4
+  hopMagnitudeThreshold: 1
+  hopEasing: 4
 --- !u!114 &7743094426229523484
 MonoBehaviour:
   m_ObjectHideFlags: 0

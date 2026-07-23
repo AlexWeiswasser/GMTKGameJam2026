@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,14 +7,23 @@ public class MovementScript : MonoBehaviour
 	[Header("References")]
 	public static Vector2 playerPos;
 	[SerializeField] Rigidbody2D rb;
+	[SerializeField] Transform spriteObject;
 
 	[Header("Stats")]
 	[SerializeField] float maxSpeed;
 	[SerializeField] float acceleration;
 	[SerializeField] float damping;
 
+	[Header("Hop Animation")]
+	[SerializeField] float hopDuration;
+	[SerializeField] float hopStrength;
+	[SerializeField] float hopMagnitudeThreshold;
+	[SerializeField] Ease hopEasing;
+
 	// Tracking 
 	bool[] heldDown = new bool[4];
+
+	bool animating = false;
 
 	public void MoveLeft(InputAction.CallbackContext context) { if (context.performed) heldDown[0] = true; else heldDown[0] = false; }
 	public void MoveRight(InputAction.CallbackContext context) { if(context.performed) heldDown[1] = true; else heldDown[1] = false; }
@@ -40,5 +50,13 @@ public class MovementScript : MonoBehaviour
 
 		rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -maxSpeed, maxSpeed);
 		rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -maxSpeed, maxSpeed);
+
+		if (!animating && rb.linearVelocity.magnitude > hopMagnitudeThreshold)
+		{
+			animating = true;
+			spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
+				.SetEase(hopEasing)
+				.OnComplete(() => { animating = false;});
+		}
 	}
 }
