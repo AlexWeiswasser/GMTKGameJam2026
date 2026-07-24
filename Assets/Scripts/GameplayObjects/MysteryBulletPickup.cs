@@ -22,42 +22,31 @@ public class MysteryBulletPickup : MonoBehaviour
     private BulletData[] GenerateChoices()
     {
         BulletData[] choices = new BulletData[3];
-        List<BulletData> scouting = new();
         for (int i = 0; i < 3; i++)
         {
-            while (scouting.Count <= 0)
+            List<BulletData> scouting;
+            do
             {
                 Rarity rarity = ChooseRarity();
-                scouting = bulletLibrary.GetBulletsOfRarity(rarity);
+                scouting = new List<BulletData>(bulletLibrary.GetBulletsOfRarity(rarity));
 
-                // Prevent Duplicate Choices
-                for (int a = 0; a < 2; a++)
+                for (int a = 0; a < i; a++)
                 {
                     if (choices[a] != null)
-                    {
-                        if (scouting.Contains(choices[a]))
-                        {
-                            scouting.Remove(choices[a]);
-                        }
-                    }
+                        scouting.Remove(choices[a]);
                 }
-            }
+            } while (scouting.Count <= 0);
 
-            BulletData choice = scouting[UnityEngine.Random.Range(0, scouting.Count)];
-            choices[i] = choice;
+            choices[i] = scouting[UnityEngine.Random.Range(0, scouting.Count)];
         }
         return choices;
     }
 
     private Rarity ChooseRarity()
     {
-        int number = UnityEngine.Random.Range(0, TotalWeight + 1);
-        int i = commonWeight;
-        if (number <= commonWeight) return Rarity.Common;
-        i += uncommonWeight;
-        if (number <= uncommonWeight) return Rarity.Uncommon;
-        i += rareWeight;
-        if (number <= rareWeight) return Rarity.Rare;
+        int number = UnityEngine.Random.Range(0, TotalWeight);
+        if (number < commonWeight) return Rarity.Common;
+        if (number < commonWeight + uncommonWeight) return Rarity.Uncommon;
         return Rarity.Rare;
     }
 }
