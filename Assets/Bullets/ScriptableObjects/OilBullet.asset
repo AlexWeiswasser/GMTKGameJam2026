@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
   bulletPrefab: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
   chamberSprite: {fileID: -1043431657, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  bulletName: Oil Bullet
+  bulletDescription: While flying, this bullet leaves oil path behind it.

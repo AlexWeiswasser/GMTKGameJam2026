@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
   bulletPrefab: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
   chamberSprite: {fileID: -6019085519013685561, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  bulletName: Bullet
+  bulletDescription: Standard Bullet

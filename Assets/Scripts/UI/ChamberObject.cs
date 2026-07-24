@@ -9,7 +9,7 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] public RectTransform savedPosition;
     [HideInInspector] public RectTransform rectTransform;
     
-    public event Action<ChamberObject, RectTransform> OnDragEnd;
+    public event Action<ChamberObject> OnDragEnd;
 
     Canvas canvas;
     Transform parent;
@@ -30,7 +30,7 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (locked) return;
-        if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+        //if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
 
         if (returnTween != null)
         {
@@ -45,7 +45,7 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnDrag(PointerEventData eventData)
     {
         if (locked) return;
-        if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+        //if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
 
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
@@ -53,9 +53,9 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnEndDrag(PointerEventData eventData)
     {
         if (locked) return;
-        if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+        //if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
 
-        OnDragEnd?.Invoke(this, rectTransform);
+        OnDragEnd?.Invoke(this);
     }
 
     public void SetIndex(int index) { bulletIndex = index;}

@@ -11,6 +11,7 @@ public class BulletTrackerScript : MonoBehaviour
 		EventBus<OnReload>.Subscribe(SetVisuals);
 		EventBus<OnBulletFire>.Subscribe(SetVisuals);
 		EventBus<OnBulletsSwapped>.Subscribe(SwapBullets);
+		EventBus<OnBulletsExchanged>.Subscribe(ExchangeBullet);
 
 		foreach (ChamberObject cO in chamberObjects)
 		{
@@ -23,6 +24,7 @@ public class BulletTrackerScript : MonoBehaviour
 		EventBus<OnReload>.Unsubscribe(SetVisuals);
 		EventBus<OnBulletFire>.Unsubscribe(SetVisuals);
 		EventBus<OnBulletsSwapped>.Unsubscribe(SwapBullets);
+		EventBus<OnBulletsExchanged>.Unsubscribe(ExchangeBullet);
 
 		foreach (ChamberObject cO in chamberObjects)
 		{
@@ -55,7 +57,7 @@ public class BulletTrackerScript : MonoBehaviour
     [Header("References")]
 	[SerializeField] RectTransform cylinder;
 	[SerializeField] Sprite emptySprite;
-	[SerializeField] List<ChamberObject> chamberObjects;
+	public List<ChamberObject> chamberObjects;
 
 	private Canvas canvas;
 	private Tween jumpTween;
@@ -64,6 +66,11 @@ public class BulletTrackerScript : MonoBehaviour
 	public void SwitchToEditMode()
 	{
 		SetMode(TrackerMode.EditingMode);
+	}
+
+	public void SwitchToShootingMode()
+	{
+		SetMode(TrackerMode.ShootingMode);
 	}
 
 	public void SetMode(TrackerMode mode)
@@ -91,12 +98,12 @@ public class BulletTrackerScript : MonoBehaviour
 			case TrackerMode.EditingMode:
 				BulletStorageScript.Reload();
 				cylinder.pivot = new Vector2(0.5f, 0.5f);
-				cylinder.anchorMin = new Vector2(0.5f, 1f);
-				cylinder.anchorMax = new Vector2(0.5f, 1f);
+				cylinder.anchorMin = new Vector2(0.5f, 0f);
+				cylinder.anchorMax = new Vector2(0.5f, 0f);
 
 				cylinder.position = worldPos;
 
-				cylinder.DOAnchorPos(new Vector2(0, -200), 0.2f)
+				cylinder.DOAnchorPos(new Vector2(0, 256), 0.2f)
 					.SetEase(easing);
 
 				LockAll(false);
@@ -153,14 +160,14 @@ public class BulletTrackerScript : MonoBehaviour
 			.SetEase(easing);
 	}
 
-	private void CheckToSwap(ChamberObject chamberObject, RectTransform rect)
+	private void CheckToSwap(ChamberObject chamberObject)
 	{
 		bool swapped = false;
 		foreach (ChamberObject cO in chamberObjects)
 		{
 			if (chamberObject == cO) continue;
 
-			if (OverlapsSlot(rect, cO.rectTransform))
+			if (OverlapsSlot(chamberObject.rectTransform, cO.rectTransform))
 			{
 				Debug.Log($"Swapping {chamberObject.name} ({chamberObject.GetIndex()}) and {cO.name} ({cO.GetIndex()})");
 				
@@ -201,6 +208,11 @@ public class BulletTrackerScript : MonoBehaviour
 
 			(chamberObjects[onBulletsSwapped.firstBullet], chamberObjects[onBulletsSwapped.secondBullet]) = (chamberObjects[onBulletsSwapped.secondBullet], chamberObjects[onBulletsSwapped.firstBullet]);
 		}
+	}
+
+	private void ExchangeBullet(OnBulletsExchanged onBulletsExchanged)
+	{
+		chamberObjects[onBulletsExchanged.firstBullet].SetImage(onBulletsExchanged.incomingBulletData.chamberSprite);
 	}
 
 	private void LockAll(bool locked)
