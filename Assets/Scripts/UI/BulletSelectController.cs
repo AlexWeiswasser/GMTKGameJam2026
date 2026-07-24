@@ -10,7 +10,7 @@ public class BulletSelectController : MonoBehaviour
     [SerializeField] RectTransform titleText;
     [SerializeField] RectTransform tipText;
     [SerializeField] Image fade;
-    [SerializeField] BulletData[] TEMPORARYSTARTUP;
+    // [SerializeField] BulletData[] TEMPORARYSTARTUP;
 
     bool editing = false;
     bool selectionsVisible = false;
@@ -18,26 +18,33 @@ public class BulletSelectController : MonoBehaviour
     void OnEnable()
     {
         EventBus<OnBulletsExchangedComplete>.Subscribe(HideSelections);
+        EventBus<OnMysteryBulletPickup>.Subscribe(MysteryBulletPickup);
     }
 
     void OnDisable()
     {
         EventBus<OnBulletsExchangedComplete>.Unsubscribe(HideSelections);
+        EventBus<OnMysteryBulletPickup>.Unsubscribe(MysteryBulletPickup);
     }
 
-    void Start()
+    // void Start()
+    // {
+    //     ShowSelections(TEMPORARYSTARTUP);
+    // }
+
+    public void MysteryBulletPickup(OnMysteryBulletPickup onMysteryBulletPickup)
     {
-        ShowSelections(TEMPORARYSTARTUP);
+        ShowSelections(onMysteryBulletPickup.choices);
     }
 
-    public void ShowSelections(BulletData[] bulletDatas)
+    public void ShowSelections(BulletData[] bulletData)
     {
         trackerScript.SetMode(BulletTrackerScript.TrackerMode.EditingMode);
         fade.enabled = true;
         editing = true;
         for (int i = 0; i < 3; i++)
         {
-            bulletSelections[i].Init(bulletDatas[i]);
+            bulletSelections[i].Init(bulletData[i]);
         }
         selectionsVisible = true;
 
@@ -82,5 +89,7 @@ public class BulletSelectController : MonoBehaviour
             .SetEase(Ease.InOutSine);
         fade.DOFade(0f, 0.7f)
             .OnComplete(() => fade.enabled = false);
+
+        EventBus<OnFinishedEditing>.Call(new OnFinishedEditing());
     }
 }

@@ -3,12 +3,6 @@ using UnityEngine.InputSystem;
 
 public class BulletScript : MonoBehaviour
 {
-	public enum Rarity
-	{
-		Common,
-		Uncommon,
-		Rare,
-	}
 
 	public enum BulletType
 	{
@@ -26,7 +20,6 @@ public class BulletScript : MonoBehaviour
 	[Header("Stats")]
 	[SerializeField] float speed = 35f;
 	public BulletType type;
-	public Rarity rarity;
 	public int damage = 10; 
 
 	public void Init(GameObject crea)

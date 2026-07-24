@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33453e45b81e38c4eae314496039f944, type: 3}
   m_Name: OilBullet
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
+  rarity: 2
   bulletPrefab: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
   chamberSprite: {fileID: -1043431657, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   bulletName: Oil Bullet

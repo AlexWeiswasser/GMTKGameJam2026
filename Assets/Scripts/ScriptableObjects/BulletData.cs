@@ -3,6 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BulletData", menuName = "Bullets/BulletData")]
 public class BulletData : ScriptableObject
 {
+    public enum Rarity
+	{
+        Starter,
+		Common,
+		Uncommon,
+		Rare,
+	}
+    public Rarity rarity;
     [Header("Objects")]
     public GameObject bulletPrefab;
     [Header("Sprites")]

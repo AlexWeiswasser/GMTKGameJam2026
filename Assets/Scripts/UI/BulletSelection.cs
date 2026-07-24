@@ -57,7 +57,6 @@ public class BulletSelection : MonoBehaviour
         chamberObject.SetImage(bulletData.chamberSprite);
         chamberObject.SetLocked(false);
         chamberObject.SetIndex(-1);
-        
     }
 
     public void MoveDown()

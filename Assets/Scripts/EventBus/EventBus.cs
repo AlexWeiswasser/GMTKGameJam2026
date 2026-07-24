@@ -19,3 +19,7 @@ public struct OnBulletFire : IEvent { public int bulletNumber; }
 public struct OnBulletsSwapped : IEvent { public int firstBullet; public int secondBullet; }
 public struct OnBulletsExchanged : IEvent { public int firstBullet; public BulletData cylinderBulletData; public BulletData incomingBulletData; public int selection; }
 public struct OnBulletsExchangedComplete : IEvent {}
+
+// Mystery Bullet Pickup
+public struct OnMysteryBulletPickup : IEvent { public BulletData[] choices; }
+public struct OnFinishedEditing : IEvent { }

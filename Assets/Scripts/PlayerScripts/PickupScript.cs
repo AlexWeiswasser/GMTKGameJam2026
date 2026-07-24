@@ -20,13 +20,21 @@ public class PickupScript : MonoBehaviour
 	}
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (bulletCount >= 6) return;
+		// /if (bulletCount >= 6) return;
 
-		if(collision.CompareTag("Pickup"))
+		// if(collision.CompareTag("Pickup"))
+		// {
+		// 	if (collision.TryGetComponent<Pickup>(out var pScript))
+		// 	{
+		// 		BulletStorageScript.AddBullet(new Bullet { bulletData = pScript.GetBullet() });
+		// 		Destroy(collision.gameObject);
+		// 	}
+		// }
+		if(collision.CompareTag("MysteryPickup"))
 		{
-			if (collision.TryGetComponent<Pickup>(out var pScript))
+			if (collision.TryGetComponent<MysteryBulletPickup>(out var mpScript))
 			{
-				BulletStorageScript.AddBullet(new Bullet { bulletData = pScript.GetBullet() });
+				mpScript.Pickup();
 				Destroy(collision.gameObject);
 			}
 		}
