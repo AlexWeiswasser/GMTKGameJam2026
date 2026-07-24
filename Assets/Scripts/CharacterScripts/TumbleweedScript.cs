@@ -11,6 +11,11 @@ public class TumbleweedScript : BehaviorScript
 		targetPos = MovementScript.playerTransform;
 	}
 
+	private void Update()
+	{
+		transform.Rotate(0, 0, 1000 * Time.deltaTime);
+	}
+
 	protected override void FixedUpdate()
 	{
 		base.FixedUpdate();

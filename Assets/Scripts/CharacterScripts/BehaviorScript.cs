@@ -24,8 +24,6 @@ public abstract class BehaviorScript : MonoBehaviour
 
 	protected virtual void FixedUpdate()
 	{
-		Debug.Log("Fixed update");
-
 		// Movement
 		rb.linearDamping = damping;
 		if (!canBehavior) return;
