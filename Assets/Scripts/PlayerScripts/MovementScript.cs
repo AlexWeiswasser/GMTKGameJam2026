@@ -1,12 +1,11 @@
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MovementScript : MonoBehaviour
 {
 	[Header("References")]
-	public static Vector2 playerPos;
+	public static Transform playerTransform;
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] Transform spriteObject;
 	[SerializeField] SpriteRenderer[] playerSpriteRenderers;
@@ -57,9 +56,9 @@ public class MovementScript : MonoBehaviour
 		}
 	}
 
-	private void Update()
+	private void Awake()
 	{
-		playerPos = transform.position;
+		playerTransform = transform;
 	}
 
 	private void FixedUpdate()
@@ -81,6 +80,8 @@ public class MovementScript : MonoBehaviour
 			movementVelocity,
 			input * currentMaxSpeed,
 			acceleration * Time.fixedDeltaTime);
+
+		externalVelocity *= 0.9f;
 		rb.linearVelocity = movementVelocity + externalVelocity;
 
 		if (!animating && input != Vector2.zero)

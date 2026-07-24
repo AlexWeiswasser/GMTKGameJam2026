@@ -1,18 +1,9 @@
 using UnityEngine;
 
-public class EnemyScript : ICharInterface
+public class EnemyScript : MonoBehaviour, ICharInterface
 {
-	public enum EnemyType
-	{
-		Rusher,
-		Shooter,
-		Guardian
-	}
-
 	// Stats
-
 	[SerializeField] int health = 50;
-	[SerializeField] EnemyType type;
 	int hitStreak = 0;
 
 	// facts
@@ -54,7 +45,6 @@ public class EnemyScript : ICharInterface
 	public void SetStunned()
 	{
 		behaviorScript.canBehavior = false;
-
 		stunTimer = new Timer(.5f);
 	}
 
@@ -72,6 +62,10 @@ public class EnemyScript : ICharInterface
 
 	private void Update()
 	{
+		// Health
+		if (health <= 0) { Destroy(gameObject); }
+
+		// Timers
 		if (fireTimer != null)
 		{
 			fireTimer.Tick(Time.deltaTime);

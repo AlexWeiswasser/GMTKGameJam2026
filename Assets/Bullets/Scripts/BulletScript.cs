@@ -40,7 +40,7 @@ public class BulletScript : MonoBehaviour
 		// Rotation
 		Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
 		Vector2 cursorWorldPos = (Vector2)Camera.main.ScreenToWorldPoint(mouseScreenPos);
-		Vector2 direction = (cursorWorldPos - MovementScript.playerPos).normalized;
+		Vector2 direction = (cursorWorldPos - (Vector2)MovementScript.playerTransform.position).normalized;
 
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
@@ -58,7 +58,8 @@ public class BulletScript : MonoBehaviour
 			OnEffectEnter(collision);
 		else if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
 		{
-			// Damage player function goes here
+			if (collision.TryGetComponent<ICharInterface>(out var face))
+				face.Damage(damage);
 			OnCharacterEnter(collision);
 		}
 		else
@@ -70,6 +71,6 @@ public class BulletScript : MonoBehaviour
 
 
 	protected virtual void OnEffectEnter(Collider2D collision) { }
-	protected virtual void OnCharacterEnter(Collider2D collision) { }
+	protected virtual void OnCharacterEnter(Collider2D collision) { Destroy(gameObject); }
 	protected virtual void OnBulletDeath() { }
 }
