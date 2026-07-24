@@ -40,6 +40,8 @@ public class BulletTrackerScript : MonoBehaviour
 		}
 
         SetVisuals();
+
+		if (BulletStorageScript.bulletCount > 0) RotateToBullet(BulletStorageScript.bulletCount - 1);
     }
 
 	[System.Serializable]

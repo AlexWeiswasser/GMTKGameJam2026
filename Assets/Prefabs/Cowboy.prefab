@@ -461,6 +461,8 @@ MonoBehaviour:
   hopStrength: 0.4
   hopEasing: 4
   landParticles: {fileID: 1478261792099440017}
+  canMove: 1
+  isWet: 0
 --- !u!114 &7743094426229523484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootScript
   bulletSpawnPos: {fileID: 418520680573317709}
   bullet: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
+  canShoot: 1
 --- !u!114 &2672484136828803075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +504,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5c25ab6a75fa340b225a70bf3c40c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupScript
+  startingAmmo:
+  - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
+  - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
+  - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
+  - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
+  - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
+  - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
 --- !u!1 &5128560024803116672
 GameObject:
   m_ObjectHideFlags: 0
