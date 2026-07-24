@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +10,7 @@ public class BulletTrackerScript : MonoBehaviour
 	{
 		EventBus<OnReload>.Subscribe(SetVisuals);
 		EventBus<OnBulletFire>.Subscribe(SetVisuals);
+		EventBus<OnBulletsSwapped>.Subscribe(SwapBullets);
 
 		foreach (ChamberObject cO in chamberObjects)
 		{
@@ -19,6 +22,7 @@ public class BulletTrackerScript : MonoBehaviour
 	{
 		EventBus<OnReload>.Unsubscribe(SetVisuals);
 		EventBus<OnBulletFire>.Unsubscribe(SetVisuals);
+		EventBus<OnBulletsSwapped>.Unsubscribe(SwapBullets);
 
 		foreach (ChamberObject cO in chamberObjects)
 		{
@@ -29,6 +33,12 @@ public class BulletTrackerScript : MonoBehaviour
     private void Start()
     {
 		canvas = GetComponentInParent<Canvas>();
+
+		for (int i = 0; i < chamberObjects.Count; i++)
+		{
+			chamberObjects[i].SetIndex(i);
+		}
+
         SetVisuals();
     }
 
@@ -42,8 +52,8 @@ public class BulletTrackerScript : MonoBehaviour
 	[SerializeField] Ease easing;
     [Header("References")]
 	[SerializeField] RectTransform cylinder;
-    [SerializeField] Image[] bulletRenderers;
-	[SerializeField] ChamberObject[] chamberObjects;
+	[SerializeField] Sprite emptySprite;
+	[SerializeField] List<ChamberObject> chamberObjects;
 
 	private Canvas canvas;
 	private Tween jumpTween;
@@ -93,7 +103,17 @@ public class BulletTrackerScript : MonoBehaviour
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
 		{
 			Color color = i < BulletStorageScript.bulletCount ? Color.white : Color.gray5;
-			bulletRenderers[i].color = color;
+			chamberObjects[i].SetColor(color);
+			
+			BulletData data = BulletStorageScript.GetBulletData(i);
+			if (data == null)
+			{
+				chamberObjects[i].SetImage(emptySprite);
+			}
+			else
+			{
+				chamberObjects[i].SetImage(data.chamberSprite);
+			}
 		}
 	}
 
@@ -110,17 +130,13 @@ public class BulletTrackerScript : MonoBehaviour
 	private void SetVisuals(OnBulletFire fireData)
 	{
 		int bulletFired = fireData.bulletNumber;
-		//bulletRenderers[0].enabled = false;
-		//Debug.Log(bulletFired);
+
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
 		{
 			Color color = i < bulletFired ? Color.white : Color.gray5;
-			bulletRenderers[i].color = color;
+			chamberObjects[i].SetColor(color);
 		}
-		// for(int i = BulletStorageScript.lastBulletIndex; i >= 0; i--)
-		// {
-		// 	bulletRenderers[i].enabled = i < bulletFired;
-		// }
+
 		if (bulletFired > 0) RotateToBullet(bulletFired - 1);
 	}
 
@@ -137,15 +153,21 @@ public class BulletTrackerScript : MonoBehaviour
 		{
 			if (chamberObject == cO) continue;
 
-			Debug.Log($"Checking {chamberObject.name} and {cO.name}");
-
 			if (OverlapsSlot(rect, cO.rectTransform))
 			{
-				Debug.Log($"Checking {chamberObject.name} and {cO.name}");
+				Debug.Log($"Swapping {chamberObject.name} ({chamberObject.GetIndex()}) and {cO.name} ({cO.GetIndex()})");
+				
 				RectTransform saved = chamberObject.savedPosition;
+				int firstId = chamberObject.GetIndex();
+				int secondId = cO.GetIndex();
 
-				chamberObject.SetPosition(cO.savedPosition);
-				cO.SetPosition(saved);
+				if (BulletStorageScript.lastBulletIndex < secondId)
+				{
+					Debug.Log("The second bullet is out of range!");
+					break;
+				}
+
+				BulletStorageScript.SwapBullets(firstId, secondId);
 				swapped = true;
 				break;
 			}
@@ -153,6 +175,23 @@ public class BulletTrackerScript : MonoBehaviour
 		
 		// Swap Failed
 		if (!swapped) chamberObject.SetPosition(chamberObject.savedPosition);
+	}
+
+	private void SwapBullets(OnBulletsSwapped onBulletsSwapped)
+	{
+		ChamberObject bulletOne = chamberObjects.FirstOrDefault(e => e.GetIndex() == onBulletsSwapped.firstBullet);
+		ChamberObject bulletTwo = chamberObjects.FirstOrDefault(e => e.GetIndex() == onBulletsSwapped.secondBullet);
+
+		if (bulletOne != null && bulletTwo != null)
+		{
+			RectTransform saved = bulletOne.savedPosition;
+			
+			bulletOne.SetPosition(bulletTwo.savedPosition);
+			bulletOne.SetIndex(onBulletsSwapped.secondBullet);
+
+			bulletTwo.SetPosition(saved);
+			bulletTwo.SetIndex(onBulletsSwapped.firstBullet);
+		}
 	}
 	
     bool OverlapsSlot(RectTransform objectRect, RectTransform slotRect)

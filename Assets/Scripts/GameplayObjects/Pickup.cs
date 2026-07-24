@@ -3,6 +3,6 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] GameObject bullet;
-    public GameObject GetBullet() => bullet;
+    [SerializeField] BulletData bullet;
+    public BulletData GetBullet() => bullet;
 }

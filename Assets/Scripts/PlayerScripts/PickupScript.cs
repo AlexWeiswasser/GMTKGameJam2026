@@ -11,7 +11,7 @@ public class PickupScript : MonoBehaviour
 		{
 			if (collision.TryGetComponent<Pickup>(out var pScript))
 			{
-				BulletStorageScript.AddBullet(new Bullet { bulletObject = pScript.GetBullet() });
+				BulletStorageScript.AddBullet(new Bullet { bulletData = pScript.GetBullet() });
 				Destroy(collision.gameObject);
 			}
 		}

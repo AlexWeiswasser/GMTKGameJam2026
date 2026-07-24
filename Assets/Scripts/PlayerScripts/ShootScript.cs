@@ -21,7 +21,7 @@ public class ShootScript : MonoBehaviour
 				Vector2 direction = (bulletSpawnPos.position - transform.position).normalized;
 				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-				BulletScript bulletScript = Instantiate(bullet.bulletObject, bulletSpawnPos.position, Quaternion.identity).GetComponent<BulletScript>();
+				BulletScript bulletScript = Instantiate(bullet.bulletData.bulletPrefab, bulletSpawnPos.position, Quaternion.identity).GetComponent<BulletScript>();
 				bulletScript.Init(gameObject);
 			}
 		}

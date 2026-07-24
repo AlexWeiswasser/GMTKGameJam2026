@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class BulletStorageScript
@@ -13,7 +14,7 @@ public static class BulletStorageScript
 
 	public class Bullet
 	{
-		public GameObject bulletObject;
+		public BulletData bulletData;
 		public int bulletIndex { get; private set; }
 		public void SetIndex(int index) { bulletIndex = index; }
 	}
@@ -47,5 +48,30 @@ public static class BulletStorageScript
 	{
 		currentBulletIndex = lastBulletIndex;
 		EventBus<OnReload>.Call(new OnReload { });
+	}
+
+	public static void SwapBullets(int firstBullet, int secondBullet)
+	{
+		Bullet bulletOne = bulletList.FirstOrDefault(e => e.bulletIndex == firstBullet);
+		Bullet bulletTwo = bulletList.FirstOrDefault(e => e.bulletIndex == secondBullet);
+
+		if (bulletOne != null && bulletTwo != null)
+		{
+			int temp = bulletOne.bulletIndex;
+			bulletOne.SetIndex(bulletTwo.bulletIndex);
+			bulletTwo.SetIndex(temp);
+			
+			// Swap the places in the list
+			(bulletList[firstBullet], bulletList[secondBullet]) = (bulletList[secondBullet], bulletList[firstBullet]);
+			
+			EventBus<OnBulletsSwapped>.Call(new OnBulletsSwapped() {firstBullet = firstBullet, secondBullet = secondBullet});
+		} 
+	}
+
+	public static BulletData GetBulletData(int id)
+	{
+		if (id >= bulletList.Count) return null;
+		
+		return bulletList[id].bulletData;
 	}
 }

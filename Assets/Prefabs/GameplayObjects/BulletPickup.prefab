@@ -155,4 +155,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b20fc4853d6a5c4daad325f2e3533b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
-  bullet: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
+  bullet: {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}

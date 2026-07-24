@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33453e45b81e38c4eae314496039f944, type: 3}
+  m_Name: OilBullet
+  m_EditorClassIdentifier: Assembly-CSharp::BulletData
+  bulletPrefab: {fileID: 6983272080299161828, guid: e0c2db2f6f95dae4b9cbdc77e441bf9f, type: 3}
+  chamberSprite: {fileID: -1043431657, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
