@@ -16,6 +16,7 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     Image image;
 
     private int bulletIndex;
+    private bool locked = true;
 
     void Awake()
     {
@@ -27,6 +28,9 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (locked) return;
+        if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+
         rectTransform.rotation = Quaternion.identity;
         rectTransform.SetParent(canvas.transform);
         rectTransform.position = eventData.position;
@@ -34,11 +38,17 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (locked) return;
+        if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (locked) return;
+        if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+
         OnDragEnd?.Invoke(this, rectTransform);
     }
 
@@ -53,6 +63,11 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         rectTransform.DOAnchorPos(savedPosition.anchoredPosition, 0.2f)
             .SetEase(Ease.OutQuart);
         rectTransform.rotation = savedPosition.rotation;
+    }
+
+    public void SetLocked(bool locked)
+    {
+        this.locked = locked;
     }
 
     public void SetColor(Color color)

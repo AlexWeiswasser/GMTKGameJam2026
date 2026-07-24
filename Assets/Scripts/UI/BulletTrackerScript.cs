@@ -85,6 +85,8 @@ public class BulletTrackerScript : MonoBehaviour
 				cylinder.position = worldPos;
 				cylinder.DOAnchorPos(new Vector2(180, -180), 0.2f)
 					.SetEase(easing);
+
+				LockAll(true);
 				break;
 			case TrackerMode.EditingMode:
 
@@ -96,6 +98,8 @@ public class BulletTrackerScript : MonoBehaviour
 
 				cylinder.DOAnchorPos(new Vector2(0, -200), 0.2f)
 					.SetEase(easing);
+
+				LockAll(false);
 				break;
 		}
 	}
@@ -193,6 +197,16 @@ public class BulletTrackerScript : MonoBehaviour
 
 			bulletTwo.SetPosition(saved);
 			bulletTwo.SetIndex(onBulletsSwapped.firstBullet);
+
+			(chamberObjects[onBulletsSwapped.firstBullet], chamberObjects[onBulletsSwapped.secondBullet]) = (chamberObjects[onBulletsSwapped.secondBullet], chamberObjects[onBulletsSwapped.firstBullet]);
+		}
+	}
+
+	private void LockAll(bool locked)
+	{
+		foreach (ChamberObject chamberObject in chamberObjects)
+		{
+			chamberObject.SetLocked(locked);
 		}
 	}
 	
