@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d63c65235d69b774191cdc9ea82d3274
+guid: 27212c19b7269ee45857c2d837fa4d4e
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,10 +105,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
+        width: 36
         height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,187 +121,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f177e00386a0f941b366463da2017a8
-      internalID: 2099613797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae30d63dc5010e94891498143aac7ebe
-      internalID: -1202429819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73136fc977c0e454f926efafbb100bf1
-      internalID: -351424180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c87319136a88664caa98cb0860ce4f8
-      internalID: -1216265264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 635c27ca867aabe4384ada9446358b6d
-      internalID: -1335194275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b9f465905e8b6447831f98a421e0ac7
-      internalID: -610933434
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d53d087591430d34987878b3d70e1b10
-      internalID: -2095783192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bullet_Flight_HighPrio-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2fbe3abb8dcf3c4a831e34ff9ff0e50
-      internalID: 1637576972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4ac34443baf66744db0823485b54f7a8
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -309,19 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":4.0,"y":6.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Bullet_Flight_HighPrio-Sheet_0: 589278032412210242
-      Bullet_Flight_HighPrio-Sheet_1: 2099613797
-      Bullet_Flight_HighPrio-Sheet_2: -1202429819
-      Bullet_Flight_HighPrio-Sheet_3: -351424180
-      Bullet_Flight_HighPrio-Sheet_4: -1216265264
-      Bullet_Flight_HighPrio-Sheet_5: -1335194275
-      Bullet_Flight_HighPrio-Sheet_6: -610933434
-      Bullet_Flight_HighPrio-Sheet_7: -2095783192
-      Bullet_Flight_HighPrio-Sheet_8: 1637576972
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
