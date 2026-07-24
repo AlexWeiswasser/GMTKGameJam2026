@@ -14,6 +14,7 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     Canvas canvas;
     Transform parent;
     Image image;
+    Tween returnTween;
 
     private int bulletIndex;
     private bool locked = true;
@@ -30,6 +31,11 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (locked) return;
         if (BulletStorageScript.GetBulletData(bulletIndex) == null) return;
+
+        if (returnTween != null)
+        {
+            returnTween.Kill(true);
+        }
 
         rectTransform.rotation = Quaternion.identity;
         rectTransform.SetParent(canvas.transform);
@@ -60,7 +66,7 @@ public class ChamberObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         savedPosition = saved;
         rectTransform.SetParent(parent);
         //rectTransform.anchoredPosition = savedPosition.anchoredPosition;
-        rectTransform.DOAnchorPos(savedPosition.anchoredPosition, 0.2f)
+        returnTween = rectTransform.DOAnchorPos(savedPosition.anchoredPosition, 0.2f)
             .SetEase(Ease.OutQuart);
         rectTransform.rotation = savedPosition.rotation;
     }

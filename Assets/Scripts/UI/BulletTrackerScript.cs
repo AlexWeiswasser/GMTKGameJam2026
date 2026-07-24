@@ -59,7 +59,7 @@ public class BulletTrackerScript : MonoBehaviour
 
 	private Canvas canvas;
 	private Tween jumpTween;
-	private TrackerMode currentMode = TrackerMode.ShootingMode;
+	public static TrackerMode currentMode = TrackerMode.ShootingMode;
 
 	public void SwitchToEditMode()
 	{
@@ -89,7 +89,7 @@ public class BulletTrackerScript : MonoBehaviour
 				LockAll(true);
 				break;
 			case TrackerMode.EditingMode:
-
+				BulletStorageScript.Reload();
 				cylinder.pivot = new Vector2(0.5f, 0.5f);
 				cylinder.anchorMin = new Vector2(0.5f, 1f);
 				cylinder.anchorMax = new Vector2(0.5f, 1f);
@@ -100,6 +100,7 @@ public class BulletTrackerScript : MonoBehaviour
 					.SetEase(easing);
 
 				LockAll(false);
+				
 				break;
 		}
 	}

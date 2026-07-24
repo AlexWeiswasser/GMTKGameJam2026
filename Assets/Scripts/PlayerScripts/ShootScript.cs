@@ -14,6 +14,7 @@ public class ShootScript : MonoBehaviour
 		if(context.performed)
 		{
 			if (!canShoot) return;
+			if (BulletTrackerScript.currentMode == BulletTrackerScript.TrackerMode.EditingMode) return;
 
 			Bullet bullet = FireBullet();
 			if (bullet != null)
