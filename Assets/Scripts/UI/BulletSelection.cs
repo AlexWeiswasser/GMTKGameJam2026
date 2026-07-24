@@ -110,9 +110,12 @@ public class BulletSelection : MonoBehaviour
     private void ExchangeSuccess(OnBulletsExchanged onBulletsExchanged)
     {
         if (onBulletsExchanged.selection != selection) return;
-        
+
         bulletData = onBulletsExchanged.cylinderBulletData;
         UpdateText();
         UpdateChamberObject();
+        chamberObject.SetLocked(true);
+
+        EventBus<OnBulletsExchangedComplete>.Call(new OnBulletsExchangedComplete());
     }
 }
