@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
   bulletPrefab: {fileID: 6983272080299161828, guid: 193d44389b1829b42aed45f0494d10ad, type: 3}
   chamberSprite: {fileID: -647554914, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
+  bulletName: Fire Bullet
+  bulletDescription: On hit, creates a small fire at collision point for 2 sec. If
+    this bullet hits an enity, that enity gains the burned condition.

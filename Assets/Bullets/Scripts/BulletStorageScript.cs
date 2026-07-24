@@ -68,6 +68,18 @@ public static class BulletStorageScript
 		} 
 	}
 
+	public static void ExchangeBullet(int firstBullet, BulletData bulletData, int selection)
+	{
+		Bullet bulletOne = bulletList.FirstOrDefault(e => e.bulletIndex == firstBullet);
+		if (bulletOne != null)
+		{
+			BulletData temp = bulletOne.bulletData;
+			bulletOne.bulletData = bulletData;
+
+			EventBus<OnBulletsExchanged>.Call(new OnBulletsExchanged() { firstBullet = firstBullet, cylinderBulletData = temp, incomingBulletData = bulletData, selection = selection});
+		}
+	}
+
 	public static BulletData GetBulletData(int id)
 	{
 		if (id >= bulletList.Count) return null;

@@ -17,3 +17,4 @@ public struct OnBulletFire : IEvent { public int bulletNumber; }
 
 // Swap events
 public struct OnBulletsSwapped : IEvent { public int firstBullet; public int secondBullet; }
+public struct OnBulletsExchanged : IEvent { public int firstBullet; public BulletData cylinderBulletData; public BulletData incomingBulletData; public int selection; }
