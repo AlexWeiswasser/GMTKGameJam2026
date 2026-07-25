@@ -201,6 +201,7 @@ MonoBehaviour:
   gunTransform: {fileID: 7169741913905479936}
   gunSprite: {fileID: 4029125549201837180}
   bulletSpawnPos: {fileID: 6811476793891835406}
+  timeBetweenShots: 3
   hopDuration: 0.2
   hopStrength: 0.4
   hopEasing: 4

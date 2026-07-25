@@ -14,6 +14,9 @@ public class ShooterScript : BehaviorScript
 	[SerializeField] SpriteRenderer gunSprite;
 	[SerializeField] Transform bulletSpawnPos;
 
+	[Header("Stats")]
+	[SerializeField] float timeBetweenShots;
+
 	[Header("Tracking")]
 	Timer shootTimer = new Timer(3);
 	Timer walkTimer = new Timer(1, startFinished: true);
@@ -37,6 +40,8 @@ public class ShooterScript : BehaviorScript
 	{
 		canBehavior = true;
 		canMove = false;
+
+		shootTimer = new Timer(timeBetweenShots);
 
 		base.Start();
 		targetPos = MovementScript.playerTransform;
