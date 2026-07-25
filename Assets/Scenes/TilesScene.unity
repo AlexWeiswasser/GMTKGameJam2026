@@ -5898,7 +5898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07357216b405c74489ad3cb53ae01dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
-  smoothTime: 0
+  smoothTime: 0.1
+  maxDistanceFromPlayer: 3
 --- !u!114 &1077583041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5986,7 +5987,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.75
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
