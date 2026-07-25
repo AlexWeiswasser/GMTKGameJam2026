@@ -19,6 +19,7 @@ public class AreaSpawner : MonoBehaviour
         {
             foreach (Transform zone in areaType.areaSpawnerParent.GetComponentInChildren<Transform>())
             {
+                if (areaType.areas.Length <= 0) continue;
                 GameObject area = Instantiate(areaType.areas[UnityEngine.Random.Range(0, areaType.areas.Length)], transform);
                 area.transform.position = new Vector2(zone.position.x - (areaType.areaSize.x / 2), zone.position.y + (areaType.areaSize.y / 2));
             }
