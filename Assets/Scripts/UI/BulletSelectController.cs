@@ -14,6 +14,7 @@ public class BulletSelectController : MonoBehaviour
 
     bool editing = false;
     bool selectionsVisible = false;
+    Tween fadeTween;
 
     void OnEnable()
     {
@@ -40,7 +41,10 @@ public class BulletSelectController : MonoBehaviour
     public void ShowSelections(BulletData[] bulletData)
     {
         trackerScript.SetMode(BulletTrackerScript.TrackerMode.EditingMode);
+
+        if (fadeTween != null) fadeTween.Kill(true);
         fade.enabled = true;
+        
         editing = true;
         for (int i = 0; i < 3; i++)
         {
@@ -54,7 +58,8 @@ public class BulletSelectController : MonoBehaviour
             .SetEase(Ease.InOutSine);
         tipText.DOAnchorPosY(-300, 0.7f)
             .SetEase(Ease.InOutSine);
-        fade.DOFade(0.8f, 0.7f);
+        
+        fadeTween = fade.DOFade(0.8f, 0.7f);
     }
 
     public void HideSelections(OnBulletsExchangedComplete onBulletsExchangedComplete)
@@ -87,7 +92,8 @@ public class BulletSelectController : MonoBehaviour
             .SetEase(Ease.InOutSine);
         tipText.DOAnchorPosY(-900, 0.7f)
             .SetEase(Ease.InOutSine);
-        fade.DOFade(0f, 0.7f)
+        if (fadeTween != null) fadeTween.Kill(true);
+        fadeTween = fade.DOFade(0f, 0.7f)
             .OnComplete(() => fade.enabled = false);
 
         EventBus<OnFinishedEditing>.Call(new OnFinishedEditing());
