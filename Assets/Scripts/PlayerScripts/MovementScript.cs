@@ -93,4 +93,16 @@ public class MovementScript : MonoBehaviour
 				.OnComplete(() => { animating = false; landParticles.Play();});
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if(collision.CompareTag("Trigger"))
+		{
+			if (collision.TryGetComponent<Trigger>(out var tScript))
+			{
+				tScript.TriggerEvent();
+				collision.enabled = false;
+			}
+		}
+	}
 }

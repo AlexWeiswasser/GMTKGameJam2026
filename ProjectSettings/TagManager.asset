@@ -8,6 +8,7 @@ TagManager:
   - Oil
   - Fire
   - MysteryPickup
+  - Trigger
   layers:
   - Default
   - TransparentFX
