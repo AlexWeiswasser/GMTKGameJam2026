@@ -6811,12 +6811,10 @@ MonoBehaviour:
     - {fileID: 186188972049707796, guid: 60ec9329308fdea4db5a4be558cb589e, type: 3}
   - areaSize: {x: 16, y: 8}
     areaSpawnerParent: {fileID: 1631545804}
-    areas:
-    - {fileID: 6790114145554617939, guid: befc401eff81a9840ae978fe9b801de1, type: 3}
+    areas: []
   - areaSize: {x: 16, y: 16}
     areaSpawnerParent: {fileID: 1184219463}
-    areas:
-    - {fileID: 6790114145554617939, guid: 024f732917617284093baeb418e04c20, type: 3}
+    areas: []
   - areaSize: {x: 8, y: 8}
     areaSpawnerParent: {fileID: 1769412705}
     areas:
