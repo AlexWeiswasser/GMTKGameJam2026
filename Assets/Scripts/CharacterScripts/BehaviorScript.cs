@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class BehaviorScript : MonoBehaviour
@@ -18,10 +19,11 @@ public abstract class BehaviorScript : MonoBehaviour
 	Vector2 movementVelocity;
 	Vector2 externalVelocity;
 	protected Transform targetPos;
+	protected Vector2 givenDirection = Vector2.zero;
 
 	// Lunge movement
 	private float lungeTimer;
-	private bool lunging;
+	private bool lunging = false;
 
 	protected virtual void Start()
 	{
@@ -40,8 +42,6 @@ public abstract class BehaviorScript : MonoBehaviour
 		// Lunge movement
 		if (lunging)
 		{
-			Debug.LogWarning("IS LUNGING");
-
 			lungeTimer -= Time.fixedDeltaTime;
 
 			if (lungeTimer <= 0f)
@@ -54,16 +54,27 @@ public abstract class BehaviorScript : MonoBehaviour
 		{
 			// Base movement
 			rb.linearDamping = damping;
-			if (!canBehavior || !canMove) return;
+			if (canBehavior && canMove)
+			{
+				float currentMaxSpeed = maxSpeed;
+				if (isWet) currentMaxSpeed *= .8f;
 
-			float currentMaxSpeed = maxSpeed;
-			if (isWet) currentMaxSpeed *= .8f;
-
-			Vector2 direction = (targetPos.position - transform.position).normalized;
-			movementVelocity = Vector2.MoveTowards(
-				movementVelocity,
-				direction * currentMaxSpeed,
-				acceleration * Time.fixedDeltaTime);
+				if (givenDirection != Vector2.zero)
+				{
+					movementVelocity = Vector2.MoveTowards(
+						movementVelocity,
+						givenDirection * currentMaxSpeed,
+						acceleration * Time.fixedDeltaTime);
+				}
+				else
+				{
+					Vector2 direction = (targetPos.position - transform.position).normalized;
+					movementVelocity = Vector2.MoveTowards(
+						movementVelocity,
+						direction * currentMaxSpeed,
+						acceleration * Time.fixedDeltaTime);
+				}
+			}
 		}
 
 		externalVelocity *= 0.9f;
