@@ -10,7 +10,8 @@ public class BulletScript : MonoBehaviour
 		Oil,
 		Fire,
 		FullMetalJacket,
-		Lightning
+		Lightning,
+		Water
 	}
 
 	[Header("References")]

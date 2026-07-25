@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour, ICharInterface
@@ -15,11 +16,18 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	Timer fireTimer = null;
 	Timer oilTimer = null;
 	Timer stunTimer = null;
+	Timer metalTimer = null;
+	Timer waterTimer = null;
 
 	[Header("References")]
 	[SerializeField] BehaviorScript behaviorScript;
 
-	public void Damage(int amount) => health -= isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+	public void Damage(int amount)
+	{
+		health -= isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+		isMetalMarked = false;
+		metalTimer = null;
+	}
 
 	public void SetOnFire()
 	{
@@ -42,23 +50,52 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	public bool GetOnFire() => fireTimer != null;
 
-	public void SetStunned()
+	public void SetStunned(List<Collider2D> thoseAlreadyHit = null)
 	{
 		behaviorScript.canBehavior = false;
 		stunTimer = new Timer(.5f);
+
+		// Sha-lightning
+		List<ICharInterface> thoseHit = new List<ICharInterface>();
+		List<Collider2D> newThoseAlreadyHit = new List<Collider2D>();
+		if (thoseAlreadyHit != null)
+			newThoseAlreadyHit.AddRange(thoseAlreadyHit);
+
+		LayerMask hurtMask = LayerMask.GetMask("Character");
+		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, 5f, hurtMask);
+		foreach (Collider2D col in nearbyColliders)
+		{
+			if (thoseAlreadyHit != null && thoseAlreadyHit.Contains(col)) continue;
+			if (col.transform.TryGetComponent<ICharInterface>(out var cFace) && cFace.GetWet() || cFace.GetMetalMarked())
+			{
+				thoseHit.Add(cFace);
+				newThoseAlreadyHit.Add(col);
+			}
+		}
+		foreach (ICharInterface zapped in thoseHit)
+		{
+			zapped.SetStunned(newThoseAlreadyHit);
+		}
 	}
 
 	public void SetMetalMarked()
 	{
 		isMetalMarked = true;
+		metalTimer = new Timer(7);
 	}
+	public bool GetMetalMarked() => isMetalMarked;
+
 
 	public void SetWet()
 	{
 		isWet = true;
 		behaviorScript.isWet = true;
 		fireTimer = null;
+
+		waterTimer = new Timer(5);
 	}
+	public bool GetWet() => isWet;
+
 
 	private void Update()
 	{
@@ -88,6 +125,27 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			{
 				fireTimer = null;
 				behaviorScript.canBehavior = false;
+			}
+		}
+
+		if (waterTimer != null)
+		{
+			waterTimer.Tick(Time.deltaTime);
+			if (waterTimer.Finished)
+			{
+				waterTimer = null;
+				isWet = false;
+				behaviorScript.isWet = false;
+			}
+		}
+
+		if (metalTimer != null)
+		{
+			metalTimer.Tick(Time.deltaTime);
+			if (metalTimer.Finished)
+			{
+				metalTimer = null;
+				isMetalMarked = false;
 			}
 		}
 
