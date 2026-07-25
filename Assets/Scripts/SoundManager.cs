@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
 	[Header("SFX")]
 	private int audioSourceCount = 100;
 	private int nextSourceIndex = 0;
-	private AudioSource musicSource;
+	public AudioSource musicSource;
 	private AudioSource[] sources;
 	private int[] overridePriorities;
 	public AudioMixerGroup gameSFXGroup;
@@ -74,10 +74,12 @@ public class SoundManager : MonoBehaviour
 			var groups = mixer.FindMatchingGroups("Music");
 			if (groups.Length > 0) musicGroup = groups[0];
 		}
+
 		musicSource.playOnAwake = true;
 		musicSource.loop = true;
 		musicSource.outputAudioMixerGroup = musicGroup;
 		musicSource.clip = _IntroMusic;
+		PlayMenuMusic();
 		
 
 	}
@@ -96,11 +98,6 @@ public class SoundManager : MonoBehaviour
 
 		// Increment and wrap around using the modulo operator, once you reach the end start using the first source again
 		nextSourceIndex = (nextSourceIndex + 1) % sources.Count();
-	}
-
-	public void Start()
-	{
-		PlayMenuMusic();
 	}
 
 	public void PlayMenuMusic()
