@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 495899405914360585}
   - component: {fileID: 4291610937478663632}
   - component: {fileID: 834900041311397719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ParticleEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 6725435353047707815}
   - component: {fileID: 37719593264204803}
   - component: {fileID: 168798179724620738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MysteryBullet
   m_TagString: MysteryPickup
   m_Icon: {fileID: 0}

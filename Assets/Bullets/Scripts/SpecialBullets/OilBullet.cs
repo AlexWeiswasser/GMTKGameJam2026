@@ -3,7 +3,7 @@ using UnityEngine;
 public class OilBullet : BulletScript
 {
 	// Timer
-    Timer oilTimer = new Timer(.02f, startFinished: false);
+    Timer oilTimer = new Timer(.015f, startFinished: false);
 
 	// Prefabs
 	[SerializeField] GameObject oilSpill;

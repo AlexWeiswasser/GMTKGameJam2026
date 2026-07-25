@@ -74,8 +74,6 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 	private void Update()
 	{
-		Debug.Log("Health is: " + health);
-
 		if (fireTimer != null)
 		{
 			fireTimer.Tick(Time.deltaTime);

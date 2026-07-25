@@ -234,7 +234,7 @@ MonoBehaviour:
   health: 10
   isMetalMarked: 0
   isWet: 0
-  behaviorScript: {fileID: 0}
+  behaviorScript: {fileID: 6719020264385847351}
 --- !u!114 &6719020264385847351
 MonoBehaviour:
   m_ObjectHideFlags: 0

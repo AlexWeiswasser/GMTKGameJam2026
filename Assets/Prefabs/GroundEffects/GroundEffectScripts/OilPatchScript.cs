@@ -16,8 +16,14 @@ public class OilPatchScript : MonoBehaviour
 		fadeAway = StartCoroutine(FadeAway());
     }
 
+	public void SetOnFireInASec()
+	{
+		Invoke("SetOnFire", .1f);
+	}
+
     public void SetOnFire()
 	{
+		if (onFire) return;
 		if (fadeAway != null) StopCoroutine(fadeAway);
 		oilFire.enabled = true;
 		animator.SetTrigger("Burn");
@@ -27,7 +33,14 @@ public class OilPatchScript : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (!onFire) return;
+		if (!onFire)
+		{
+			if (collision.CompareTag("Fire"))
+			{
+				SetOnFire();
+			}
+			return;
+		}
 
 		if (collision.gameObject.layer == LayerMask.NameToLayer("Character"))
 		{
@@ -37,6 +50,11 @@ public class OilPatchScript : MonoBehaviour
 					character.SetOnFire();
 				character.SetOnOilFire();
 			}
+		}
+		if (collision.CompareTag("Oil"))
+		{
+			if (collision.TryGetComponent<OilPatchScript>(out var oilPatch) && !oilPatch.onFire)
+				oilPatch.SetOnFireInASec();
 		}
 	}
 
