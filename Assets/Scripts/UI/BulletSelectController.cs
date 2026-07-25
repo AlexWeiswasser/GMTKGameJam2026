@@ -13,7 +13,7 @@ public class BulletSelectController : MonoBehaviour
     // [SerializeField] BulletData[] TEMPORARYSTARTUP;
 
     private static bool editing = false;
-    public static bool PlayerBusy() { return editing || PlayerScript.IsDead(); }
+    public static bool PlayerBusy() { return editing || PlayerScript.IsDead() || PauseUI.IsPaused(); }
     bool selectionsVisible = false;
     Tween fadeTween;
 

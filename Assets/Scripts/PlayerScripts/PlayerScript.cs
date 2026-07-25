@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour, ICharInterface
 {
@@ -183,6 +184,14 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 				oilTimer = null;
 				Damage(1);
 			}
+		}
+	}
+
+	public void TogglePause(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			EventBus<OnPause>.Call(new OnPause() {pause = !PauseUI.IsPaused()});
 		}
 	}
 }

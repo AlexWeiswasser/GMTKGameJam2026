@@ -30,6 +30,7 @@ public class AimScript : MonoBehaviour
 	private void Update()
 	{
 		if (BulletSelectController.PlayerBusy()) return;
+		if (PauseUI.IsPaused()) return;
 
 		Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
 		Vector2 cursorWorldPos = (Vector2)Camera.main.ScreenToWorldPoint(mouseScreenPos);

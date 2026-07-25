@@ -27,3 +27,6 @@ public struct OnFinishedEditing : IEvent { }
 
 // Damage Event
 public struct OnDamageTaken : IEvent { public Vector2 position; public int damageValue; }
+
+// Pause Event
+public struct OnPause : IEvent { public bool pause; }
