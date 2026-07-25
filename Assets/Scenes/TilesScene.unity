@@ -6805,10 +6805,10 @@ MonoBehaviour:
   - areaSize: {x: 8, y: 8}
     areaSpawnerParent: {fileID: 382363319}
     areas:
-    - {fileID: 6790114145554617939, guid: 4688ad1023c44524bbcd80888c7a3153, type: 3}
-    - {fileID: 6790114145554617939, guid: c293eb75a41e1824b8243c398842e7f3, type: 3}
-    - {fileID: 6790114145554617939, guid: 85be5920b9b9a2044b9ec2ee7946a463, type: 3}
-    - {fileID: 6790114145554617939, guid: 7d04e63f89bcfd140a46586054600aa7, type: 3}
+    - {fileID: 186188972049707796, guid: 60ec9329308fdea4db5a4be558cb589e, type: 3}
+    - {fileID: 186188972049707796, guid: 60ec9329308fdea4db5a4be558cb589e, type: 3}
+    - {fileID: 186188972049707796, guid: 60ec9329308fdea4db5a4be558cb589e, type: 3}
+    - {fileID: 186188972049707796, guid: 60ec9329308fdea4db5a4be558cb589e, type: 3}
   - areaSize: {x: 16, y: 8}
     areaSpawnerParent: {fileID: 1631545804}
     areas:
