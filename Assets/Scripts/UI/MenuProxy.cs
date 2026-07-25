@@ -8,6 +8,11 @@ public class MenuProxy : MonoBehaviour
         SceneLoader.Instance.LoadScene(sceneName);
     }
 
+    public void Reset()
+    {
+        BulletStorageScript.Reset();
+    }
+
     public void Quit()
     {
         Application.Quit();

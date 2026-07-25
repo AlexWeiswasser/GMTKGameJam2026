@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6db1d5d7b79cf4c92059be7163ec0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireBullet
-  creator: {fileID: 0}
+  playerCreated: 0
   speed: 35
   type: 2
   damage: 10
@@ -256,8 +256,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9056604, g: 0.7705604, b: 0.09825563, a: 1}
-      key1: {r: 0.9058824, g: 0.7686275, b: 0.098039225, a: 1}
+      key0: {r: 0.90196085, g: 0.31764707, b: 0, a: 1}
+      key1: {r: 0.90588236, g: 0.5714484, b: 0.09803922, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

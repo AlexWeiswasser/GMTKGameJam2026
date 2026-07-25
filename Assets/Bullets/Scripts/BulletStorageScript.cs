@@ -44,6 +44,11 @@ public static class BulletStorageScript
 		}
 	}
 
+	public static void Reset()
+	{
+		bulletList = new List<Bullet>();
+	}
+
 	public static void Reload() 
 	{
 		currentBulletIndex = lastBulletIndex;
