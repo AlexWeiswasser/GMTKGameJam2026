@@ -11,6 +11,9 @@ public class SoundManager : MonoBehaviour
 	public AudioMixer mixer;
 
 	[SerializeField] private AudioClip _GameMusic;
+	[SerializeField] private AudioClip _IntroMusic;
+	public AudioMixerGroup musicGroup;
+
 	
 	private uint _masterVolume;
     private uint _musicVolume;
@@ -39,6 +42,7 @@ public class SoundManager : MonoBehaviour
 
 	IEnumerator setupSound()
 	{
+		//sfx
 		yield return new WaitForEndOfFrame();
 
 		if (gameSFXGroup == null && SoundManager.Instance != null)
@@ -63,6 +67,19 @@ public class SoundManager : MonoBehaviour
 
 			sources[i] = source;
 		}
+
+		//music
+		if (musicGroup == null && SoundManager.Instance != null)
+		{
+			var groups = mixer.FindMatchingGroups("Music");
+			if (groups.Length > 0) musicGroup = groups[0];
+		}
+		musicSource.playOnAwake = true;
+		musicSource.loop = true;
+		musicSource.outputAudioMixerGroup = musicGroup;
+		musicSource.clip = _IntroMusic;
+		
+
 	}
 
 	// Plays sounds
@@ -79,5 +96,22 @@ public class SoundManager : MonoBehaviour
 
 		// Increment and wrap around using the modulo operator, once you reach the end start using the first source again
 		nextSourceIndex = (nextSourceIndex + 1) % sources.Count();
+	}
+
+	public void Start()
+	{
+		PlayMenuMusic();
+	}
+
+	public void PlayMenuMusic()
+	{
+		musicSource.clip = _IntroMusic;
+		musicSource.Play();
+	}
+
+	public void PlayGameMusic()
+	{
+		musicSource.clip = _GameMusic;
+		musicSource.Play();
 	}
 }
