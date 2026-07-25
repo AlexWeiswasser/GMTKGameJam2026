@@ -50,6 +50,8 @@ public class SnakeScript : BehaviorScript
 
 	private void Update()
 	{
+		if (BulletSelectController.PlayerBusy()) return;
+
 		if (rattleTimer != null)
 		{
 			if (playerIsCloseEnough)

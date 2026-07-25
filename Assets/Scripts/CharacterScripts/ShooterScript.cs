@@ -9,6 +9,7 @@ public class ShooterScript : BehaviorScript
 	[SerializeField] GameObject bullet;
 
 	[Header("References")]
+	[SerializeField] Transform spriteObject;
 	[SerializeField] Transform gunTransform;
 	[SerializeField] SpriteRenderer gunSprite;
 	[SerializeField] Transform bulletSpawnPos;
@@ -17,6 +18,14 @@ public class ShooterScript : BehaviorScript
 	Timer shootTimer = new Timer(3);
 	Timer walkTimer = new Timer(1, startFinished: true);
 	bool walking = false;
+	bool animating = false;
+
+	[Header("Hop Animation")]
+	[SerializeField] float hopDuration;
+	[SerializeField] float hopStrength;
+	//[SerializeField] float hopMagnitudeThreshold;
+	[SerializeField] Ease hopEasing;
+	[SerializeField] ParticleSystem landParticles;
 
 	public static event Action<bool> OnGunFlip;
 
@@ -35,6 +44,7 @@ public class ShooterScript : BehaviorScript
 
 	private void Update()
 	{
+		if (BulletSelectController.PlayerBusy()) return;
 		// Moving
 		walkTimer.Tick(Time.deltaTime);
 		if (walkTimer.Finished)
@@ -74,6 +84,14 @@ public class ShooterScript : BehaviorScript
 
 		Vector2 offset = direction * radius;
 		gunTransform.position = (Vector2)transform.position + offset;
+
+		if (!animating && rb.linearVelocity.magnitude > 0.2f)
+		{
+			animating = true;
+			spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
+				.SetEase(hopEasing)
+				.OnComplete(() => { animating = false; landParticles.Play();});
+		}
 	}
 
 	private void Recoil()
@@ -86,6 +104,7 @@ public class ShooterScript : BehaviorScript
 
 	private void Shoot()
 	{
+		if (BulletSelectController.PlayerBusy()) return;
 		Vector2 direction = (bulletSpawnPos.position - transform.position).normalized;
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

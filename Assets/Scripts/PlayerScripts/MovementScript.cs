@@ -65,7 +65,7 @@ public class MovementScript : MonoBehaviour
 	{
 		rb.linearDamping = damping;
 		if (!canMove) return;
-		if (BulletTrackerScript.currentMode == BulletTrackerScript.TrackerMode.EditingMode) return;
+		if (BulletSelectController.PlayerBusy()) return;
 
 		float currentMaxSpeed = maxSpeed;
 		if (isWet) currentMaxSpeed *= .8f;

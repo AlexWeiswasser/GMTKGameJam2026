@@ -8,6 +8,8 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	public static readonly int MAX_HEALTH = 50;
 	int health = 50;
 	int hitStreak = 0;
+	private static bool dead = false;
+	public static bool IsDead() { return dead; }
 
 	// facts
 	int timesFireDamaged = 0;
@@ -16,6 +18,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 	// Events
 	public static event Action<int> OnHealthChange;
+	public static event Action OnPlayerDeath;
 
 	// Timers
 	Timer fireTimer = null;
@@ -28,11 +31,24 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	[SerializeField] MovementScript movementScript;
 	[SerializeField] ShootScript shootScript;
 
+	void Start()
+	{
+		dead = false;
+	}
+
 	public void Damage(int amount)
 	{
+		if (BulletSelectController.PlayerBusy()) return;
 		health -= isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		isMetalMarked = false;
 		metalTimer = null;
+
+		if (health <= 0)
+		{
+			dead = true;
+			health = 0;
+			OnPlayerDeath?.Invoke();
+		}
 
 		OnHealthChange?.Invoke(health);
 	} 

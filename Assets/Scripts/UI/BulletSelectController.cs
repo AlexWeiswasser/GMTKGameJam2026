@@ -12,7 +12,8 @@ public class BulletSelectController : MonoBehaviour
     [SerializeField] Image fade;
     // [SerializeField] BulletData[] TEMPORARYSTARTUP;
 
-    bool editing = false;
+    private static bool editing = false;
+    public static bool PlayerBusy() { return editing || PlayerScript.IsDead(); }
     bool selectionsVisible = false;
     Tween fadeTween;
 
@@ -77,7 +78,6 @@ public class BulletSelectController : MonoBehaviour
     {
         if (!editing) return;
         if (selectionsVisible)
-
         {
             for (int i = 0; i < 3; i++)
             {
@@ -96,6 +96,7 @@ public class BulletSelectController : MonoBehaviour
         fadeTween = fade.DOFade(0f, 0.7f)
             .OnComplete(() => fade.enabled = false);
 
+        editing = false;
         EventBus<OnFinishedEditing>.Call(new OnFinishedEditing());
     }
 }

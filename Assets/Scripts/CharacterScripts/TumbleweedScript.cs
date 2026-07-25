@@ -15,6 +15,7 @@ public class TumbleweedScript : BehaviorScript
 	private void Update()
 	{
 		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
+		if (BulletSelectController.PlayerBusy()) return;
 		transform.Rotate(0, 0, 1000 * Time.deltaTime);
 	}
 

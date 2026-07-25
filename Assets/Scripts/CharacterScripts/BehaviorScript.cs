@@ -8,8 +8,8 @@ public abstract class BehaviorScript : MonoBehaviour
 	protected bool canMove = true;
 
 	// References
-	private Rigidbody2D rb;
-	protected SpriteRenderer rend;
+	protected Rigidbody2D rb;
+	[SerializeField] protected SpriteRenderer rend;
 
 	[Header("Movement")]
 	[SerializeField] float maxSpeed;
@@ -28,7 +28,6 @@ public abstract class BehaviorScript : MonoBehaviour
 	protected virtual void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		rend = GetComponent<SpriteRenderer>();
 	}
 
 	protected virtual void FixedUpdate()
@@ -41,6 +40,7 @@ public abstract class BehaviorScript : MonoBehaviour
 
 		// Don't do anything if outside detection range
 		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
+		if (BulletSelectController.PlayerBusy()) return;
 
 		// Lunge movement
 		if (lunging)

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TumbleweedScript
   isWet: 0
   canBehavior: 0
+  rend: {fileID: 8021157358962915734}
   maxSpeed: 10
   acceleration: 80
   damping: 10
