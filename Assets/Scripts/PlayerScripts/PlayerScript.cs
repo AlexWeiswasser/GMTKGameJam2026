@@ -50,6 +50,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		{
 			dead = true;
 			health = 0;
+			transform.rotation = Quaternion.Euler(0, 0, 90);
 			OnPlayerDeath?.Invoke();
 		}
 

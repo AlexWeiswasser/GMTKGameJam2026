@@ -20,8 +20,8 @@ public class DeathUI : MonoBehaviour
     void ShowDeathOverlay()
     {
         fade.enabled = true;
-        fade.DOFade(1f, 0.75f);
-        deathText.DOAnchorPosY(200, 0.75f);
-        returnButton.DOAnchorPosY(-200, 0.75f);
+        fade.DOFade(1f, 1.25f);
+        deathText.DOAnchorPosY(200, 1.25f);
+        returnButton.DOAnchorPosY(-200, 1.25f);
     }
 }
