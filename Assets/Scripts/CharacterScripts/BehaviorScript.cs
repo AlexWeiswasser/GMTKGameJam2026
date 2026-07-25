@@ -5,9 +5,11 @@ public abstract class BehaviorScript : MonoBehaviour
 	// Stats
 	[HideInInspector] public bool isWet = false;
 	[HideInInspector] public bool canBehavior = true;
+	protected bool canMove = true;
 
 	// References
 	private Rigidbody2D rb;
+	protected SpriteRenderer rend;
 
 	[Header("Movement")]
 	[SerializeField] float maxSpeed;
@@ -17,25 +19,52 @@ public abstract class BehaviorScript : MonoBehaviour
 	Vector2 externalVelocity;
 	protected Transform targetPos;
 
+	// Lunge movement
+	private float lungeTimer;
+	private bool lunging;
+
 	protected virtual void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		rend = GetComponent<SpriteRenderer>();
 	}
 
 	protected virtual void FixedUpdate()
 	{
-		// Movement
-		rb.linearDamping = damping;
-		if (!canBehavior) return;
+		// Looking at the player
+		if (MovementScript.playerTransform.position.x < transform.position.x)
+			rend.flipX = true;
+		else
+			rend.flipX = false;
 
-		float currentMaxSpeed = maxSpeed;
-		if (isWet) currentMaxSpeed *= .8f;
+		// Lunge movement
+		if (lunging)
+		{
+			Debug.LogWarning("IS LUNGING");
 
-		Vector2 direction = (targetPos.position - transform.position).normalized;
-		movementVelocity = Vector2.MoveTowards(
-			movementVelocity,
-			direction * currentMaxSpeed,
-			acceleration * Time.fixedDeltaTime);
+			lungeTimer -= Time.fixedDeltaTime;
+
+			if (lungeTimer <= 0f)
+			{
+				lunging = false;
+				movementVelocity = Vector2.zero;
+			}
+		}
+		else
+		{
+			// Base movement
+			rb.linearDamping = damping;
+			if (!canBehavior || !canMove) return;
+
+			float currentMaxSpeed = maxSpeed;
+			if (isWet) currentMaxSpeed *= .8f;
+
+			Vector2 direction = (targetPos.position - transform.position).normalized;
+			movementVelocity = Vector2.MoveTowards(
+				movementVelocity,
+				direction * currentMaxSpeed,
+				acceleration * Time.fixedDeltaTime);
+		}
 
 		externalVelocity *= 0.9f;
 		rb.linearVelocity = movementVelocity + externalVelocity;
@@ -47,5 +76,39 @@ public abstract class BehaviorScript : MonoBehaviour
 			externalVelocity,
 			direction * strength,
 			strength * Time.fixedDeltaTime);
+	}
+
+	public float Lunge(Vector2 targetPos, float speed)
+	{
+		if (!canBehavior) return -1;
+
+		Vector2 toTarget = targetPos - rb.position;
+
+		float distance = toTarget.magnitude;
+		float duration = distance / speed;
+
+		movementVelocity = toTarget.normalized * speed;
+
+		lungeTimer = duration;
+		lunging = true;
+		return duration;
+	}
+
+	protected void DamageCheck(CircleCollider2D collider, int damage)
+	{
+		float radius = collider.radius * Mathf.Max(collider.transform.lossyScale.x, collider.transform.lossyScale.y, collider.transform.lossyScale.z);
+		LayerMask hurtMask = LayerMask.GetMask("Character");
+		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, radius, hurtMask);
+
+		foreach (Collider2D col in nearbyColliders)
+		{
+			if (col.transform.CompareTag("Player"))
+			{
+				if (col.transform.TryGetComponent<PlayerScript>(out var pScript))
+				{
+					pScript.Damage(damage);
+				}
+			}
+		}
 	}
 }

@@ -5,7 +5,8 @@ public class TumbleweedScript : BehaviorScript
 
 	protected override void Start()
 	{
-		canBehavior = true; 
+		canBehavior = true;
+		canMove = true; 
 
 		base.Start();
 		targetPos = MovementScript.playerTransform;

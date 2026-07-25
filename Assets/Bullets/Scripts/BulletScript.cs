@@ -55,7 +55,7 @@ public class BulletScript : MonoBehaviour
 				face.Damage(damage);
 			OnCharacterEnter(collision);
 		}
-		else
+		else 
 		{
 			OnBulletDeath();
 			Destroy(gameObject);
