@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using DG.Tweening;
 using TMPro;
@@ -87,6 +88,7 @@ public class BulletTrackerScript : MonoBehaviour
 		switch (currentMode)
 		{
 			case TrackerMode.ShootingMode:
+				if (jumpTween != null) jumpTween.Kill(false);
 				cylinder.pivot = new Vector2(0.5f, 0.5f);
 				cylinder.anchorMin = new Vector2(0, 1f);
 				cylinder.anchorMax = new Vector2(0, 1f);
@@ -98,6 +100,8 @@ public class BulletTrackerScript : MonoBehaviour
 				LockAll(true);
 				break;
 			case TrackerMode.EditingMode:
+
+				if (jumpTween != null) jumpTween.Kill(false);
 				BulletStorageScript.Reload();
 				cylinder.pivot = new Vector2(0.5f, 0.5f);
 				cylinder.anchorMin = new Vector2(0.5f, 0f);
@@ -156,9 +160,12 @@ public class BulletTrackerScript : MonoBehaviour
 		SetVisuals();
 		
 		if (BulletStorageScript.bulletCount > 0) RotateToBullet(BulletStorageScript.bulletCount - 1);
+		
+
 
 		jumpTween.Kill(true);
-		jumpTween = cylinder.DOJumpAnchorPos(cylinder.anchoredPosition, 20, 1, 0.2f);
+		if (currentMode == TrackerMode.ShootingMode)
+			jumpTween = cylinder.DOJumpAnchorPos(cylinder.anchoredPosition, 20, 1, 0.2f);
 	}
 
 	private void SetVisuals(OnBulletFire fireData)
