@@ -252,6 +252,7 @@ MonoBehaviour:
   maxSpeed: 4
   acceleration: 40
   damping: 10
+  detectionRange: 20
   bullet: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
   gunTransform: {fileID: 7169741913905479936}
   gunSprite: {fileID: 4029125549201837180}

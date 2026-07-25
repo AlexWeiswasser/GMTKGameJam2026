@@ -16,6 +16,7 @@ public abstract class BehaviorScript : MonoBehaviour
 	[SerializeField] float maxSpeed;
 	[SerializeField] float acceleration;
 	[SerializeField] float damping;
+	public float detectionRange;
 	Vector2 movementVelocity;
 	Vector2 externalVelocity;
 	protected Transform targetPos;
@@ -38,6 +39,9 @@ public abstract class BehaviorScript : MonoBehaviour
 			rend.flipX = true;
 		else
 			rend.flipX = false;
+
+		// Don't do anything if outside detection range
+		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
 
 		// Lunge movement
 		if (lunging)

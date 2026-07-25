@@ -129,6 +129,7 @@ MonoBehaviour:
   maxSpeed: 10
   acceleration: 80
   damping: 10
+  detectionRange: 20
   contactDamage: 10
 --- !u!50 &5823990007569913157
 Rigidbody2D:

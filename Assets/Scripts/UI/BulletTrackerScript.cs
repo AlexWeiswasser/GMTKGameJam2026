@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,7 @@ public class BulletTrackerScript : MonoBehaviour
     [Header("References")]
 	[SerializeField] RectTransform cylinder;
 	[SerializeField] Sprite emptySprite;
+	[SerializeField] TextMeshProUGUI ammoCount;
 	public List<ChamberObject> chamberObjects;
 
 	private Canvas canvas;
@@ -112,6 +114,23 @@ public class BulletTrackerScript : MonoBehaviour
 		}
 	}
 
+	private Color[] textColors =
+	{
+		new Color(0.6901961f, 0.07058824f, 0.03921569f),
+		new Color(1f, 0.4352941f, 0f),
+		new Color(1f, 0.5607843f, 0f),
+		new Color(0.9921569f, 0.8470588f, 0.2078431f),
+		new Color(0.01960784f, 0.4352941f, 0f),
+		new Color(0.03921569f, 0.5607843f, 0.03137255f),
+		new Color(0.2588235f, 0.7411765f, 0.254902f),
+	};
+
+	private void UpdateText(int count)
+	{
+		ammoCount.text = count.ToString();
+		ammoCount.color = textColors[count];
+	}
+
 	private void SetVisuals()
 	{
 		for (int i = 0; i < BulletStorageScript.MaximumBulletCount; i++)
@@ -129,6 +148,7 @@ public class BulletTrackerScript : MonoBehaviour
 				chamberObjects[i].SetImage(data.chamberSprite);
 			}
 		}
+		UpdateText(6);
 	}
 
 	private void SetVisuals(OnReload reloadData) 
@@ -150,6 +170,8 @@ public class BulletTrackerScript : MonoBehaviour
 			Color color = i < bulletFired ? Color.white : Color.gray5;
 			chamberObjects[i].SetColor(color);
 		}
+
+		UpdateText(bulletFired);
 
 		if (bulletFired > 0) RotateToBullet(bulletFired - 1);
 	}
