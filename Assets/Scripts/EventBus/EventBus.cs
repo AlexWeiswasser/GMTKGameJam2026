@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 public interface IEvent { }
 
 public static class EventBus<T> where T : IEvent
@@ -23,3 +24,6 @@ public struct OnBulletsExchangedComplete : IEvent {}
 // Mystery Bullet Pickup
 public struct OnMysteryBulletPickup : IEvent { public BulletData[] choices; }
 public struct OnFinishedEditing : IEvent { }
+
+// Damage Event
+public struct OnDamageTaken : IEvent { public Vector2 position; public int damageValue; }

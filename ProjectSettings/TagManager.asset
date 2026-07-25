@@ -64,5 +64,8 @@ TagManager:
   - name: Gun
     uniqueID: 577548337
     locked: 0
+  - name: DamageNumbers
+    uniqueID: 2052434617
+    locked: 0
   m_RenderingLayers:
   - Default

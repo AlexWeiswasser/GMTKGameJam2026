@@ -24,9 +24,12 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	public void Damage(int amount)
 	{
-		health -= isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+		int damageTaken = isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+		health -= damageTaken;
 		isMetalMarked = false;
 		metalTimer = null;
+
+		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 	}
 
 	public void SetOnFire()
