@@ -17,12 +17,5 @@ public class FirePatchScript : MonoBehaviour
 					character.SetOnFire();
 			}
 		}
-		else if (collision.CompareTag("Oil"))
-		{
-			if(collision.TryGetComponent<OilPatchScript>(out var oilScript))
-			{
-				oilScript.SetOnFire();
-			}
-		}
 	}
 }

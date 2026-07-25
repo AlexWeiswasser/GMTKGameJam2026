@@ -176,6 +176,7 @@ MonoBehaviour:
   maxSpeed: 0
   acceleration: 0
   damping: 0
+  detectionRange: 100
   baseSprite: {fileID: 1176480057453771609, guid: 8bc8ba754dbcfa04eb80f29b28cbc2c9, type: 3}
   madSprite: {fileID: -1926443660248128092, guid: 8bc8ba754dbcfa04eb80f29b28cbc2c9, type: 3}
   rattleSprites:

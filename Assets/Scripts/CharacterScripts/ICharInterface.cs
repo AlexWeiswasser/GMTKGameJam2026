@@ -1,4 +1,5 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
+using UnityEngine;
 
 public interface ICharInterface
 {
@@ -6,7 +7,9 @@ public interface ICharInterface
 	public void SetOnFire();
 	public void SetOnOilFire();
 	public bool GetOnFire();
-	public void SetStunned();
+	public void SetStunned(List<Collider2D> thoseAlreadyHit = null);
 	public void SetMetalMarked();
 	public void SetWet();
+	public bool GetWet();
+	public bool GetMetalMarked();
 }
