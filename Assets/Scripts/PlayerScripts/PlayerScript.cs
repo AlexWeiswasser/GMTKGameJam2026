@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour, ICharInterface
 {
 	// Stats
+	public static readonly int MAX_HEALTH = 50;
 	int health = 50;
 	int hitStreak = 0;
 
@@ -10,6 +12,9 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	int timesFireDamaged = 0;
 	[HideInInspector] public bool isMetalMarked = false;
 	[HideInInspector] public bool isWet = false;
+
+	// Events
+	public static event Action<int> OnHealthChange;
 
 	// Timers
 	Timer fireTimer = null;
@@ -20,7 +25,11 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	[SerializeField] MovementScript movementScript;
 	[SerializeField] ShootScript shootScript;
 
-	public void Damage(int amount) => health -= isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+	public void Damage(int amount)
+	{
+		health -= isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+		OnHealthChange?.Invoke(health);
+	} 
 
 	public void SetOnFire()
 	{
