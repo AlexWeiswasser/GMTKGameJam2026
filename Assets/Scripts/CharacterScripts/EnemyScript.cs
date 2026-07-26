@@ -102,6 +102,8 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	public void SetStunned(HashSet<Collider2D> alreadyHit = null)
 	{
+		if (isWet || isMetalMarked) Damage(5);
+
 		behaviorScript.canBehavior = false;
 		stunTimer = new Timer(2f);
 		if (stunnedParticlesObject != null) Destroy(stunnedParticlesObject);

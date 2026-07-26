@@ -1,10 +1,18 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class DynamanScript : BehaviorScript
 {
 	[SerializeField] GameObject explosion;
 	[SerializeField] ParticleSystem explosionParticles;
-	[SerializeField] Transform child;
+
+	[SerializeField] Transform spriteObject;
+	[SerializeField] float hopDuration;
+	[SerializeField] float hopStrength;
+	[SerializeField] Ease hopEasing;
+	[SerializeField] ParticleSystem landParticles;
+
+	Tween moveTween = null;
 
 	protected override void Start()
 	{
@@ -20,18 +28,12 @@ public class DynamanScript : BehaviorScript
 		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
 		if (BulletSelectController.PlayerBusy()) return;
 
-		// Parent
-		Vector2 direction = MovementScript.playerTransform.position - transform.position;
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0, 0, angle + 180);
-
-		// Child mesh
-		child.Rotate(0, 1500 * Time.deltaTime, 0); 
-	}
-
-	protected override void FixedUpdate()
-	{
-		base.FixedUpdate();
+		if (canBehavior && moveTween == null)
+		{
+			moveTween = spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
+				.SetEase(hopEasing)
+				.OnComplete(() => { landParticles.Play(); moveTween = null; });
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
