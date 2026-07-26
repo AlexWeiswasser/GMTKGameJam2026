@@ -37,9 +37,30 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		dead = false;
 	}
 
+	void OnEnable()
+	{
+		EventBus<OnOutOfTime>.Subscribe(InstaKill);
+	}
+
+	void OnDisable()
+	{
+		EventBus<OnOutOfTime>.Unsubscribe(InstaKill);
+	}
+
+	public void InstaKill(OnOutOfTime onOutOfTime)
+	{
+		DamageActions(999);
+	}
+
 	public void Damage(int amount)
 	{
 		if (BulletSelectController.PlayerBusy()) return;
+
+		DamageActions(amount);
+	}
+
+	private void DamageActions(int amount)
+	{
 		int damageTaken =isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		health -= damageTaken;
 		//isMetalMarked = false;
