@@ -32,6 +32,11 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 	}
 
+	public void Knockback(Vector2 direction, float amount)
+	{
+		behaviorScript.Knockback(direction, amount);
+	}
+
 	public void SetOnFire()
 	{
 		isWet = false;

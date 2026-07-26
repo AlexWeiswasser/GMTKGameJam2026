@@ -56,7 +56,12 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		}
 
 		OnHealthChange?.Invoke(health);
-	} 
+	}
+
+	public void Knockback(Vector2 direction, float amount)
+	{
+		movementScript.Knockback(direction, amount);
+	}
 
 	public void SetOnFire()
 	{

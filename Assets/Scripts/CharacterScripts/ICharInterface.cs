@@ -4,6 +4,7 @@ using UnityEngine;
 public interface ICharInterface
 {
 	public void Damage(int amount);
+	public void Knockback(Vector2 direction, float amount);
 	public void SetOnFire();
 	public void SetOnOilFire();
 	public bool GetOnFire();

@@ -61,37 +61,48 @@ public class MovementScript : MonoBehaviour
 		playerTransform = transform;
 	}
 
+	public void Knockback(Vector2 direction, float strength)
+	{
+		strength *= 50;
+
+		externalVelocity = Vector2.MoveTowards(
+			externalVelocity,
+			direction * strength,
+			strength * Time.fixedDeltaTime);
+	}
+
 	private void FixedUpdate()
 	{
 		rb.linearDamping = damping;
-		if (!canMove) return;
-		if (BulletSelectController.PlayerBusy()) return;
+		if (canMove)
+		{
+			if (BulletSelectController.PlayerBusy()) return;
 
-		float currentMaxSpeed = maxSpeed;
-		if (isWet) currentMaxSpeed *= .8f;
+			float currentMaxSpeed = maxSpeed;
+			if (isWet) currentMaxSpeed *= .8f;
 
-		Vector2 input = Vector2.zero;
-		if (heldDown[0]) input.x -= 1;
-		if (heldDown[1]) input.x += 1;
-		if (heldDown[2]) input.y -= 1;
-		if (heldDown[3]) input.y += 1;
-		input = input.normalized;
+			Vector2 input = Vector2.zero;
+			if (heldDown[0]) input.x -= 1;
+			if (heldDown[1]) input.x += 1;
+			if (heldDown[2]) input.y -= 1;
+			if (heldDown[3]) input.y += 1;
+			input = input.normalized;
 
-		movementVelocity = Vector2.MoveTowards( 
-			movementVelocity,
-			input * currentMaxSpeed,
-			acceleration * Time.fixedDeltaTime);
+			movementVelocity = Vector2.MoveTowards(
+				movementVelocity,
+				input * currentMaxSpeed,
+				acceleration * Time.fixedDeltaTime);
 
+			if (!animating && input != Vector2.zero)
+			{
+				animating = true;
+				spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
+					.SetEase(hopEasing)
+					.OnComplete(() => { animating = false; landParticles.Play(); });
+			}
+		}
 		externalVelocity *= 0.9f;
 		rb.linearVelocity = movementVelocity + externalVelocity;
-
-		if (!animating && input != Vector2.zero)
-		{
-			animating = true;
-			spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
-				.SetEase(hopEasing)
-				.OnComplete(() => { animating = false; landParticles.Play();});
-		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

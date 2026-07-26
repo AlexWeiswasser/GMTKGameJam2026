@@ -17,7 +17,7 @@ public abstract class BehaviorScript : MonoBehaviour
 	[SerializeField] float damping;
 	public float detectionRange;
 	Vector2 movementVelocity;
-	Vector2 externalVelocity;
+	public Vector2 externalVelocity;
 	protected Transform targetPos;
 	protected Vector2 givenDirection = Vector2.zero;
 
@@ -86,6 +86,8 @@ public abstract class BehaviorScript : MonoBehaviour
 
 	public void Knockback(Vector2 direction, float strength)
 	{
+		strength *= 50;
+
 		externalVelocity = Vector2.MoveTowards(
 			externalVelocity,
 			direction * strength,
@@ -118,9 +120,11 @@ public abstract class BehaviorScript : MonoBehaviour
 		{
 			if (col.transform.CompareTag("Player"))
 			{
-				if (col.transform.TryGetComponent<PlayerScript>(out var pScript))
+				if (col.transform.TryGetComponent<ICharInterface>(out var face))
 				{
-					pScript.Damage(damage);
+					Vector2 direction = (col.transform.position - transform.position).normalized;
+					face.Knockback(direction, damage);
+					face.Damage(damage);
 				}
 			}
 		}
