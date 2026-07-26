@@ -35,6 +35,8 @@ public class WaterBullet : BulletScript
 
 	protected override void OnEffectEnter(Collider2D collision)
 	{
+		Debug.Log("Entered effect");
+
 		if (collision.CompareTag("Oil"))
 		{
 			spreadingOil = true; 
