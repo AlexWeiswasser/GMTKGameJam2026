@@ -93,6 +93,10 @@ public abstract class BehaviorScript : MonoBehaviour
 				}
 			}
 		}
+		else
+		{
+			movementVelocity = Vector2.zero;
+		}
 
 		externalVelocity *= 0.9f;
 		rb.linearVelocity = movementVelocity + externalVelocity;
