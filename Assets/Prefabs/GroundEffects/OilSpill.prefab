@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OilPatchScript
   animator: {fileID: 6290318925742548906}
   oilFire: {fileID: 8842557621102512387}
+  setOnFire: {fileID: 8300000, guid: baae707806bc7ac4888ae38e6d0c45da, type: 3}
 --- !u!95 &6290318925742548906
 Animator:
   serializedVersion: 7

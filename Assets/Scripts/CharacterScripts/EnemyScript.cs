@@ -41,6 +41,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	GameObject oilFireParticlesObject;
 
 	[SerializeField] private AudioClip deathSound;
+	[SerializeField] private AudioClip[] fireTick;
 
 
 
@@ -183,6 +184,9 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 				fireTimer.Reset();
 				Damage(1);
 				timesFireDamaged++;
+				int choice = -1;
+				choice = UnityEngine.Random.Range(0, fireTick.Length);
+				SoundManager.Instance.PlaySound(fireTick[choice]);
 			}
 			else if (timesFireDamaged >= 6)
 			{

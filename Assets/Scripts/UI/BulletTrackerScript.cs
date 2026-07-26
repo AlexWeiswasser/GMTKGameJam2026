@@ -192,7 +192,7 @@ public class BulletTrackerScript : MonoBehaviour
     .SetEase(easing)
     .OnComplete(() =>
     {
-        SoundManager.Instance.PlaySound(nextBullet);
+        SoundManager.Instance.PlaySound(nextBullet, .9f, 1.1f, .5f);
     });
 	}
 

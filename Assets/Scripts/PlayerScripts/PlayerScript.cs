@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	[SerializeField] private AudioClip[] playerHurt;
 	[SerializeField] private AudioClip playerDeath;
 	[SerializeField] private AudioClip playerWalk;
-	[SerializeField] private AudioClip setOnFire;
+	[SerializeField] private AudioClip[] fireTick;
 
 	[Header("References")]
 	[SerializeField] MovementScript movementScript;
@@ -102,7 +102,6 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 		int choice = -1;
 		choice = UnityEngine.Random.Range(0, playerHurt.Length);
-		if(choice != -1)
 			SoundManager.Instance.PlaySound(playerHurt[choice]);
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
@@ -132,7 +131,6 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		{
 			onFireParticlesObject = Instantiate(onFireParticles, transform).gameObject;
 			fireTimer = new Timer(.5f);
-			SoundManager.Instance.PlaySound(setOnFire);
 		}
 
 		timesFireDamaged = 0;
@@ -147,7 +145,6 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		{
 			oilFireParticlesObject = Instantiate(oilFireParticles, transform).gameObject;
 			oilTimer = new Timer(.5f);
-			SoundManager.Instance.PlaySound(setOnFire);
 		}
 	}
 
@@ -228,6 +225,9 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 				fireTimer.Reset();
 				Damage(1);
 				timesFireDamaged++;
+				int choice = 0;
+				choice = UnityEngine.Random.Range(0, fireTick.Length);
+				SoundManager.Instance.PlaySound(fireTick[choice]);
 			}
 			else if (timesFireDamaged >= 6)
 			{

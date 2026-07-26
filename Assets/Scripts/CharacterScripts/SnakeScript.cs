@@ -15,7 +15,6 @@ public class SnakeScript : BehaviorScript
 
 	[SerializeField] private AudioSource rattleAudio;
 	[SerializeField] private AudioClip getAngry;
-	[SerializeField] private AudioClip bite;
 
 	// Tracking stuff
 	Timer rattleTimer = new Timer(1f);
@@ -92,7 +91,7 @@ public class SnakeScript : BehaviorScript
 			if(attackTimer.Finished)
 			{
 				attackTimer.Reset();
-				SoundManager.Instance.PlaySound(getAngry);
+				SoundManager.Instance.PlaySound(getAngry, .9f, 1.1f, .5f);
 				float time = base.Lunge(MovementScript.playerTransform.position, 20f);
 				lungeTimer = new Timer(time);
 			}
@@ -103,7 +102,6 @@ public class SnakeScript : BehaviorScript
 			lungeTimer.Tick(Time.deltaTime);
 			if(lungeTimer.Finished)
 			{
-				SoundManager.Instance.PlaySound(bite);
 				base.DamageCheck(damageCircle, contactDamage);
 				lungeTimer = null;
 			}

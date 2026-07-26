@@ -5,6 +5,7 @@ public class OilPatchScript : MonoBehaviour
 {
 	[SerializeField] Animator animator;
 	[SerializeField] SpriteRenderer oilFire;
+	[SerializeField] AudioClip setOnFire;
 
 	bool onFire = false;
 	Coroutine fadeAway;
@@ -29,6 +30,7 @@ public class OilPatchScript : MonoBehaviour
 		animator.SetTrigger("Burn");
 		Destroy(gameObject, 5f);
 		onFire = true; 
+		SoundManager.Instance.PlaySound(setOnFire, .9f, 1.1f, .2f);
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)

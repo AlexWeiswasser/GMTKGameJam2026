@@ -333,4 +333,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 3214812980722602743}
+  bulletImpact: {fileID: 8300000, guid: 1ad18868e9b9ef94a9442e36af1e432b, type: 3}
   vortexParticles: {fileID: 805106078325019707, guid: 8dffb139ea4287e4886b76b64e5ce456, type: 3}

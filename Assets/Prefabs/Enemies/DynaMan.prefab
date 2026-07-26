@@ -60,6 +60,11 @@ MonoBehaviour:
   onFireParticles: {fileID: 6676677170064008617, guid: 553d38c55f9745e439ca952da2c238b4, type: 3}
   oilFireParticles: {fileID: 6676677170064008617, guid: a0badf9d644904d4ab20a7601bf6d090, type: 3}
   deathSound: {fileID: 0}
+  fireTick:
+  - {fileID: 8300000, guid: b4b5ecc692e7a82408af5491a4113ec7, type: 3}
+  - {fileID: 8300000, guid: 1cf5174e400566e45a45285fdd3f945b, type: 3}
+  - {fileID: 8300000, guid: 1a4803ac5fde9ff4183081f90b9c3923, type: 3}
+  - {fileID: 8300000, guid: 28343fb8205828b4ab02c26fa182dc5b, type: 3}
 --- !u!50 &5617308206222205685
 Rigidbody2D:
   serializedVersion: 5

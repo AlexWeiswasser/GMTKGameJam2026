@@ -190,7 +190,6 @@ MonoBehaviour:
   contactDamage: 7
   rattleAudio: {fileID: 4378702468997767885}
   getAngry: {fileID: 8300000, guid: 2b16aa11f98c3af4381c4f1fb3a7b774, type: 3}
-  bite: {fileID: 8300000, guid: 2b16aa11f98c3af4381c4f1fb3a7b774, type: 3}
 --- !u!114 &8739758309900299599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +214,11 @@ MonoBehaviour:
   onFireParticles: {fileID: 6676677170064008617, guid: 553d38c55f9745e439ca952da2c238b4, type: 3}
   oilFireParticles: {fileID: 6676677170064008617, guid: a0badf9d644904d4ab20a7601bf6d090, type: 3}
   deathSound: {fileID: 8300000, guid: f25c98a30e06ea749b0d8a6aa8cec93d, type: 3}
+  fireTick:
+  - {fileID: 8300000, guid: b4b5ecc692e7a82408af5491a4113ec7, type: 3}
+  - {fileID: 8300000, guid: 1cf5174e400566e45a45285fdd3f945b, type: 3}
+  - {fileID: 8300000, guid: 1a4803ac5fde9ff4183081f90b9c3923, type: 3}
+  - {fileID: 8300000, guid: 28343fb8205828b4ab02c26fa182dc5b, type: 3}
 --- !u!82 &4378702468997767885
 AudioSource:
   m_ObjectHideFlags: 0

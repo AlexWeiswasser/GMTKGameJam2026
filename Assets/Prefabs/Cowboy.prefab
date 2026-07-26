@@ -557,7 +557,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dd80b9e7fa05527478d35ddd536bbcc8, type: 3}
   playerDeath: {fileID: 8300000, guid: 56bc79ea2f89588409025d3bfce8c438, type: 3}
   playerWalk: {fileID: 8300000, guid: fec9abfb55cfe0f42b797f8bec3e2f88, type: 3}
-  setOnFire: {fileID: 8300000, guid: 8e976c64ec6eb8b4eb4abe9598703786, type: 3}
+  fireTick:
+  - {fileID: 8300000, guid: b4b5ecc692e7a82408af5491a4113ec7, type: 3}
+  - {fileID: 8300000, guid: 1cf5174e400566e45a45285fdd3f945b, type: 3}
+  - {fileID: 8300000, guid: 1a4803ac5fde9ff4183081f90b9c3923, type: 3}
+  - {fileID: 8300000, guid: 28343fb8205828b4ab02c26fa182dc5b, type: 3}
   movementScript: {fileID: 8259275662457604754}
   shootScript: {fileID: 7743094426229523484}
   metalParticles: {fileID: 6676677170064008617, guid: 485bd22513da1d1448839d7ae62137eb, type: 3}
