@@ -16,5 +16,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6983272080299161828, guid: 6ae0f809982abae43a4a8fae200b538b, type: 3}
   chamberSprite: {fileID: -1249325692, guid: d9fba612e42668a4c8410b8f54757f9b, type: 3}
   bulletName: Vortex Bullet
-  bulletDescription: On hit, creates a vortex that pulls any entity too close inward
-    towards the center.
+  bulletDescription: On hit, creates a vortex that pulls in anyone too close!

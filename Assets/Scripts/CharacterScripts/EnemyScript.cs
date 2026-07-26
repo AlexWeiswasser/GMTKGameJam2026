@@ -58,6 +58,9 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			{
 				Instantiate(healthPickup, transform.position, Quaternion.identity);
 			}
+
+			if (TryGetComponent<DynamanScript>(out var dScript)) dScript.Explode();
+
 			Instantiate(deathEffect, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}

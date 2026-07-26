@@ -327,7 +327,7 @@ MonoBehaviour:
   knockback: 50
   selfKnockback: 0
   type: 0
-  damage: 12
+  damage: 10
   isShotgun: 0
   isShotgunPellet: 0
   bulletPrefab: {fileID: 0}

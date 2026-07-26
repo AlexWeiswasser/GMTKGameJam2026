@@ -16,4 +16,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6983272080299161828, guid: 8c57180afa5087a4a8f6e47a7417b7b5, type: 3}
   chamberSprite: {fileID: 1180312151, guid: d9fba612e42668a4c8410b8f54757f9b, type: 3}
   bulletName: Shotgun Bullet
-  bulletDescription: When fired, splits into 3 smaller shots!
+  bulletDescription: When fired, splits into 3 slightly weaker shots!
