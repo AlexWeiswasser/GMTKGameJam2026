@@ -98,11 +98,17 @@ MonoBehaviour:
     areas:
     - {fileID: 2364918333845874154, guid: 440c1de7af71aec478fc4136d72457d3, type: 3}
     - {fileID: 2364918333845874154, guid: f8e440d8834d5b343bcf636e12879e12, type: 3}
+    - {fileID: 2364918333845874154, guid: 9e306e15ab5491c4bbd734d0cc862a7f, type: 3}
+    - {fileID: 2364918333845874154, guid: 689dc17949140024d8c0cc00cc04aa8e, type: 3}
+    - {fileID: 2364918333845874154, guid: c5b4798c1330dfe408d92fbeb750978e, type: 3}
   - areaSize: {x: 16, y: 16}
     areaSpawnerParent: {fileID: 0}
     areas:
     - {fileID: 739781706466341623, guid: 160f0526d23f1dd449da2f04d003c074, type: 3}
     - {fileID: 739781706466341623, guid: e409fc5c4404ab54088a67ec84d537f0, type: 3}
+    - {fileID: 739781706466341623, guid: 339ad601b83af8a468294d245107e3d3, type: 3}
+    - {fileID: 739781706466341623, guid: 981ab0ec4dc2bff4ea26a997708f4e5f, type: 3}
+    - {fileID: 739781706466341623, guid: 4811e9a576a5bd341a9cec48dd1d4341, type: 3}
   - areaSize: {x: 8, y: 8}
     areaSpawnerParent: {fileID: 0}
     areas:
