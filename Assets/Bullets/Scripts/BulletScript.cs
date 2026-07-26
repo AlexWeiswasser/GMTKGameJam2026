@@ -116,13 +116,13 @@ public class BulletScript : MonoBehaviour
 		{
 			if (collision.CompareTag("Player") != playerCreated)
 			{
+				OnCharacterEnter(collision);
 				if (collision.TryGetComponent<ICharInterface>(out var face))
 				{
 					Vector2 direction = (collision.transform.position - transform.position).normalized;
 					face.Knockback(direction, knockback);
 					face.Damage(damage);
 				}
-				OnCharacterEnter(collision);
 				OnBulletDeath();
 				Instantiate(hitSpark, transform.position, Quaternion.identity);
 				tr.transform.parent = null;
