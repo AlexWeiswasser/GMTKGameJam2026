@@ -9,6 +9,7 @@ TagManager:
   - Fire
   - MysteryPickup
   - Trigger
+  - Dynamite
   layers:
   - Default
   - TransparentFX

@@ -35,8 +35,6 @@ public class WaterBullet : BulletScript
 
 	protected override void OnEffectEnter(Collider2D collision)
 	{
-		Debug.Log("Entered effect");
-
 		if (collision.CompareTag("Oil"))
 		{
 			spreadingOil = true; 
@@ -45,6 +43,13 @@ public class WaterBullet : BulletScript
 		{
 			Destroy(collision.gameObject);
 		}
+		if (collision.CompareTag("Dynamite"))
+		{
+			if(collision.TryGetComponent<DynamiteScript>(out var dScript))
+			{
+				dScript.Defuse();
+			}
+		}
 	}
 
 	protected override void OnBulletDeath()
@@ -52,8 +57,8 @@ public class WaterBullet : BulletScript
 		Instantiate(waterParticles, transform.position, Quaternion.identity);
 		float waterRadius = 5f;
 
-		LayerMask hurtMask = LayerMask.GetMask("Character");
-		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, waterRadius, hurtMask);
+		LayerMask charMask = LayerMask.GetMask("Character");
+		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, waterRadius, charMask);
 
 		foreach (Collider2D col in nearbyColliders)
 		{
@@ -62,5 +67,21 @@ public class WaterBullet : BulletScript
 				face.SetWet();
 			}
 		}
+
+		LayerMask effectMask = LayerMask.GetMask("Effect");
+		Collider2D[] nearbyEffectColliders = Physics2D.OverlapCircleAll(transform.position, waterRadius, effectMask);
+
+		foreach (Collider2D col in nearbyEffectColliders)
+		{
+			if (col.transform.TryGetComponent<FirePatchScript>(out var fire))
+			{
+				Destroy(fire.gameObject);
+			}
+			else if (col.transform.TryGetComponent<DynamiteScript>(out var dScript))
+			{
+				dScript.Defuse();
+			}
+		}
+
 	}
 }

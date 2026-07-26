@@ -7573,7 +7573,7 @@ GameObject:
   - component: {fileID: 1768895752}
   - component: {fileID: 1768895751}
   - component: {fileID: 1768895753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dynamite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
