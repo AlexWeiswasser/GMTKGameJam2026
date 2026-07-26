@@ -109,7 +109,7 @@ public class MovementScript : MonoBehaviour
 
 						int choice = 0;
 						choice = UnityEngine.Random.Range(0, walkSounds.Length);
-						SoundManager.Instance.PlaySound(walkSounds[choice]);
+						SoundManager.Instance.PlaySound(walkSounds[choice], .9f, 1.1f, .1f);
 					});
 			}
 		}

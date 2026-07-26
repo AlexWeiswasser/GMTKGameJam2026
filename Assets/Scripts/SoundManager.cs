@@ -84,7 +84,7 @@ public class SoundManager : MonoBehaviour
 	}
 
 	// Plays sounds
-	public void PlaySound(AudioClip clip, float minPitch = 0.9f, float maxPitch = 1.1f, float volume = 1f, bool networked = true)
+	public void PlaySound(AudioClip clip, float minPitch = 0.9f, float maxPitch = 1.1f, float volume = 1f)
 	{
 		if (clip == null) return;
 
