@@ -16,5 +16,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6983272080299161828, guid: f540a7830993f1f4486af06bc6864486, type: 3}
   chamberSprite: {fileID: 1382658525, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   bulletName: Water Bullet
-  bulletDescription: 'If this bullet hits an entity, they become wet. Spreads any
-    oil it goes over. '
+  bulletDescription: 'Makes a splash when it hits something, making entities in the
+    area wet. Spreads any oil it goes over. '

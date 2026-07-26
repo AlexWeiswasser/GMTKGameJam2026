@@ -114,6 +114,11 @@ MonoBehaviour:
   behaviorScript: {fileID: 6712582465755304459}
   healthPickup: {fileID: 7812922889127791476, guid: 5abaf2feb778776429732f739c34e025, type: 3}
   deathEffect: {fileID: 6700140164619206162, guid: c2875ef0c486e204b8885902251c9c6a, type: 3}
+  metalParticles: {fileID: 6676677170064008617, guid: 485bd22513da1d1448839d7ae62137eb, type: 3}
+  wetParticles: {fileID: 6676677170064008617, guid: 17ced61e2791bfc469a0da19bf123d83, type: 3}
+  stunnedParticles: {fileID: 6676677170064008617, guid: 6d467d54054533642a49bf12fea4a5f4, type: 3}
+  onFireParticles: {fileID: 6676677170064008617, guid: 553d38c55f9745e439ca952da2c238b4, type: 3}
+  oilFireParticles: {fileID: 6676677170064008617, guid: a0badf9d644904d4ab20a7601bf6d090, type: 3}
 --- !u!114 &6712582465755304459
 MonoBehaviour:
   m_ObjectHideFlags: 0

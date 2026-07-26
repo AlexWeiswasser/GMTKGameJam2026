@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class VortexBullet : BulletScript
 {
+	[SerializeField] private ParticleSystem vortexParticles;
+
 	protected override void OnBulletDeath()
 	{
+		Instantiate(vortexParticles, transform.position, Quaternion.identity);
 		float vortexRadius = 5f;
 
 		LayerMask hurtMask = LayerMask.GetMask("Character");
