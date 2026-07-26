@@ -46,6 +46,7 @@ public class DynaThrowerScript : BehaviorScript
 	private void Update()
 	{
 		if (BulletSelectController.PlayerBusy() || !canBehavior) return;
+		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
 
 		// Moving
 		walkTimer.Tick(Time.deltaTime);

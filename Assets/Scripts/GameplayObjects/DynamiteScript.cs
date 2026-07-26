@@ -3,6 +3,7 @@ using DG.Tweening;
 
 public class DynamiteScript : MonoBehaviour
 {
+	[SerializeField] Ease throwEase = Ease.InSine;
     [SerializeField] SpriteRenderer rend;
 	[SerializeField] GameObject explosion;
 	[SerializeField] ParticleSystem explosionParticles;
@@ -16,10 +17,10 @@ public class DynamiteScript : MonoBehaviour
 		Vector3 goal = new Vector3(goalPosition.x, goalPosition.y, transform.position.z);
 
 		DOTween.Sequence()
-			.Append(transform.DOMove(goal, 2).SetEase(Ease.InOutSine))
-			.Join(transform.DOScale(startScale * 2f, 2 * 0.5f)
+			.Append(transform.DOMove(goal, 1).SetEase(throwEase))
+			.Join(transform.DOScale(startScale * 2f, 1 * 0.5f)
 				.SetLoops(2, LoopType.Yoyo)
-				.SetEase(Ease.InOutSine))
+				.SetEase(throwEase))
 			.OnComplete(() =>
 			{
 				col.enabled = true;

@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1927325081
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 4fb4b0a2531b9744b892138edd6c0223, type: 3}
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaa46eba48400043b359b162dd9f6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DynamiteScript
+  throwEase: 4
   rend: {fileID: 3783026563610244399}
   explosion: {fileID: 4111624083817308531, guid: 8502add9755d7ae409404d6726cc04cd, type: 3}
   explosionParticles: {fileID: 6676677170064008617, guid: 376bd129d4dc2db4faaa35e2b5752411, type: 3}
