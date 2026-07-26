@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8158609967821888407}
   - component: {fileID: 4621495147039580324}
   - component: {fileID: -6222244898889266631}
-  - component: {fileID: 3792658928478043869}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -33,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 6574777539186047646}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &39324472917428427
@@ -171,18 +171,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed52be5103278584d9bdb196c218c8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletScript
-  creator: {fileID: 0}
+  playerCreated: 0
   speed: 35
+  knockback: 10
+  selfKnockback: 0
   type: 0
   damage: 10
---- !u!96 &3792658928478043869
+  isShotgun: 0
+  isShotgunPellet: 0
+  bulletPrefab: {fileID: 0}
+  tr: {fileID: 1171287941629121603}
+--- !u!1 &7700563845070950892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6574777539186047646}
+  - component: {fileID: 1171287941629121603}
+  m_Layer: 8
+  m_Name: Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6574777539186047646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7700563845070950892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5991982858351801890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &1171287941629121603
 TrailRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6983272080299161828}
+  m_GameObject: {fileID: 7700563845070950892}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

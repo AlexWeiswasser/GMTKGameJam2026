@@ -133,7 +133,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7db7901a2f6279045b7758ed12d097c0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -173,7 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnakeScript
   isWet: 0
   canBehavior: 1
-  rend: {fileID: 772474743389177780}
+  rend:
+  - {fileID: 772474743389177780}
   maxSpeed: 0
   acceleration: 0
   damping: 0

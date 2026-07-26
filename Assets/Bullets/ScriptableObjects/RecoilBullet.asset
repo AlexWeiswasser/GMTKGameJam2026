@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33453e45b81e38c4eae314496039f944, type: 3}
   m_Name: RecoilBullet
   m_EditorClassIdentifier: Assembly-CSharp::BulletData
-  rarity: 0
+  rarity: 1
   bulletPrefab: {fileID: 6983272080299161828, guid: 6df09fd6b4eb92b4e96b2cf29ef073ae, type: 3}
   chamberSprite: {fileID: 1148929066, guid: d9fba612e42668a4c8410b8f54757f9b, type: 3}
-  bulletName: Knockback Bullet
+  bulletName: Recoil Bullet
   bulletDescription: Deals higher damage than a normal bullet, and has crazy recoil!

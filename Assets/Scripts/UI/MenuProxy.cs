@@ -12,6 +12,7 @@ public class MenuProxy : MonoBehaviour
     public void Reset()
     {
         BulletStorageScript.Reset();
+        TimerUI.Reset();
     }
 
     public void Quit()

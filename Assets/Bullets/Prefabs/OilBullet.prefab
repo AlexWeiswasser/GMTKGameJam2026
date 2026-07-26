@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8158609967821888407}
   - component: {fileID: 4621495147039580324}
   - component: {fileID: 1555175519163845985}
-  - component: {fileID: 6911977874289781698}
   m_Layer: 8
   m_Name: OilBullet
   m_TagString: Untagged
@@ -33,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 446926545709396813}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &39324472917428427
@@ -171,19 +171,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54306e14e028f144c9eec35201968ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OilBullet
-  creator: {fileID: 0}
+  playerCreated: 0
   speed: 35
+  knockback: 10
+  selfKnockback: 0
   type: 1
   damage: 10
+  isShotgun: 0
+  isShotgunPellet: 0
+  bulletPrefab: {fileID: 0}
+  tr: {fileID: 3443737338429930036}
   oilSpill: {fileID: 1787986210466843351, guid: 0dae072490ce8d7499f5c7bc239ed06e, type: 3}
---- !u!96 &6911977874289781698
+--- !u!1 &8048395819526006607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446926545709396813}
+  - component: {fileID: 3443737338429930036}
+  m_Layer: 8
+  m_Name: Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446926545709396813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048395819526006607}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5991982858351801890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &3443737338429930036
 TrailRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6983272080299161828}
+  m_GameObject: {fileID: 8048395819526006607}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

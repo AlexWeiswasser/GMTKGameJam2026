@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -43,17 +44,44 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		dead = false;
 	}
 
+	void OnEnable()
+	{
+		EventBus<OnOutOfTime>.Subscribe(InstaKill);
+	}
+
+	void OnDisable()
+	{
+		EventBus<OnOutOfTime>.Unsubscribe(InstaKill);
+	}
+
+	public void InstaKill(OnOutOfTime onOutOfTime)
+	{
+		DamageActions(999);
+	}
+
 	public void Damage(int amount)
 	{
 		if (BulletSelectController.PlayerBusy()) return;
+
+		DamageActions(amount);
+	}
+
+	private void DamageActions(int amount)
+	{
 		int damageTaken =isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		health -= damageTaken;
 		//isMetalMarked = false;
 		//metalTimer = null;
 
-		int choice = 0;
-			choice = UnityEngine.Random.Range(0, playerHurt.Length);
-		SoundManager.Instance.PlaySound(playerHurt[choice]);
+foreach (SpriteRenderer spr in movementScript.playerSpriteRenderers)
+{
+	spr.color = Color.red;
+	spr.DOColor(Color.white, 0.2f);
+}
+
+int choice = 0;
+choice = UnityEngine.Random.Range(0, playerHurt.Length);
+SoundManager.Instance.PlaySound(playerHurt[choice]);
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 
@@ -110,7 +138,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 			newThoseAlreadyHit.AddRange(thoseAlreadyHit);
 
 		LayerMask hurtMask = LayerMask.GetMask("Character");
-		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, 5f, hurtMask);
+		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, 7.5f, hurtMask);
 		foreach (Collider2D col in nearbyColliders)
 		{
 			if (thoseAlreadyHit != null && thoseAlreadyHit.Contains(col)) continue;

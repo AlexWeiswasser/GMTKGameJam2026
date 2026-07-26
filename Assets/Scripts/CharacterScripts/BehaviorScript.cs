@@ -10,7 +10,7 @@ public abstract class BehaviorScript : MonoBehaviour
 
 	// References
 	protected Rigidbody2D rb;
-	[SerializeField] protected SpriteRenderer rend;
+	public SpriteRenderer[] rend;
 
 	[Header("Movement")]
 	[SerializeField] float maxSpeed;
@@ -35,9 +35,19 @@ public abstract class BehaviorScript : MonoBehaviour
 	{
 		// Looking at the player
 		if (MovementScript.playerTransform.position.x < transform.position.x)
-			rend.flipX = true;
+		{
+			foreach (SpriteRenderer spr in rend)
+			{
+				spr.flipX = true;
+			}
+		}		
 		else
-			rend.flipX = false;
+		{
+			foreach (SpriteRenderer spr in rend)
+			{
+				spr.flipX = false;
+			}
+		}
 
 		// Don't do anything if outside detection range
 		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;

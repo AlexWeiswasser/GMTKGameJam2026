@@ -17,4 +17,4 @@ MonoBehaviour:
   chamberSprite: {fileID: -1382188462, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   bulletName: FMJ Bullet
   bulletDescription: 'Inflicts enemies with the metallic condition, increasinng the
-    damage of the next hit they take. '
+    damage they take for a time. '

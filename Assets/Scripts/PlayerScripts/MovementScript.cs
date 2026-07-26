@@ -8,7 +8,7 @@ public class MovementScript : MonoBehaviour
 	public static Transform playerTransform;
 	[SerializeField] Rigidbody2D rb;
 	[SerializeField] Transform spriteObject;
-	[SerializeField] SpriteRenderer[] playerSpriteRenderers;
+	public SpriteRenderer[] playerSpriteRenderers;
 
 	[Header("Stats")]
 	[SerializeField] float maxSpeed;

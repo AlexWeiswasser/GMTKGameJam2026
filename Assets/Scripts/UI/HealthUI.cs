@@ -10,6 +10,11 @@ public class HealthUI : MonoBehaviour
     readonly int MaxAnchorSize = 720;
     int Difference => MaxAnchorSize - MinAnchorSize;
 
+    void Start()
+    {
+        DisplayHealth(PlayerScript.MAX_HEALTH);
+    }
+
     void OnEnable()
     {
         PlayerScript.OnHealthChange += DisplayHealth;
