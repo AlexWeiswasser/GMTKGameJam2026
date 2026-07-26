@@ -42,6 +42,7 @@ public class SceneLoader : MonoBehaviour
     {
         if (loading) return;
         loading = true;
+        EventBus<OnSceneBeganLoad>.Call(new OnSceneBeganLoad());
         StartCoroutine(LoadSceneRoutine(sceneName));
     }
 

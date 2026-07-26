@@ -31,5 +31,6 @@ public struct OnDamageTaken : IEvent { public Vector2 position; public int damag
 // Pause Event
 public struct OnPause : IEvent { public bool pause; }
 
-// Out of Time Event
+// Time Event
 public struct OnOutOfTime : IEvent { }
+public struct OnSceneBeganLoad : IEvent { }
