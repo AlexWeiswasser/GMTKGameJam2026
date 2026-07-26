@@ -94,7 +94,7 @@ public class BulletTrackerScript : MonoBehaviour
 				cylinder.anchorMax = new Vector2(0, 1f);
 
 				cylinder.position = worldPos;
-				cylinder.DOAnchorPos(new Vector2(180, -180), 0.2f)
+				cylinder.DOAnchorPos(new Vector2(220, -220), 0.2f)
 					.SetEase(easing);
 
 				LockAll(true);
