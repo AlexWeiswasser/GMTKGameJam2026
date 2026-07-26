@@ -22,14 +22,11 @@ public class PickupScript : MonoBehaviour
 	{
 		// /if (bulletCount >= 6) return;
 
-		// if(collision.CompareTag("Pickup"))
-		// {
-		// 	if (collision.TryGetComponent<Pickup>(out var pScript))
-		// 	{
-		// 		BulletStorageScript.AddBullet(new Bullet { bulletData = pScript.GetBullet() });
-		// 		Destroy(collision.gameObject);
-		// 	}
-		// }
+		if(collision.CompareTag("Pickup"))
+		{
+			PlayerScript.Heal(20);
+			Destroy(collision.gameObject);
+		}
 		if(collision.CompareTag("MysteryPickup"))
 		{
 			if (collision.TryGetComponent<MysteryBulletPickup>(out var mpScript))

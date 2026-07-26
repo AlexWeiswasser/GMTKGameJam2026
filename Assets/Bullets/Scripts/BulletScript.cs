@@ -36,6 +36,7 @@ public class BulletScript : MonoBehaviour
 	[SerializeField] bool isShotgun = false;
 	[SerializeField] bool isShotgunPellet = false;
 	[SerializeField] GameObject bulletPrefab = null;
+	[SerializeField] ParticleSystem hitSpark;
 	[SerializeField] TrailRenderer tr;
 
 	public void Init(bool createdByPlayer)
@@ -123,6 +124,7 @@ public class BulletScript : MonoBehaviour
 				}
 				OnCharacterEnter(collision);
 				OnBulletDeath();
+				Instantiate(hitSpark, transform.position, Quaternion.identity);
 				tr.transform.parent = null;
 				tr.autodestruct = true;
 				tr.time = 0.1f;
@@ -132,6 +134,7 @@ public class BulletScript : MonoBehaviour
 		else 
 		{
 			OnBulletDeath();
+			Instantiate(hitSpark, transform.position, Quaternion.identity);
 			tr.transform.parent = null;
 			tr.autodestruct = true;
 			tr.time = 0.1f;

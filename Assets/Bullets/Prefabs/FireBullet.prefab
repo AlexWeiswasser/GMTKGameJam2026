@@ -331,5 +331,6 @@ MonoBehaviour:
   isShotgun: 0
   isShotgunPellet: 0
   bulletPrefab: {fileID: 0}
+  hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 2601292405685624831}
   fire: {fileID: 1787986210466843351, guid: 64e3257f0633e9a43a2dba164122ce5a, type: 3}

@@ -22,6 +22,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	[Header("References")]
 	[SerializeField] BehaviorScript behaviorScript;
+	[SerializeField] GameObject healthPickup;
 
 	public void Damage(int amount)
 	{
@@ -34,6 +35,15 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		{
 			spr.color = Color.red;
 			spr.DOColor(Color.white, 0.2f);
+		}
+
+		if (health <= 0)
+		{
+			if (PlayerScript.health <= PlayerScript.MAX_HEALTH / 2 && UnityEngine.Random.Range(0, 3) == 0)
+			{
+				Instantiate(healthPickup, transform.position, Quaternion.identity);
+			}
+			Destroy(gameObject);
 		}
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
@@ -114,8 +124,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	private void Update()
 	{
-		// Health
-		if (health <= 0) { Destroy(gameObject); }
+		
 
 		// Timers
 		if (fireTimer != null)

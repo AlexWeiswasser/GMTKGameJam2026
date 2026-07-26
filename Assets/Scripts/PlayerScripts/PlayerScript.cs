@@ -60,6 +60,13 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		DamageActions(amount);
 	}
 
+	public static void Heal(int amount)
+	{
+		health += amount;
+		if (health > MAX_HEALTH) health = MAX_HEALTH;
+		OnHealthChange?.Invoke(health);
+	}
+
 	private void DamageActions(int amount)
 	{
 		int damageTaken =isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;

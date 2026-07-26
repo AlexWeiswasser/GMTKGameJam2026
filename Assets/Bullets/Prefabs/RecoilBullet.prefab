@@ -180,6 +180,7 @@ MonoBehaviour:
   isShotgun: 0
   isShotgunPellet: 0
   bulletPrefab: {fileID: 0}
+  hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 2387761881823865105}
 --- !u!1 &8933454945800965511
 GameObject:

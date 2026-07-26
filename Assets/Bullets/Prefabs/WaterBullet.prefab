@@ -423,5 +423,6 @@ MonoBehaviour:
   isShotgun: 0
   isShotgunPellet: 0
   bulletPrefab: {fileID: 0}
+  hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 1703830599598398873}
   oilSpill: {fileID: 1787986210466843351, guid: 0dae072490ce8d7499f5c7bc239ed06e, type: 3}
