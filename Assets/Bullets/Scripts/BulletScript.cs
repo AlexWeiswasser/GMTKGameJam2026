@@ -87,7 +87,7 @@ public class BulletScript : MonoBehaviour
 			{
 				for (int i = 0; i < 3; i++)
 				{
-					float angleOffset = 30f - (i * 30f);
+					float angleOffset = 15f - (i * 15f);
 					Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, angleOffset);
 
 					BulletScript bulletScript = Instantiate(bulletPrefab, transform.position, rotation)

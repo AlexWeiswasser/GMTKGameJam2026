@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe22375ce4136242810d1edeafab2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  health: 25
+  health: 20
   isMetalMarked: 0
   isWet: 0
   behaviorScript: {fileID: -73616616802877130}

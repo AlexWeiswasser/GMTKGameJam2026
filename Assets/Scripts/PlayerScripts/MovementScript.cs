@@ -83,7 +83,13 @@ public class MovementScript : MonoBehaviour
 			if (BulletSelectController.PlayerBusy()) return;
 
 			float currentMaxSpeed = maxSpeed;
-			if (isWet) currentMaxSpeed *= .8f;
+			if (isWet)
+			{
+			if(this.gameObject.CompareTag("Player"))
+				currentMaxSpeed *= .8f;
+			else
+				currentMaxSpeed *= .5f;
+			}
 
 			Vector2 input = Vector2.zero;
 			if (heldDown[0]) input.x -= 1;
