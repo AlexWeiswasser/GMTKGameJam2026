@@ -59,6 +59,7 @@ MonoBehaviour:
   stunnedParticles: {fileID: 6676677170064008617, guid: 6d467d54054533642a49bf12fea4a5f4, type: 3}
   onFireParticles: {fileID: 6676677170064008617, guid: 553d38c55f9745e439ca952da2c238b4, type: 3}
   oilFireParticles: {fileID: 6676677170064008617, guid: a0badf9d644904d4ab20a7601bf6d090, type: 3}
+  deathSound: {fileID: 0}
 --- !u!50 &5617308206222205685
 Rigidbody2D:
   serializedVersion: 5
@@ -114,6 +115,8 @@ MonoBehaviour:
   hopStrength: 0.4
   hopEasing: 4
   landParticles: {fileID: 6676677170064008617, guid: 8f577016192f3a6419885a4acfa71d6e, type: 3}
+  getAngry: {fileID: 8300000, guid: 07eb5ff2acde04c42b4bce91b6e47614, type: 3}
+  explodes: {fileID: 8300000, guid: c380180f02f6e4249a2cc4e266ba1350, type: 3}
 --- !u!58 &5440351996777567646
 CircleCollider2D:
   m_ObjectHideFlags: 0

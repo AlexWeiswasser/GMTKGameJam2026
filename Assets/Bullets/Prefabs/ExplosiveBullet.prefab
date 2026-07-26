@@ -333,5 +333,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 2879768042850636426}
+  bulletImpact: {fileID: 8300000, guid: 4a112248da46e2b40b8f7b068302cb9f, type: 3}
   explosion: {fileID: 4111624083817308531, guid: 8502add9755d7ae409404d6726cc04cd, type: 3}
   explosionParticles: {fileID: 6676677170064008617, guid: 376bd129d4dc2db4faaa35e2b5752411, type: 3}
+  explode: {fileID: 8300000, guid: c380180f02f6e4249a2cc4e266ba1350, type: 3}

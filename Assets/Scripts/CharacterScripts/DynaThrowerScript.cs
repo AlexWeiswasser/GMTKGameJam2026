@@ -26,6 +26,8 @@ public class DynaThrowerScript : BehaviorScript
 	[SerializeField] Ease hopEasing;
 	[SerializeField] ParticleSystem landParticles;
 
+	[SerializeField] private AudioClip throwSound;
+
 	public static event Action<bool> OnGunFlip;
 
 	private readonly float MAX_RADIUS = 1f;
@@ -98,6 +100,7 @@ public class DynaThrowerScript : BehaviorScript
 
 		DynamiteScript dynaScript = Instantiate(dynamite, transform.position, Quaternion.identity).GetComponent<DynamiteScript>();
 		dynaScript.Movement(MovementScript.playerTransform.position);
+		SoundManager.Instance.PlaySound(throwSound);
 	}
 
 	private void Strafe()

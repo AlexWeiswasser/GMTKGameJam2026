@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class BulletTrackerScript : MonoBehaviour
 {
 	[SerializeField] private AudioClip nextBullet;
+	[SerializeField] private AudioClip equipNewBullet;
 
 	private void OnEnable()
 	{
@@ -187,10 +188,15 @@ public class BulletTrackerScript : MonoBehaviour
 
 	private void RotateToBullet(int bullet)
 	{
-		SoundManager.Instance.PlaySound(nextBullet);
 		cylinder.DORotate(new Vector3(0, 0, 60f * bullet), 0.2f, RotateMode.FastBeyond360)
-			.SetEase(easing);
+    .SetEase(easing)
+    .OnComplete(() =>
+    {
+        SoundManager.Instance.PlaySound(nextBullet);
+    });
 	}
+
+
 
 	private void CheckToSwap(ChamberObject chamberObject)
 	{
@@ -239,12 +245,16 @@ public class BulletTrackerScript : MonoBehaviour
 			bulletTwo.SetIndex(onBulletsSwapped.firstBullet);
 
 			(chamberObjects[onBulletsSwapped.firstBullet], chamberObjects[onBulletsSwapped.secondBullet]) = (chamberObjects[onBulletsSwapped.secondBullet], chamberObjects[onBulletsSwapped.firstBullet]);
+			SoundManager.Instance.PlaySound(equipNewBullet);
+
 		}
 	}
 
 	private void ExchangeBullet(OnBulletsExchanged onBulletsExchanged)
 	{
 		chamberObjects[onBulletsExchanged.firstBullet].SetImage(onBulletsExchanged.incomingBulletData.chamberSprite);
+		SoundManager.Instance.PlaySound(equipNewBullet);
+
 	}
 
 	private void LockAll(bool locked)

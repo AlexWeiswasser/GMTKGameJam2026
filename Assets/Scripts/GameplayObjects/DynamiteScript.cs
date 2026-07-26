@@ -11,6 +11,8 @@ public class DynamiteScript : MonoBehaviour
 	bool defused = false;
 	Tween bombTween = null;
 
+	[SerializeField] private AudioClip explosionSFX;
+
 	public void Movement(Vector2 goalPosition)
 	{
 		Vector3 startScale = transform.localScale;
@@ -56,6 +58,7 @@ public class DynamiteScript : MonoBehaviour
 
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity);
+		SoundManager.Instance.PlaySound(explosionSFX);
 		Destroy(gameObject);
 	}
 }

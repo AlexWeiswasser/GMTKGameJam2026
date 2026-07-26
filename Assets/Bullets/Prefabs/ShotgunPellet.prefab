@@ -333,3 +333,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 7541782123326639529}
+  bulletImpact: {fileID: 8300000, guid: 4a112248da46e2b40b8f7b068302cb9f, type: 3}

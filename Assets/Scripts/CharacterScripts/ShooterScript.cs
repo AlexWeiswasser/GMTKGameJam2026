@@ -30,6 +30,8 @@ public class ShooterScript : BehaviorScript
 	[SerializeField] Ease hopEasing;
 	[SerializeField] ParticleSystem landParticles;
 
+	[SerializeField] private AudioClip shootSound;
+
 	public static event Action<bool> OnGunFlip;
 
 	private readonly float MAX_RADIUS = 1f;
@@ -114,6 +116,8 @@ public class ShooterScript : BehaviorScript
 		if (BulletSelectController.PlayerBusy()) return;
 		Vector2 direction = (bulletSpawnPos.position - transform.position).normalized;
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+		SoundManager.Instance.PlaySound(shootSound, .9f, 1.1f, .5f);
 
 		BulletScript bulletScript = Instantiate(bullet, bulletSpawnPos.position, Quaternion.identity).GetComponent<BulletScript>();
 		bulletScript.Init(createdByPlayer: false);

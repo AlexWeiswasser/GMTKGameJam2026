@@ -40,6 +40,9 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	GameObject onFireParticlesObject;
 	GameObject oilFireParticlesObject;
 
+	[SerializeField] private AudioClip deathSound;
+
+
 
 	public void Damage(int amount)
 	{
@@ -61,6 +64,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 			if (TryGetComponent<DynamanScript>(out var dScript)) dScript.Explode();
 
+			SoundManager.Instance.PlaySound(deathSound);
 			Instantiate(deathEffect, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}

@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 7999694943957139206}
   - component: {fileID: 2404025247565993342}
   - component: {fileID: 752726361281155940}
+  - component: {fileID: 5564362355541508149}
   m_Layer: 5
   m_Name: TitleButton
   m_TagString: Untagged
@@ -691,6 +692,47 @@ MonoBehaviour:
           m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 468347553612381597}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        m_MethodName: PressSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5564362355541508149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447744980649497198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 468347553612381597}
+          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+          m_MethodName: HoverSFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4685549595048772405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1731,7 @@ GameObject:
   - component: {fileID: 8716339194256415302}
   - component: {fileID: 6660515051165535777}
   - component: {fileID: 2352251071333172314}
+  - component: {fileID: 2688985535261586974}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1810,6 +1853,47 @@ MonoBehaviour:
           m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 468347553612381597}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        m_MethodName: PressSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2688985535261586974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481096375601019755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 468347553612381597}
+          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+          m_MethodName: HoverSFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6532384301786021907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1906,7 @@ GameObject:
   - component: {fileID: 4525352332938494954}
   - component: {fileID: 641130276831148439}
   - component: {fileID: 5864474243915518485}
+  - component: {fileID: 468347553612381597}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -1919,6 +2004,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &468347553612381597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6532384301786021907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba372bebc5d8d4e43aede33203d6c061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISounds
+  hover: {fileID: 8300000, guid: 9d57b4eb905742b49a0fa57fe5554010, type: 3}
+  press: {fileID: 8300000, guid: 9da5fddb642861c41ab344a67912413f, type: 3}
+  gun: {fileID: 8300000, guid: 4510639dc11f13947a9a1dffdfeb58f9, type: 3}
 --- !u!1 &6712391941154160896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2875,7 @@ GameObject:
   - component: {fileID: 5989350891745830917}
   - component: {fileID: 542433691631736947}
   - component: {fileID: 3404732467791475214}
+  - component: {fileID: 2552874300503220070}
   m_Layer: 5
   m_Name: TitleButton
   m_TagString: Untagged
@@ -2896,6 +2997,47 @@ MonoBehaviour:
           m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 468347553612381597}
+        m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        m_MethodName: PressSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2552874300503220070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036324768958861648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 468347553612381597}
+          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+          m_MethodName: HoverSFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &6350032871534978350
 PrefabInstance:
   m_ObjectHideFlags: 0

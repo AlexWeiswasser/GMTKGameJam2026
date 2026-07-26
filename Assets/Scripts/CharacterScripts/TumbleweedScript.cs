@@ -2,6 +2,7 @@ using UnityEngine;
 public class TumbleweedScript : BehaviorScript
 {
 	[SerializeField] int contactDamage; 
+	[SerializeField] AudioClip damage; 
 
 	protected override void Start()
 	{
@@ -33,6 +34,7 @@ public class TumbleweedScript : BehaviorScript
 				Vector2 direction = (collision.transform.position - transform.position).normalized;
 				face.Knockback(direction, contactDamage);
 				face.Damage(contactDamage);
+				SoundManager.Instance.PlaySound(damage);
 				Destroy(gameObject);
 			}
 		}

@@ -333,5 +333,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 1703830599598398873}
+  bulletImpact: {fileID: 8300000, guid: f2c29dee2c56db846ac66250ae039e7e, type: 3}
   oilSpill: {fileID: 1787986210466843351, guid: 0dae072490ce8d7499f5c7bc239ed06e, type: 3}
   waterParticles: {fileID: 6676677170064008617, guid: f3233c688cac5c44fb3d0df44bcb398e, type: 3}

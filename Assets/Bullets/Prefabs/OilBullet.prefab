@@ -182,6 +182,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   hitSpark: {fileID: 5967081689106687371, guid: 0a9eb15e9acf7cb4b9b4bc76c91b88e9, type: 3}
   tr: {fileID: 3443737338429930036}
+  bulletImpact: {fileID: 8300000, guid: 4a112248da46e2b40b8f7b068302cb9f, type: 3}
   oilSpill: {fileID: 1787986210466843351, guid: 0dae072490ce8d7499f5c7bc239ed06e, type: 3}
 --- !u!1 &8048395819526006607
 GameObject:

@@ -13,6 +13,10 @@ public class SnakeScript : BehaviorScript
 	[Header("Stats")]
 	[SerializeField] int contactDamage;
 
+	[SerializeField] private AudioSource rattleAudio;
+	[SerializeField] private AudioClip getAngry;
+	[SerializeField] private AudioClip bite;
+
 	// Tracking stuff
 	Timer rattleTimer = new Timer(1f);
 	Timer attackTimer = null;
@@ -35,6 +39,8 @@ public class SnakeScript : BehaviorScript
 		if (collision.CompareTag("Player"))
 		{
 			playerIsCloseEnough = true;
+			if (!rattleAudio.isPlaying)
+                rattleAudio.Play();
 		}
 	}
 
@@ -45,6 +51,8 @@ public class SnakeScript : BehaviorScript
 		if (collision.CompareTag("Player"))
 		{
 			playerIsCloseEnough = false;
+			rattleAudio.Stop();
+
 		}
 	}
 
@@ -84,6 +92,7 @@ public class SnakeScript : BehaviorScript
 			if(attackTimer.Finished)
 			{
 				attackTimer.Reset();
+				SoundManager.Instance.PlaySound(getAngry);
 				float time = base.Lunge(MovementScript.playerTransform.position, 20f);
 				lungeTimer = new Timer(time);
 			}
@@ -94,6 +103,7 @@ public class SnakeScript : BehaviorScript
 			lungeTimer.Tick(Time.deltaTime);
 			if(lungeTimer.Finished)
 			{
+				SoundManager.Instance.PlaySound(bite);
 				base.DamageCheck(damageCircle, contactDamage);
 				lungeTimer = null;
 			}

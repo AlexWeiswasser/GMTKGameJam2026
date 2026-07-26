@@ -5,6 +5,7 @@ using static BulletStorageScript;
 public class PickupScript : MonoBehaviour
 {
 	[SerializeField] BulletData[] startingAmmo;
+	[SerializeField] private AudioClip getPickup;
     void Awake()
     {
         AddStartingAmmo();
@@ -33,6 +34,7 @@ public class PickupScript : MonoBehaviour
 			{
 				mpScript.Pickup();
 				Destroy(collision.gameObject);
+				SoundManager.Instance.PlaySound(getPickup);
 			}
 		}
 	}

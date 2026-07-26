@@ -481,9 +481,9 @@ MonoBehaviour:
   canMove: 1
   isWet: 0
   walkSounds:
-  - {fileID: 8300000, guid: 3730b1906f40b5d428105fa76e2bd650, type: 3}
-  - {fileID: 8300000, guid: f82c430641d7569479b3893a984b17eb, type: 3}
-  - {fileID: 8300000, guid: e0acb18053bd2fb479a20bf78295742c, type: 3}
+  - {fileID: 8300000, guid: c729ae056c6c9994db8648b7e695981c, type: 3}
+  - {fileID: 8300000, guid: d8b5855add7a0e34e924fa83e9820469, type: 3}
+  - {fileID: 8300000, guid: c1e4860f04ccceb4d9b29306af4e8aa7, type: 3}
 --- !u!114 &7743094426229523484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +517,6 @@ MonoBehaviour:
   gunTransform: {fileID: 2923612213806403035}
   gunSprite: {fileID: 2862016653264048610}
   reload: {fileID: 8300000, guid: 07eb549475de71c4794af65a32e584eb, type: 3}
-  nextBullet: {fileID: 8300000, guid: 1d38f0cd3bf629a4ca6a01dbb0ac8ed7, type: 3}
 --- !u!114 &6552402806627053603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +536,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
   - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
   - {fileID: 11400000, guid: 24cc100461e4df64eb416e7fdc7b23f2, type: 2}
+  getPickup: {fileID: 8300000, guid: 23132c092d0b9a742aeea73a02337c87, type: 3}
 --- !u!114 &6003644611623257572
 MonoBehaviour:
   m_ObjectHideFlags: 0

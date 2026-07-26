@@ -137,7 +137,7 @@ public class BulletScript : MonoBehaviour
 		else 
 		{
 			OnBulletDeath();
-			SoundManager.Instance.PlaySound(bulletImpact, .9f, 1.1f, .5f);
+			SoundManager.Instance.PlaySound(bulletImpact, .9f, 1.1f, .3f);
 			Instantiate(hitSpark, transform.position, Quaternion.identity);
 			tr.transform.parent = null;
 			tr.autodestruct = true;

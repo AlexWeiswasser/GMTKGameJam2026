@@ -12,6 +12,10 @@ public class DynamanScript : BehaviorScript
 	[SerializeField] Ease hopEasing;
 	[SerializeField] ParticleSystem landParticles;
 
+	[SerializeField] private AudioClip getAngry;
+	[SerializeField] private AudioClip explodes;
+	private bool isAngry = false;
+
 	Tween moveTween = null;
 
 	protected override void Start()
@@ -27,6 +31,11 @@ public class DynamanScript : BehaviorScript
 	{
 		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
 		if (BulletSelectController.PlayerBusy()) return;
+		if(isAngry == false)
+		{
+			SoundManager.Instance.PlaySound(getAngry);
+			isAngry = true;
+		}
 
 		if (canBehavior && moveTween == null)
 		{
@@ -54,7 +63,7 @@ public class DynamanScript : BehaviorScript
 	public void Explode()
 	{
 		if (TryGetComponent<EnemyScript>(out var eScript)) if (eScript.isWet) return;
-		
+		SoundManager.Instance.PlaySound(explodes);
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity); 
 	}
