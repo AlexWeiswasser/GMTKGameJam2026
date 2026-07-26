@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	[Header("References")]
 	[SerializeField] BehaviorScript behaviorScript;
 	[SerializeField] GameObject healthPickup;
+	[SerializeField] GameObject deathEffect;
 
 	public void Damage(int amount)
 	{
@@ -43,6 +44,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			{
 				Instantiate(healthPickup, transform.position, Quaternion.identity);
 			}
+			Instantiate(deathEffect, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}
 

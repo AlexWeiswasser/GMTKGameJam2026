@@ -178,6 +178,7 @@ MonoBehaviour:
   isWet: 0
   behaviorScript: {fileID: 6719020264385847351}
   healthPickup: {fileID: 7812922889127791476, guid: 5abaf2feb778776429732f739c34e025, type: 3}
+  deathEffect: {fileID: 6700140164619206162, guid: c2875ef0c486e204b8885902251c9c6a, type: 3}
 --- !u!114 &6719020264385847351
 MonoBehaviour:
   m_ObjectHideFlags: 0
