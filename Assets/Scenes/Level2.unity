@@ -298,7 +298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6051,6 +6051,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
   m_PrefabInstance: {fileID: 509085534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &519023878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1769412705}
+    m_Modifications:
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199812147461997257, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07058823
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199812147461997257, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5199812147461997257, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21246427
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105065507441476761, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+      propertyPath: m_Name
+      value: AreaSpawner (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+--- !u!4 &519023879 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1927008137301536181, guid: 00a5699febfdfe943a3d744f992d06c6, type: 3}
+  m_PrefabInstance: {fileID: 519023878}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &574613605
 PrefabInstance:
@@ -16989,6 +17063,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 941273211}
+  - {fileID: 519023879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1919553220
