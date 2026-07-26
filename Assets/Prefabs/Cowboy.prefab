@@ -516,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AimScript
   gunTransform: {fileID: 2923612213806403035}
   gunSprite: {fileID: 2862016653264048610}
-  reload: {fileID: 8300000, guid: 07eb549475de71c4794af65a32e584eb, type: 3}
+  reload: {fileID: 8300000, guid: ec4ff4e71f9bb4e43b8d3cef8a5df04d, type: 3}
 --- !u!114 &6552402806627053603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fec9abfb55cfe0f42b797f8bec3e2f88, type: 3}
   - {fileID: 8300000, guid: 65d3802b132cc4d47adc3a40a8791380, type: 3}
   - {fileID: 8300000, guid: dd80b9e7fa05527478d35ddd536bbcc8, type: 3}
-  playerDeath: {fileID: 8300000, guid: 56bc79ea2f89588409025d3bfce8c438, type: 3}
+  playerDeath: {fileID: 8300000, guid: 746de28092224134b85791502ab8506b, type: 3}
   playerWalk: {fileID: 8300000, guid: fec9abfb55cfe0f42b797f8bec3e2f88, type: 3}
   fireTick:
   - {fileID: 8300000, guid: b4b5ecc692e7a82408af5491a4113ec7, type: 3}

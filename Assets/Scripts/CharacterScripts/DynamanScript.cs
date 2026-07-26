@@ -63,7 +63,7 @@ public class DynamanScript : BehaviorScript
 	public void Explode()
 	{
 		if (TryGetComponent<EnemyScript>(out var eScript)) if (eScript.isWet) return;
-		SoundManager.Instance.PlaySound(explodes);
+		SoundManager.Instance.PlaySound(explodes, .9f, 1.1f, .7f);
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity); 
 	}

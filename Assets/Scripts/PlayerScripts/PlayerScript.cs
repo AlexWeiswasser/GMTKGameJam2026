@@ -108,6 +108,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 		if (health <= 0)
 		{
+			SoundManager.Instance.PlaySound(playerDeath);
 			dead = true;
 			health = 0;
 			transform.rotation = Quaternion.Euler(0, 0, 90);

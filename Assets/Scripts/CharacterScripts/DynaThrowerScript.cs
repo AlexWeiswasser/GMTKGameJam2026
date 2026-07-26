@@ -100,7 +100,7 @@ public class DynaThrowerScript : BehaviorScript
 
 		DynamiteScript dynaScript = Instantiate(dynamite, transform.position, Quaternion.identity).GetComponent<DynamiteScript>();
 		dynaScript.Movement(MovementScript.playerTransform.position);
-		SoundManager.Instance.PlaySound(throwSound);
+		SoundManager.Instance.PlaySound(throwSound, .9f, 1.1f, .7f);
 	}
 
 	private void Strafe()

@@ -19,7 +19,7 @@ public class UISounds : MonoBehaviour
 
     public void GunshotUI()
     {
-        SoundManager.Instance.PlaySound(gun);
+        SoundManager.Instance.PlaySound(gun, .9f, 1.1f, 2f);
 
     }
 }

@@ -58,7 +58,7 @@ public class DynamiteScript : MonoBehaviour
 
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity);
-		SoundManager.Instance.PlaySound(explosionSFX);
+		SoundManager.Instance.PlaySound(explosionSFX, .9f, 1.1f, .6f);
 		Destroy(gameObject);
 	}
 }
