@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8374911561689691219, guid: 8a6bf76a9e0352c41a54248820ea44ad, type: 3}
-  m_Color: {r: 0.121584654, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -177,6 +177,8 @@ MonoBehaviour:
   selfKnockback: 30
   type: 6
   damage: 12
+  isShotgun: 0
+  bulletPrefab: {fileID: 0}
 --- !u!96 &3792658928478043869
 TrailRenderer:
   serializedVersion: 4

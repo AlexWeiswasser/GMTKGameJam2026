@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static BulletStorageScript;
 
 public class BulletScript : MonoBehaviour
 {
@@ -28,7 +30,12 @@ public class BulletScript : MonoBehaviour
 	[SerializeField] int knockback = 10;
 	[SerializeField] int selfKnockback = 0;
 	public BulletType type;
-	public int damage = 10; 
+	public int damage = 10;
+
+	[Header("Shotgun Stuff")]
+	[SerializeField] bool isShotgun = false;
+	[SerializeField] bool isShotgunPellet = false;
+	[SerializeField] GameObject bulletPrefab = null;
 
 	public void Init(bool createdByPlayer)
 	{
@@ -67,11 +74,33 @@ public class BulletScript : MonoBehaviour
 			direction = ((Vector2)MovementScript.playerTransform.position - (Vector2)transform.position).normalized;
 		}
 
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
+		if (!isShotgunPellet)
+		{
+			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0f, 0f, angle + 90);
 
-		// Velocity
-		rb.linearVelocity = speed * direction;
+			if (isShotgun)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					float angleOffset = 30f - (i * 30f);
+					Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, angleOffset);
+
+					BulletScript bulletScript = Instantiate(bulletPrefab, transform.position, rotation)
+						.GetComponent<BulletScript>();
+					bulletScript.Init(createdByPlayer: playerCreated);
+				}
+				Destroy(gameObject);
+				return;
+			}
+
+			// Velocity
+			rb.linearVelocity = speed * direction;
+		}
+		else
+		{
+			rb.linearVelocity = speed * -transform.up;
+		}
 
 		// Lifetime
 		Destroy(gameObject, 5);

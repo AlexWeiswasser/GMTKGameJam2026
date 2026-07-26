@@ -18,7 +18,8 @@ public class DamageNumberController : MonoBehaviour
 
     void SpawnDamageNumber(OnDamageTaken onDamageTaken)
     {
-        Vector2 position = onDamageTaken.position;
+        float xDifference = Random.Range(-1f, 1f);
+        Vector2 position = new Vector2(onDamageTaken.position.x + xDifference, onDamageTaken.position.y);
         int number = onDamageTaken.damageValue;
 
         GameObject numberObj = Instantiate(numberPrefab, position, Quaternion.identity);

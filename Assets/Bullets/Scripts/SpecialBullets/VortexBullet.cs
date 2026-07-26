@@ -4,7 +4,7 @@ public class VortexBullet : BulletScript
 {
 	protected override void OnBulletDeath()
 	{
-		float vortexRadius = 7.5f;
+		float vortexRadius = 5f;
 
 		LayerMask hurtMask = LayerMask.GetMask("Character");
 		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, vortexRadius, hurtMask);

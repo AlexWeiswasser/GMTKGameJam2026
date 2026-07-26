@@ -43,4 +43,20 @@ public class WaterBullet : BulletScript
 			Destroy(collision.gameObject);
 		}
 	}
+
+	protected override void OnBulletDeath()
+	{
+		float waterRadius = 5f;
+
+		LayerMask hurtMask = LayerMask.GetMask("Character");
+		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, waterRadius, hurtMask);
+
+		foreach (Collider2D col in nearbyColliders)
+		{
+			if (col.transform.TryGetComponent<ICharInterface>(out var face))
+			{
+				face.SetWet();
+			}
+		}
+	}
 }
