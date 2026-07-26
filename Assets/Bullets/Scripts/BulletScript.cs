@@ -55,7 +55,6 @@ public class BulletScript : MonoBehaviour
 				{
 					direction = (MovementScript.playerTransform.position - transform.position).normalized;
 					mScript.Knockback(direction, selfKnockback);
-					AimScript.MegaRecoil();
 				}
 			}
 
