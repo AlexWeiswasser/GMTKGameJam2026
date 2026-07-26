@@ -28,9 +28,11 @@ public class TumbleweedScript : BehaviorScript
 	{
 		if (collision.transform.CompareTag("Player"))
 		{
-			if (collision.transform.TryGetComponent<PlayerScript>(out var pScript))
+			if (collision.transform.TryGetComponent<ICharInterface>(out var face))
 			{
-				pScript.Damage(contactDamage);
+				Vector2 direction = (collision.transform.position - transform.position).normalized;
+				face.Knockback(direction, contactDamage);
+				face.Damage(contactDamage);
 				Destroy(gameObject);
 			}
 		}
