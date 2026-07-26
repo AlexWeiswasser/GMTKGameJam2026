@@ -106,6 +106,9 @@ MonoBehaviour:
     areas:
     - {fileID: 739781706466341623, guid: 160f0526d23f1dd449da2f04d003c074, type: 3}
     - {fileID: 739781706466341623, guid: e409fc5c4404ab54088a67ec84d537f0, type: 3}
+    - {fileID: 739781706466341623, guid: 339ad601b83af8a468294d245107e3d3, type: 3}
+    - {fileID: 739781706466341623, guid: 981ab0ec4dc2bff4ea26a997708f4e5f, type: 3}
+    - {fileID: 739781706466341623, guid: 4811e9a576a5bd341a9cec48dd1d4341, type: 3}
   - areaSize: {x: 8, y: 8}
     areaSpawnerParent: {fileID: 0}
     areas:
