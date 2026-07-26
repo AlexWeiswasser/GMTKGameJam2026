@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using DG.Tweening;
 using UnityEngine;
 
@@ -25,12 +26,25 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	[SerializeField] GameObject healthPickup;
 	[SerializeField] GameObject deathEffect;
 
+	[Header("Particles")]
+	[SerializeField] ParticleSystem metalParticles;
+	[SerializeField] ParticleSystem wetParticles;
+	[SerializeField] ParticleSystem stunnedParticles;
+	[SerializeField] ParticleSystem onFireParticles;
+	[SerializeField] ParticleSystem oilFireParticles;
+
+	// Particle Tracking
+	GameObject metalParticlesObject;
+	GameObject wetParticlesObject;
+	GameObject stunnedParticlesObject;
+	GameObject onFireParticlesObject;
+	GameObject oilFireParticlesObject;
+
+
 	public void Damage(int amount)
 	{
 		int damageTaken = isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		health -= damageTaken;
-		//isMetalMarked = false;
-		//metalTimer = null;
 
 		foreach (SpriteRenderer spr in behaviorScript.rend)
 		{
@@ -62,7 +76,10 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		behaviorScript.isWet = false;
 
 		if (fireTimer == null)
+		{
+			onFireParticlesObject = Instantiate(onFireParticles).gameObject;
 			fireTimer = new Timer(.5f);
+		}
 		timesFireDamaged = 0;
 	}
 
@@ -72,7 +89,10 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		behaviorScript.isWet = false;
 
 		if (oilTimer == null)
+		{
+			oilFireParticlesObject = Instantiate(oilFireParticles).gameObject;
 			oilTimer = new Timer(.5f);
+		}
 	}
 
 	public bool GetOnFire() => fireTimer != null;
@@ -81,6 +101,8 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	{
 		behaviorScript.canBehavior = false;
 		stunTimer = new Timer(.5f);
+		if (stunnedParticlesObject != null) Destroy(stunnedParticlesObject);
+		stunnedParticlesObject = Instantiate(stunnedParticles).gameObject;
 
 		// Sha-lightning
 		List<ICharInterface> thoseHit = new List<ICharInterface>();
@@ -108,7 +130,10 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	public void SetMetalMarked()
 	{
 		isMetalMarked = true;
-		metalTimer = new Timer(7);
+		metalTimer = new Timer(5);
+
+		if (metalParticlesObject != null) Destroy(metalParticlesObject);
+		metalParticlesObject = Instantiate(metalParticles).gameObject;
 	}
 	public bool GetMetalMarked() => isMetalMarked;
 
@@ -119,15 +144,22 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		behaviorScript.isWet = true;
 		fireTimer = null;
 
+		if (onFireParticlesObject != null)
+		{
+			Destroy(onFireParticlesObject);
+			onFireParticlesObject = null;
+		}
+
 		waterTimer = new Timer(5);
+
+		if (wetParticlesObject != null) Destroy(wetParticlesObject);
+		wetParticlesObject = Instantiate(wetParticles).gameObject;
 	}
 	public bool GetWet() => isWet;
 
 
 	private void Update()
 	{
-		
-
 		// Timers
 		if (fireTimer != null)
 		{
@@ -140,6 +172,12 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			}
 			else if (timesFireDamaged >= 6)
 			{
+				if (onFireParticlesObject != null)
+				{
+					Destroy(onFireParticlesObject);
+					onFireParticlesObject = null;
+				}
+
 				fireTimer = null;
 			}
 		}
@@ -149,8 +187,14 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			stunTimer.Tick(Time.deltaTime);
 			if (stunTimer.Finished)
 			{
-				fireTimer = null;
-				behaviorScript.canBehavior = false;
+				stunTimer = null;
+				behaviorScript.canBehavior = true;
+
+				if (stunnedParticlesObject != null)
+				{
+					Destroy(stunnedParticlesObject);
+					stunnedParticlesObject = null;
+				}
 			}
 		}
 
@@ -162,6 +206,12 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 				waterTimer = null;
 				isWet = false;
 				behaviorScript.isWet = false;
+
+				if (wetParticlesObject != null)
+				{
+					Destroy(wetParticlesObject);
+					wetParticlesObject = null;
+				}
 			}
 		}
 
@@ -172,6 +222,12 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			{
 				metalTimer = null;
 				isMetalMarked = false;
+
+				if (metalParticlesObject != null)
+				{
+					Destroy(metalParticlesObject);
+					metalParticlesObject = null;
+				}
 			}
 		}
 
@@ -180,6 +236,12 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			oilTimer.Tick(Time.deltaTime);
 			if (oilTimer.Finished)
 			{
+				if (oilFireParticlesObject != null)
+				{
+					Destroy(oilFireParticlesObject);
+					oilFireParticlesObject = null;
+				}
+
 				oilTimer = null;
 				Damage(1);
 			}

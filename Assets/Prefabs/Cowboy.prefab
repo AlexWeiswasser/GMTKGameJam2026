@@ -555,6 +555,11 @@ MonoBehaviour:
   setOnFire: {fileID: 0}
   movementScript: {fileID: 8259275662457604754}
   shootScript: {fileID: 7743094426229523484}
+  metalParticles: {fileID: 6676677170064008617, guid: 485bd22513da1d1448839d7ae62137eb, type: 3}
+  wetParticles: {fileID: 6676677170064008617, guid: 17ced61e2791bfc469a0da19bf123d83, type: 3}
+  stunnedParticles: {fileID: 6676677170064008617, guid: 6d467d54054533642a49bf12fea4a5f4, type: 3}
+  onFireParticles: {fileID: 6676677170064008617, guid: 553d38c55f9745e439ca952da2c238b4, type: 3}
+  oilFireParticles: {fileID: 6676677170064008617, guid: a0badf9d644904d4ab20a7601bf6d090, type: 3}
 --- !u!1 &5128560024803116672
 GameObject:
   m_ObjectHideFlags: 0

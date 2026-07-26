@@ -39,6 +39,20 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	[SerializeField] MovementScript movementScript;
 	[SerializeField] ShootScript shootScript;
 
+	[Header("Particles")]
+	[SerializeField] ParticleSystem metalParticles;
+	[SerializeField] ParticleSystem wetParticles;
+	[SerializeField] ParticleSystem stunnedParticles;
+	[SerializeField] ParticleSystem onFireParticles;
+	[SerializeField] ParticleSystem oilFireParticles;
+
+	// Particle Tracking
+	GameObject metalParticlesObject;
+	GameObject wetParticlesObject;
+	GameObject stunnedParticlesObject;
+	GameObject onFireParticlesObject;
+	GameObject oilFireParticlesObject;
+
 	void Start()
 	{
 		dead = false;
@@ -80,15 +94,15 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		//isMetalMarked = false;
 		//metalTimer = null;
 
-foreach (SpriteRenderer spr in movementScript.playerSpriteRenderers)
-{
-	spr.color = Color.red;
-	spr.DOColor(Color.white, 0.2f);
-}
+		foreach (SpriteRenderer spr in movementScript.playerSpriteRenderers)
+		{
+			spr.color = Color.red;
+			spr.DOColor(Color.white, 0.2f);
+		}
 
-int choice = 0;
-choice = UnityEngine.Random.Range(0, playerHurt.Length);
-SoundManager.Instance.PlaySound(playerHurt[choice]);
+		int choice = 0;
+		choice = UnityEngine.Random.Range(0, playerHurt.Length);
+		SoundManager.Instance.PlaySound(playerHurt[choice]);
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 
@@ -113,11 +127,14 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 		isWet = false;
 		movementScript.isWet = false;
 
-		if (fireTimer == null) 
+		if (fireTimer == null)
+		{
+			onFireParticlesObject = Instantiate(onFireParticles).gameObject;
 			fireTimer = new Timer(.5f);
-		timesFireDamaged = 0;
-		SoundManager.Instance.PlaySound(setOnFire);
+			SoundManager.Instance.PlaySound(setOnFire);
+		}
 
+		timesFireDamaged = 0;
 	}
 
 	public void SetOnOilFire()
@@ -126,7 +143,11 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 		movementScript.isWet = false;
 
 		if (oilTimer == null)
+		{
+			oilFireParticlesObject = Instantiate(oilFireParticles).gameObject;
 			oilTimer = new Timer(.5f);
+			SoundManager.Instance.PlaySound(setOnFire);
+		}
 	}
 
 	public bool GetOnFire() => fireTimer != null;
@@ -137,6 +158,8 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 		shootScript.canShoot = false;
 
 		stunTimer = new Timer(.5f);
+		if (stunnedParticlesObject != null) Destroy(stunnedParticlesObject);
+		stunnedParticlesObject = Instantiate(stunnedParticles).gameObject;
 
 		// Sha-lightning
 		List<ICharInterface> thoseHit = new List<ICharInterface>();
@@ -164,7 +187,10 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 	public void SetMetalMarked()
 	{
 		isMetalMarked = true;
-		metalTimer = new Timer(7);
+		metalTimer = new Timer(5);
+
+		if (metalParticlesObject != null) Destroy(metalParticlesObject);
+		metalParticlesObject = Instantiate(metalParticles).gameObject;
 	}
 	public bool GetMetalMarked() => isMetalMarked;
 
@@ -174,17 +200,27 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 		movementScript.isWet = true; 
 		fireTimer = null;
 
+		if (onFireParticlesObject != null)
+		{
+			Destroy(onFireParticlesObject);
+			onFireParticlesObject = null;
+		}
+
 		waterTimer = new Timer(5);
+
+		if (wetParticlesObject != null) Destroy(wetParticlesObject);
+		wetParticlesObject = Instantiate(wetParticles).gameObject;
 	}
 
 	public bool GetWet() => isWet;
 
 	private void Update()
 	{
+		// Timers
 		if (fireTimer != null)
 		{
 			fireTimer.Tick(Time.deltaTime);
-			if(fireTimer.Finished && timesFireDamaged != 6)
+			if (fireTimer.Finished && timesFireDamaged != 6)
 			{
 				fireTimer.Reset();
 				Damage(1);
@@ -192,6 +228,12 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 			}
 			else if (timesFireDamaged >= 6)
 			{
+				if (onFireParticlesObject != null)
+				{
+					Destroy(onFireParticlesObject);
+					onFireParticlesObject = null;
+				}
+
 				fireTimer = null;
 			}
 		}
@@ -201,9 +243,15 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 			stunTimer.Tick(Time.deltaTime);
 			if (stunTimer.Finished)
 			{
-				fireTimer = null;
+				stunTimer = null;
 				movementScript.canMove = true;
 				shootScript.canShoot = true;
+
+				if (stunnedParticlesObject != null)
+				{
+					Destroy(stunnedParticlesObject);
+					stunnedParticlesObject = null;
+				}
 			}
 		}
 
@@ -215,6 +263,12 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 				waterTimer = null;
 				isWet = false;
 				movementScript.isWet = false;
+
+				if (wetParticlesObject != null)
+				{
+					Destroy(wetParticlesObject);
+					wetParticlesObject = null;
+				}
 			}
 		}
 
@@ -224,15 +278,27 @@ SoundManager.Instance.PlaySound(playerHurt[choice]);
 			if (metalTimer.Finished)
 			{
 				metalTimer = null;
-				isMetalMarked = false; 
+				isMetalMarked = false;
+
+				if (metalParticlesObject != null)
+				{
+					Destroy(metalParticlesObject);
+					metalParticlesObject = null;
+				}
 			}
 		}
 
 		if (oilTimer != null)
 		{
 			oilTimer.Tick(Time.deltaTime);
-			if(oilTimer.Finished)
+			if (oilTimer.Finished)
 			{
+				if (oilFireParticlesObject != null)
+				{
+					Destroy(oilFireParticlesObject);
+					oilFireParticlesObject = null;
+				}
+
 				oilTimer = null;
 				Damage(1);
 			}
