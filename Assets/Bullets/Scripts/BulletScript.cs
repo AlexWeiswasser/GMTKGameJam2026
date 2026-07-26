@@ -11,7 +11,12 @@ public class BulletScript : MonoBehaviour
 		Fire,
 		FullMetalJacket,
 		Lightning,
-		Water
+		Water,
+		Knockback, 
+		Recoil, 
+		Vortex, 
+		Shotgun, 
+		Explosive
 	}
 
 	[Header("References")]
@@ -20,6 +25,8 @@ public class BulletScript : MonoBehaviour
 
 	[Header("Stats")]
 	[SerializeField] float speed = 35f;
+	[SerializeField] int knockback = 10;
+	[SerializeField] int selfKnockback = 0;
 	public BulletType type;
 	public int damage = 10; 
 
@@ -41,6 +48,17 @@ public class BulletScript : MonoBehaviour
 		// Rotation
 		if (playerCreated)
 		{
+			if (selfKnockback != 0)
+			{
+				MovementScript mScript = GameObject.FindAnyObjectByType<MovementScript>();
+				if (mScript != null)
+				{
+					direction = (MovementScript.playerTransform.position - transform.position).normalized;
+					mScript.Knockback(direction, selfKnockback);
+					AimScript.MegaRecoil();
+				}
+			}
+
 			mouseScreenPos = Mouse.current.position.ReadValue();
 			cursorWorldPos = (Vector2)Camera.main.ScreenToWorldPoint(mouseScreenPos);
 			direction = (cursorWorldPos - (Vector2)MovementScript.playerTransform.position).normalized;
@@ -71,10 +89,12 @@ public class BulletScript : MonoBehaviour
 				if (collision.TryGetComponent<ICharInterface>(out var face))
 				{
 					Vector2 direction = (collision.transform.position - transform.position).normalized;
-					face.Knockback(direction, damage);
+					face.Knockback(direction, knockback);
 					face.Damage(damage);
 				}
 				OnCharacterEnter(collision);
+				OnBulletDeath();
+				Destroy(gameObject);
 			}
 		}
 		else 
@@ -86,6 +106,6 @@ public class BulletScript : MonoBehaviour
 
 
 	protected virtual void OnEffectEnter(Collider2D collision) { }
-	protected virtual void OnCharacterEnter(Collider2D collision) { Destroy(gameObject); }
+	protected virtual void OnCharacterEnter(Collider2D collision) { }
 	protected virtual void OnBulletDeath() { }
 }

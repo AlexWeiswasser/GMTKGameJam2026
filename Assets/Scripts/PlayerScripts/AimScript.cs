@@ -12,8 +12,9 @@ public class AimScript : MonoBehaviour
 	public static event Action<bool> OnGunFlip;
 
 	private readonly float MAX_RADIUS = 0.65f;
-	private readonly float MIN_RADIUS = 0.2f;
-	private float radius = 0.65f;
+	private static readonly float MIN_RADIUS = 0.2f;
+	private static readonly float MEGA_MAX_RADIUS = 1.3f;
+	private static float radius = 0.65f;
 
 	private void OnEnable()
 	{
@@ -50,6 +51,14 @@ public class AimScript : MonoBehaviour
 	private void Recoil(OnBulletFire onBulletFire)
 	{
 		DOVirtual.Float(MIN_RADIUS, MAX_RADIUS, 0.2f, (float value) =>
+		{
+			radius = value;
+		});
+	}
+
+	public static void MegaRecoil()
+	{
+		DOVirtual.Float(MIN_RADIUS, MEGA_MAX_RADIUS, 0.2f, (float value) =>
 		{
 			radius = value;
 		});

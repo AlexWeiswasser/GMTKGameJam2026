@@ -26,8 +26,8 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 	{
 		int damageTaken = isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		health -= damageTaken;
-		isMetalMarked = false;
-		metalTimer = null;
+		//isMetalMarked = false;
+		//metalTimer = null;
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 	}

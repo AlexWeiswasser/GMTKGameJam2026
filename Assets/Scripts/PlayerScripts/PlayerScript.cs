@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour, ICharInterface
 {
 	// Stats
-	public static readonly int MAX_HEALTH = 50;
-	int health = 50;
+	public static readonly int MAX_HEALTH = 100;
+	public static int health = 100;
 	int hitStreak = 0;
 	private static bool dead = false;
 	public static bool IsDead() { return dead; }
@@ -42,8 +42,8 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		if (BulletSelectController.PlayerBusy()) return;
 		int damageTaken =isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		health -= damageTaken;
-		isMetalMarked = false;
-		metalTimer = null;
+		//isMetalMarked = false;
+		//metalTimer = null;
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 

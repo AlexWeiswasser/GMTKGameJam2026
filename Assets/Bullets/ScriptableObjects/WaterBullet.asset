@@ -17,4 +17,4 @@ MonoBehaviour:
   chamberSprite: {fileID: 1382658525, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   bulletName: Water Bullet
   bulletDescription: 'If this bullet hits an entity, they become wet. Spreads any
-    oil it goes over. Can put out non-oil fires.  '
+    oil it goes over. '

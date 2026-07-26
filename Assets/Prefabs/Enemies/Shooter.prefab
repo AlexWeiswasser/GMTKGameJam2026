@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe22375ce4136242810d1edeafab2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  health: 10
+  health: 15
   isMetalMarked: 0
   isWet: 0
   behaviorScript: {fileID: 6719020264385847351}
@@ -196,6 +196,7 @@ MonoBehaviour:
   acceleration: 40
   damping: 10
   detectionRange: 20
+  externalVelocity: {x: 0, y: 0}
   bullet: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
   spriteObject: {fileID: 6720001947372109313}
   gunTransform: {fileID: 7169741913905479936}
