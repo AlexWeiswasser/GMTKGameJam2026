@@ -123,7 +123,7 @@ public abstract class BehaviorScript : MonoBehaviour
 
 	protected void DamageCheck(CircleCollider2D collider, int damage)
 	{
-		float radius = collider.radius * Mathf.Max(collider.transform.lossyScale.x, collider.transform.lossyScale.y, collider.transform.lossyScale.z);
+		float radius = collider.radius * Mathf.Max(collider.transform.lossyScale.x, collider.transform.lossyScale.y, collider.transform.lossyScale.z) * 1.1f;
 		LayerMask hurtMask = LayerMask.GetMask("Character");
 		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, radius, hurtMask);
 
