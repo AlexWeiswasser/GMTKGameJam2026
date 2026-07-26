@@ -174,7 +174,7 @@ MonoBehaviour:
   playerCreated: 0
   speed: 35
   knockback: 10
-  selfKnockback: 30
+  selfKnockback: 40
   type: 6
   damage: 12
   isShotgun: 0

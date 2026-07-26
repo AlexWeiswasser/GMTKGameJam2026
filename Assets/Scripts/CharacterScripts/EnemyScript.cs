@@ -77,7 +77,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 		if (fireTimer == null)
 		{
-			onFireParticlesObject = Instantiate(onFireParticles).gameObject;
+			onFireParticlesObject = Instantiate(onFireParticles, transform).gameObject;
 			fireTimer = new Timer(.5f);
 		}
 		timesFireDamaged = 0;
@@ -90,7 +90,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 		if (oilTimer == null)
 		{
-			oilFireParticlesObject = Instantiate(oilFireParticles).gameObject;
+			oilFireParticlesObject = Instantiate(oilFireParticles, transform).gameObject;
 			oilTimer = new Timer(.5f);
 		}
 	}
@@ -102,7 +102,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		behaviorScript.canBehavior = false;
 		stunTimer = new Timer(.5f);
 		if (stunnedParticlesObject != null) Destroy(stunnedParticlesObject);
-		stunnedParticlesObject = Instantiate(stunnedParticles).gameObject;
+		stunnedParticlesObject = Instantiate(stunnedParticles, transform).gameObject;
 
 		// Sha-lightning
 		List<ICharInterface> thoseHit = new List<ICharInterface>();
@@ -133,7 +133,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		metalTimer = new Timer(5);
 
 		if (metalParticlesObject != null) Destroy(metalParticlesObject);
-		metalParticlesObject = Instantiate(metalParticles).gameObject;
+		metalParticlesObject = Instantiate(metalParticles, transform).gameObject;
 	}
 	public bool GetMetalMarked() => isMetalMarked;
 
@@ -153,7 +153,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		waterTimer = new Timer(5);
 
 		if (wetParticlesObject != null) Destroy(wetParticlesObject);
-		wetParticlesObject = Instantiate(wetParticles).gameObject;
+		wetParticlesObject = Instantiate(wetParticles, transform).gameObject;
 	}
 	public bool GetWet() => isWet;
 

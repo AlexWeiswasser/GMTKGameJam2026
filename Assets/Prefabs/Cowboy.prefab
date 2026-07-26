@@ -550,9 +550,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fec9abfb55cfe0f42b797f8bec3e2f88, type: 3}
   - {fileID: 8300000, guid: 65d3802b132cc4d47adc3a40a8791380, type: 3}
   - {fileID: 8300000, guid: dd80b9e7fa05527478d35ddd536bbcc8, type: 3}
-  playerDeath: {fileID: 0}
-  playerWalk: {fileID: 0}
-  setOnFire: {fileID: 0}
+  playerDeath: {fileID: 8300000, guid: 56bc79ea2f89588409025d3bfce8c438, type: 3}
+  playerWalk: {fileID: 8300000, guid: fec9abfb55cfe0f42b797f8bec3e2f88, type: 3}
+  setOnFire: {fileID: 8300000, guid: 8e976c64ec6eb8b4eb4abe9598703786, type: 3}
   movementScript: {fileID: 8259275662457604754}
   shootScript: {fileID: 7743094426229523484}
   metalParticles: {fileID: 6676677170064008617, guid: 485bd22513da1d1448839d7ae62137eb, type: 3}

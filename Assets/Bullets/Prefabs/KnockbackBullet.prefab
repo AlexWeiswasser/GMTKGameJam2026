@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletScript
   playerCreated: 0
   speed: 35
-  knockback: 30
+  knockback: 50
   selfKnockback: 0
   type: 0
   damage: 12

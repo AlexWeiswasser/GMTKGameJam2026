@@ -89,7 +89,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 	private void DamageActions(int amount)
 	{
-		int damageTaken =isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
+		int damageTaken = isMetalMarked ? Mathf.RoundToInt(amount * 1.25f) : amount;
 		health -= damageTaken;
 		//isMetalMarked = false;
 		//metalTimer = null;
@@ -100,9 +100,10 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 			spr.DOColor(Color.white, 0.2f);
 		}
 
-		int choice = 0;
+		int choice = -1;
 		choice = UnityEngine.Random.Range(0, playerHurt.Length);
-		SoundManager.Instance.PlaySound(playerHurt[choice]);
+		if(choice != -1)
+			SoundManager.Instance.PlaySound(playerHurt[choice]);
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 
@@ -129,7 +130,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 		if (fireTimer == null)
 		{
-			onFireParticlesObject = Instantiate(onFireParticles).gameObject;
+			onFireParticlesObject = Instantiate(onFireParticles, transform).gameObject;
 			fireTimer = new Timer(.5f);
 			SoundManager.Instance.PlaySound(setOnFire);
 		}
@@ -144,7 +145,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 		if (oilTimer == null)
 		{
-			oilFireParticlesObject = Instantiate(oilFireParticles).gameObject;
+			oilFireParticlesObject = Instantiate(oilFireParticles, transform).gameObject;
 			oilTimer = new Timer(.5f);
 			SoundManager.Instance.PlaySound(setOnFire);
 		}
@@ -159,7 +160,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 
 		stunTimer = new Timer(.5f);
 		if (stunnedParticlesObject != null) Destroy(stunnedParticlesObject);
-		stunnedParticlesObject = Instantiate(stunnedParticles).gameObject;
+		stunnedParticlesObject = Instantiate(stunnedParticles, transform).gameObject;
 
 		// Sha-lightning
 		List<ICharInterface> thoseHit = new List<ICharInterface>();
@@ -190,7 +191,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		metalTimer = new Timer(5);
 
 		if (metalParticlesObject != null) Destroy(metalParticlesObject);
-		metalParticlesObject = Instantiate(metalParticles).gameObject;
+		metalParticlesObject = Instantiate(metalParticles, transform).gameObject;
 	}
 	public bool GetMetalMarked() => isMetalMarked;
 
@@ -209,7 +210,7 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		waterTimer = new Timer(5);
 
 		if (wetParticlesObject != null) Destroy(wetParticlesObject);
-		wetParticlesObject = Instantiate(wetParticles).gameObject;
+		wetParticlesObject = Instantiate(wetParticles, transform).gameObject;
 	}
 
 	public bool GetWet() => isWet;
