@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1152916959062445290}
   - component: {fileID: 1529544445446558016}
+  - component: {fileID: -73616616802877130}
   - component: {fileID: 2622574981670456912}
   - component: {fileID: 2905977398923057449}
   m_Layer: 7
@@ -48,10 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe22375ce4136242810d1edeafab2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  health: 15
+  health: 25
   isMetalMarked: 0
   isWet: 0
-  behaviorScript: {fileID: 0}
+  behaviorScript: {fileID: -73616616802877130}
   healthPickup: {fileID: 7812922889127791476, guid: 5abaf2feb778776429732f739c34e025, type: 3}
   deathEffect: {fileID: 6700140164619206162, guid: c2875ef0c486e204b8885902251c9c6a, type: 3}
   metalParticles: {fileID: 6676677170064008617, guid: 485bd22513da1d1448839d7ae62137eb, type: 3}
@@ -59,6 +60,34 @@ MonoBehaviour:
   stunnedParticles: {fileID: 6676677170064008617, guid: 6d467d54054533642a49bf12fea4a5f4, type: 3}
   onFireParticles: {fileID: 6676677170064008617, guid: 553d38c55f9745e439ca952da2c238b4, type: 3}
   oilFireParticles: {fileID: 6676677170064008617, guid: a0badf9d644904d4ab20a7601bf6d090, type: 3}
+--- !u!114 &-73616616802877130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740245754548675825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdc1b3077d5fe6468a93882251bbbc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DynaThrowerScript
+  isWet: 0
+  canBehavior: 1
+  rend:
+  - {fileID: 3211657680324239156}
+  maxSpeed: 4
+  acceleration: 40
+  damping: 10
+  detectionRange: 20
+  externalVelocity: {x: 0, y: 0}
+  dynamite: {fileID: 5741787655315565694, guid: 35e5eb851c57e1946be18df9b2b17219, type: 3}
+  spriteObject: {fileID: 6720001947372109313}
+  timeBetweenShots: 3
+  hopDuration: 0.2
+  hopStrength: 0.4
+  hopEasing: 4
+  landParticles: {fileID: 6676677170064008617, guid: 8f577016192f3a6419885a4acfa71d6e, type: 3}
 --- !u!50 &2622574981670456912
 Rigidbody2D:
   serializedVersion: 5

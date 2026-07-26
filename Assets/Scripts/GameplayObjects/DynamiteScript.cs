@@ -6,18 +6,35 @@ public class DynamiteScript : MonoBehaviour
     [SerializeField] SpriteRenderer rend;
 	[SerializeField] GameObject explosion;
 	[SerializeField] ParticleSystem explosionParticles;
+	[SerializeField] Collider2D col;
 	bool defused = false;
 	Tween bombTween = null;
 
-	void Start()
-    {
-        ExplosionAnimation();
-    }
+	public void Movement(Vector2 goalPosition)
+	{
+		Vector3 startScale = transform.localScale;
+		Vector3 goal = new Vector3(goalPosition.x, goalPosition.y, transform.position.z);
+
+		DOTween.Sequence()
+			.Append(transform.DOMove(goal, 2).SetEase(Ease.InOutSine))
+			.Join(transform.DOScale(startScale * 2f, 2 * 0.5f)
+				.SetLoops(2, LoopType.Yoyo)
+				.SetEase(Ease.InOutSine))
+			.OnComplete(() =>
+			{
+				col.enabled = true;
+				ExplosionAnimation();
+			});
+	}
 
 	public void Defuse()
 	{
 		defused = true;
-		bombTween.Kill();
+		if (bombTween != null)
+		{
+			bombTween.Kill();
+			bombTween = null;
+		}
 	}
 
     public void ExplosionAnimation()
