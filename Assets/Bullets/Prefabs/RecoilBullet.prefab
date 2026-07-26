@@ -174,7 +174,7 @@ MonoBehaviour:
   playerCreated: 0
   speed: 35
   knockback: 10
-  selfKnockback: 25
+  selfKnockback: 30
   type: 6
   damage: 12
 --- !u!96 &3792658928478043869

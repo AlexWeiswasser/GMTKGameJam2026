@@ -196,6 +196,7 @@ MonoBehaviour:
   acceleration: 30
   damping: 10
   detectionRange: 20
+  externalVelocity: {x: 0, y: 0}
   bullet: {fileID: 6983272080299161828, guid: 28edeaa71a741c8439d7f50a28577b5f, type: 3}
   spriteObject: {fileID: 6720001947372109313}
   gunTransform: {fileID: 7169741913905479936}
@@ -243,7 +244,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7db7901a2f6279045b7758ed12d097c0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
