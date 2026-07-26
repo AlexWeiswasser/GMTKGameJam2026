@@ -33,6 +33,9 @@ public class MovementScript : MonoBehaviour
 	Vector2 movementVelocity;
 	Vector2 externalVelocity;
 
+	//sounds
+	[SerializeField] AudioClip[] walkSounds;
+
 	public void MoveLeft(InputAction.CallbackContext context) { if (context.performed) heldDown[0] = true; else heldDown[0] = false; }
 	public void MoveRight(InputAction.CallbackContext context) { if(context.performed) heldDown[1] = true; else heldDown[1] = false; }
 	public void MoveDown(InputAction.CallbackContext context) { if(context.performed) heldDown[2] = true; else heldDown[2] = false; }
@@ -99,7 +102,9 @@ public class MovementScript : MonoBehaviour
 				animating = true;
 				spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
 					.SetEase(hopEasing)
-					.OnComplete(() => { animating = false; landParticles.Play(); });
+					.OnComplete(() => { animating = false; landParticles.Play();	int choice = 0;
+																					choice = UnityEngine.Random.Range(0, walkSounds.Length);
+																					SoundManager.Instance.PlaySound(walkSounds[choice]);});
 			}
 		}
 		externalVelocity *= 0.9f;
