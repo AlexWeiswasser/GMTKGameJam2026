@@ -5,7 +5,6 @@ using static BulletStorageScript;
 
 public class BulletScript : MonoBehaviour
 {
-
 	public enum BulletType
 	{
 		Default,
@@ -24,6 +23,7 @@ public class BulletScript : MonoBehaviour
 	[Header("References")]
 	[HideInInspector] public bool playerCreated;
 	Rigidbody2D rb;
+	
 
 	[Header("Stats")]
 	[SerializeField] float speed = 35f;
@@ -36,6 +36,7 @@ public class BulletScript : MonoBehaviour
 	[SerializeField] bool isShotgun = false;
 	[SerializeField] bool isShotgunPellet = false;
 	[SerializeField] GameObject bulletPrefab = null;
+	[SerializeField] TrailRenderer tr;
 
 	public void Init(bool createdByPlayer)
 	{
@@ -122,12 +123,18 @@ public class BulletScript : MonoBehaviour
 				}
 				OnCharacterEnter(collision);
 				OnBulletDeath();
+				tr.transform.parent = null;
+				tr.autodestruct = true;
+				tr.time = 0.1f;
 				Destroy(gameObject);
 			}
 		}
 		else 
 		{
 			OnBulletDeath();
+			tr.transform.parent = null;
+			tr.autodestruct = true;
+			tr.time = 0.1f;
 			Destroy(gameObject);
 		}
 	}

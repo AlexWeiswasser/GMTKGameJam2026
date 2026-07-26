@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8158609967821888407}
   - component: {fileID: 4621495147039580324}
   - component: {fileID: -6222244898889266631}
-  - component: {fileID: 3792658928478043869}
   m_Layer: 8
   m_Name: ShotgunBullet
   m_TagString: Untagged
@@ -33,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 4344933637883326285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &39324472917428427
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8374911561689691219, guid: 8a6bf76a9e0352c41a54248820ea44ad, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -178,15 +178,49 @@ MonoBehaviour:
   type: 9
   damage: 10
   isShotgun: 1
+  isShotgunPellet: 0
   bulletPrefab: {fileID: 6983272080299161828, guid: 70cc10a52ad689743ae942153c624c8c, type: 3}
---- !u!96 &3792658928478043869
+  tr: {fileID: 7252853477919650772}
+--- !u!1 &8400161641457954592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4344933637883326285}
+  - component: {fileID: 7252853477919650772}
+  m_Layer: 8
+  m_Name: Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4344933637883326285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400161641457954592}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5991982858351801890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &7252853477919650772
 TrailRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6983272080299161828}
+  m_GameObject: {fileID: 8400161641457954592}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
