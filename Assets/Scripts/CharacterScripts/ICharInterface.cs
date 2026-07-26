@@ -8,7 +8,7 @@ public interface ICharInterface
 	public void SetOnFire();
 	public void SetOnOilFire();
 	public bool GetOnFire();
-	public void SetStunned(List<Collider2D> thoseAlreadyHit = null);
+	public void SetStunned(HashSet<Collider2D> alreadyHit = null);
 	public void SetMetalMarked();
 	public void SetWet();
 	public bool GetWet();

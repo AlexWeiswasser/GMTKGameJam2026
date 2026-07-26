@@ -53,40 +53,43 @@ public abstract class BehaviorScript : MonoBehaviour
 		if (Vector2.Distance(transform.position, MovementScript.playerTransform.position) > detectionRange) return;
 		if (BulletSelectController.PlayerBusy()) return;
 
-		// Lunge movement
-		if (lunging)
+		if (canBehavior)
 		{
-			lungeTimer -= Time.fixedDeltaTime;
-
-			if (lungeTimer <= 0f)
+			// Lunge movement
+			if (lunging)
 			{
-				lunging = false;
-				movementVelocity = Vector2.zero;
-			}
-		}
-		else
-		{
-			// Base movement
-			rb.linearDamping = damping;
-			if (canBehavior && canMove)
-			{
-				float currentMaxSpeed = maxSpeed;
-				if (isWet) currentMaxSpeed *= .8f;
+				lungeTimer -= Time.fixedDeltaTime;
 
-				if (givenDirection != Vector2.zero)
+				if (lungeTimer <= 0f)
 				{
-					movementVelocity = Vector2.MoveTowards(
-						movementVelocity,
-						givenDirection * currentMaxSpeed,
-						acceleration * Time.fixedDeltaTime);
+					lunging = false;
+					movementVelocity = Vector2.zero;
 				}
-				else
+			}
+			else
+			{
+				// Base movement
+				rb.linearDamping = damping;
+				if (canBehavior && canMove)
 				{
-					Vector2 direction = (targetPos.position - transform.position).normalized;
-					movementVelocity = Vector2.MoveTowards(
-						movementVelocity,
-						direction * currentMaxSpeed,
-						acceleration * Time.fixedDeltaTime);
+					float currentMaxSpeed = maxSpeed;
+					if (isWet) currentMaxSpeed *= .8f;
+
+					if (givenDirection != Vector2.zero)
+					{
+						movementVelocity = Vector2.MoveTowards(
+							movementVelocity,
+							givenDirection * currentMaxSpeed,
+							acceleration * Time.fixedDeltaTime);
+					}
+					else
+					{
+						Vector2 direction = (targetPos.position - transform.position).normalized;
+						movementVelocity = Vector2.MoveTowards(
+							movementVelocity,
+							direction * currentMaxSpeed,
+							acceleration * Time.fixedDeltaTime);
+					}
 				}
 			}
 		}

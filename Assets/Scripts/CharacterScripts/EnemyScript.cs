@@ -97,34 +97,35 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	public bool GetOnFire() => fireTimer != null;
 
-	public void SetStunned(List<Collider2D> thoseAlreadyHit = null)
+	public void SetStunned(HashSet<Collider2D> alreadyHit = null)
 	{
 		behaviorScript.canBehavior = false;
-		stunTimer = new Timer(.5f);
+		stunTimer = new Timer(2f);
 		if (stunnedParticlesObject != null) Destroy(stunnedParticlesObject);
 		stunnedParticlesObject = Instantiate(stunnedParticles, transform).gameObject;
 
-		// Sha-lightning
-		List<ICharInterface> thoseHit = new List<ICharInterface>();
-		List<Collider2D> newThoseAlreadyHit = new List<Collider2D>();
-		if (thoseAlreadyHit != null)
-			newThoseAlreadyHit.AddRange(thoseAlreadyHit);
+		// Sha-lightning 
+		alreadyHit ??= new HashSet<Collider2D>();
+
+		foreach (Collider2D own in GetComponentsInChildren<Collider2D>())
+			alreadyHit.Add(own);
+
+		List<ICharInterface> toZap = new List<ICharInterface>();
 
 		LayerMask hurtMask = LayerMask.GetMask("Character");
-		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, 7.5f, hurtMask);
-		foreach (Collider2D col in nearbyColliders)
+		Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, 7.5f, hurtMask);
+		foreach (Collider2D col in nearby)
 		{
-			if (thoseAlreadyHit != null && thoseAlreadyHit.Contains(col)) continue;
-			if (col.transform.TryGetComponent<ICharInterface>(out var cFace) && cFace.GetWet() || cFace.GetMetalMarked())
-			{
-				thoseHit.Add(cFace);
-				newThoseAlreadyHit.Add(col);
-			}
+			if (alreadyHit.Contains(col)) continue;
+			if (!col.TryGetComponent<ICharInterface>(out var cFace)) continue;
+			if (!cFace.GetWet() && !cFace.GetMetalMarked()) continue;
+
+			alreadyHit.Add(col);   
+			toZap.Add(cFace);
 		}
-		foreach (ICharInterface zapped in thoseHit)
-		{
-			zapped.SetStunned(newThoseAlreadyHit);
-		}
+
+		foreach (ICharInterface zapped in toZap)
+			zapped.SetStunned(alreadyHit);
 	}
 
 	public void SetMetalMarked()

@@ -49,7 +49,8 @@ public class ShooterScript : BehaviorScript
 
 	private void Update()
 	{
-		if (BulletSelectController.PlayerBusy()) return;
+		if (BulletSelectController.PlayerBusy() || !canBehavior) return;
+
 		// Moving
 		walkTimer.Tick(Time.deltaTime);
 		if (walkTimer.Finished)
