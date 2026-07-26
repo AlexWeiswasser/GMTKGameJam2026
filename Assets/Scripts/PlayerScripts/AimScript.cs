@@ -9,6 +9,8 @@ public class AimScript : MonoBehaviour
 	[SerializeField] Transform gunTransform;
 	[SerializeField] SpriteRenderer gunSprite;
 
+	[SerializeField] private AudioClip reload;
+
 	public static event Action<bool> OnGunFlip;
 
 	private readonly float MAX_RADIUS = 0.65f;
@@ -57,6 +59,7 @@ public class AimScript : MonoBehaviour
 
 	private void Reload(StartReload reloadData)
 	{
+		SoundManager.Instance.PlaySound(reload);
 		Invoke("ReloadDone", reloadData.reloadTime);
 	}
 

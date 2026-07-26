@@ -39,6 +39,8 @@ public class BulletScript : MonoBehaviour
 	[SerializeField] ParticleSystem hitSpark;
 	[SerializeField] TrailRenderer tr;
 
+	[SerializeField] private AudioClip bulletImpact;
+
 	public void Init(bool createdByPlayer)
 	{
 		playerCreated = createdByPlayer;
@@ -123,6 +125,7 @@ public class BulletScript : MonoBehaviour
 					face.Knockback(direction, knockback);
 					face.Damage(damage);
 				}
+				SoundManager.Instance.PlaySound(bulletImpact);
 				OnBulletDeath();
 				Instantiate(hitSpark, transform.position, Quaternion.identity);
 				tr.transform.parent = null;
@@ -134,6 +137,7 @@ public class BulletScript : MonoBehaviour
 		else 
 		{
 			OnBulletDeath();
+			SoundManager.Instance.PlaySound(bulletImpact, .9f, 1.1f, .5f);
 			Instantiate(hitSpark, transform.position, Quaternion.identity);
 			tr.transform.parent = null;
 			tr.autodestruct = true;

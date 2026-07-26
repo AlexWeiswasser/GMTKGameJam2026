@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 7cf23acb942e8604f89dce8a7c89f6eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nextBullet: {fileID: 8300000, guid: 1d38f0cd3bf629a4ca6a01dbb0ac8ed7, type: 3}
+  - cylinder: {instanceID: 0}
+  - emptySprite: {instanceID: 0}
+  - ammoCount: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

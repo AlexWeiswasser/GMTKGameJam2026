@@ -499,6 +499,9 @@ MonoBehaviour:
   bulletSpawnPos: {fileID: 418520680573317709}
   bullet: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
   canShoot: 1
+  gunshot:
+  - {fileID: 8300000, guid: 4510639dc11f13947a9a1dffdfeb58f9, type: 3}
+  - {fileID: 8300000, guid: 101aca56cbdf9e44bb07bc5dd7ee2fea, type: 3}
 --- !u!114 &2672484136828803075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AimScript
   gunTransform: {fileID: 2923612213806403035}
   gunSprite: {fileID: 2862016653264048610}
+  reload: {fileID: 8300000, guid: 07eb549475de71c4794af65a32e584eb, type: 3}
+  nextBullet: {fileID: 8300000, guid: 1d38f0cd3bf629a4ca6a01dbb0ac8ed7, type: 3}
 --- !u!114 &6552402806627053603
 MonoBehaviour:
   m_ObjectHideFlags: 0

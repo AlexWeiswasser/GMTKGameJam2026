@@ -8,6 +8,7 @@ public class ShootScript : MonoBehaviour
 	[SerializeField] Transform bulletSpawnPos;
 	[SerializeField] GameObject bullet;
 	[HideInInspector] public bool canShoot = true;
+	[SerializeField] AudioClip[] gunshot;
 
 	public void Shoot(InputAction.CallbackContext context)
 	{
@@ -26,6 +27,9 @@ public class ShootScript : MonoBehaviour
 
 				BulletScript bulletScript = Instantiate(bullet.bulletData.bulletPrefab, bulletSpawnPos.position, Quaternion.identity).GetComponent<BulletScript>();
 				bulletScript.Init(createdByPlayer: true);
+				int choice = -1;
+				choice = UnityEngine.Random.Range(0, gunshot.Length);
+				SoundManager.Instance.PlaySound(gunshot[choice]);
 			}
 		}
 	}

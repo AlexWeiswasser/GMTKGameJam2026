@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class BulletTrackerScript : MonoBehaviour
 {
+	[SerializeField] private AudioClip nextBullet;
+
 	private void OnEnable()
 	{
 		EventBus<OnReload>.Subscribe(SetVisuals);
@@ -185,6 +187,7 @@ public class BulletTrackerScript : MonoBehaviour
 
 	private void RotateToBullet(int bullet)
 	{
+		SoundManager.Instance.PlaySound(nextBullet);
 		cylinder.DORotate(new Vector3(0, 0, 60f * bullet), 0.2f, RotateMode.FastBeyond360)
 			.SetEase(easing);
 	}
