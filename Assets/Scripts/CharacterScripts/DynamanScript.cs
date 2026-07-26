@@ -1,12 +1,10 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class DynamanScript : BehaviorScript
 {
 	[SerializeField] GameObject explosion;
 	[SerializeField] ParticleSystem explosionParticles;
 	[SerializeField] Transform child;
-	bool spawnedBomb = false; 
 
 	protected override void Start()
 	{
@@ -43,22 +41,15 @@ public class DynamanScript : BehaviorScript
 			if (collision.transform.TryGetComponent<ICharInterface>(out var face))
 			{
 				Vector2 direction = (collision.transform.position - transform.position).normalized;
-				SpawnBomb();
+				Explode();
 				Destroy(gameObject);
 			}
 		}
 	}
 	
-	private void SpawnBomb()
+	public void Explode()
 	{
-		if(spawnedBomb) return;
-		spawnedBomb = true;
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity); 
-	}
-
-	private void OnDestroy()
-	{
-		SpawnBomb();
 	}
 }

@@ -16,5 +16,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6983272080299161828, guid: 923ea7335f9038443bfaac9110ae396d, type: 3}
   chamberSprite: {fileID: -1167604610, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   bulletName: Lightning Bullet
-  bulletDescription: 'Upon hitting an entity, they are stunned. If they''re wet or
-    metal marked, lighting chains to neaby wet/metal marked entities.  '
+  bulletDescription: 'Stuns enemies on hit. If they''re wet or metal marked, lighting
+    chains to neaby wet/metal marked enemies!  '

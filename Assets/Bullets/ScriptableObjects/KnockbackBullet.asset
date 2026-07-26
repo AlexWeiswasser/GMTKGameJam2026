@@ -16,4 +16,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6983272080299161828, guid: 7583e5af7fff0ee45965f65091b83825, type: 3}
   chamberSprite: {fileID: 681463731, guid: d9fba612e42668a4c8410b8f54757f9b, type: 3}
   bulletName: Knockback Bullet
-  bulletDescription: Deals higher damage than a normal bullet, and packs a punch!
+  bulletDescription: Packs a punch!
