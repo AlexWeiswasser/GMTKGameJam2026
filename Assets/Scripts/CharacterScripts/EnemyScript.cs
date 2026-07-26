@@ -75,6 +75,8 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	public void SetOnFire()
 	{
+		if (TryGetComponent<DynamanScript>(out var dScript)) dScript.Explode();
+
 		isWet = false;
 		behaviorScript.isWet = false;
 
@@ -88,6 +90,8 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 
 	public void SetOnOilFire()
 	{
+		if (TryGetComponent<DynamanScript>(out var dScript)) dScript.Explode();
+
 		isWet = false;
 		behaviorScript.isWet = false;
 
