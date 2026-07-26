@@ -18,6 +18,8 @@ public class DamageNumberController : MonoBehaviour
 
     void SpawnDamageNumber(OnDamageTaken onDamageTaken)
     {
+        if (onDamageTaken.damageValue <= 0) return;
+
         float xDifference = Random.Range(-1f, 1f);
         Vector2 position = new Vector2(onDamageTaken.position.x + xDifference, onDamageTaken.position.y);
         int number = onDamageTaken.damageValue;
