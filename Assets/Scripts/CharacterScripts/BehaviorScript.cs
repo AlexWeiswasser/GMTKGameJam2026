@@ -73,7 +73,7 @@ public abstract class BehaviorScript : MonoBehaviour
 				if (canBehavior && canMove)
 				{
 					float currentMaxSpeed = maxSpeed;
-					if (isWet) currentMaxSpeed *= .8f;
+					if (isWet) currentMaxSpeed *= .5f;
 
 					if (givenDirection != Vector2.zero)
 					{

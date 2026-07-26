@@ -14,14 +14,20 @@ public class DynamiteScript : MonoBehaviour
 
     public void ExplosionAnimation()
     {
-        rend.DOColor(Color.white, 1f).OnComplete(() =>
-        {
-            Explode();
-        });
-    }
+		Color faded = Color.Lerp(rend.color, Color.clear, .5f);
+
+		rend.DOColor(faded, 1f/6f)
+			.SetLoops(6, LoopType.Yoyo) 
+			.OnComplete(() =>
+			{
+				Explode();
+			});
+	}
+
 	public void Explode()
 	{
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity);
+		Destroy(gameObject);
 	}
 }
