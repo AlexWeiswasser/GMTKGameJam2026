@@ -38,6 +38,8 @@ public class DynamanScript : BehaviorScript
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		if (TryGetComponent<EnemyScript>(out var eScript)) if (eScript.isWet) return;
+
 		if (collision.transform.CompareTag("Player"))
 		{
 			if (collision.transform.TryGetComponent<ICharInterface>(out var face))
@@ -51,6 +53,8 @@ public class DynamanScript : BehaviorScript
 	
 	public void Explode()
 	{
+		if (TryGetComponent<EnemyScript>(out var eScript)) if (eScript.isWet) return;
+		
 		Instantiate(explosionParticles, transform.position, Quaternion.identity);
 		Instantiate(explosion, transform.position, Quaternion.identity); 
 	}
