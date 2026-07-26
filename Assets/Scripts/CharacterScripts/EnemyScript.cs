@@ -70,7 +70,7 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 			newThoseAlreadyHit.AddRange(thoseAlreadyHit);
 
 		LayerMask hurtMask = LayerMask.GetMask("Character");
-		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, 10f, hurtMask);
+		Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(transform.position, 7.5f, hurtMask);
 		foreach (Collider2D col in nearbyColliders)
 		{
 			if (thoseAlreadyHit != null && thoseAlreadyHit.Contains(col)) continue;
