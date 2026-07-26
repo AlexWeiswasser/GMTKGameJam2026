@@ -29,6 +29,12 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 	Timer metalTimer = null;
 	Timer waterTimer = null;
 
+	//Sounds
+	[SerializeField] private AudioClip[] playerHurt;
+	[SerializeField] private AudioClip playerDeath;
+	[SerializeField] private AudioClip playerWalk;
+	[SerializeField] private AudioClip setOnFire;
+
 	[Header("References")]
 	[SerializeField] MovementScript movementScript;
 	[SerializeField] ShootScript shootScript;
@@ -74,11 +80,15 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		//isMetalMarked = false;
 		//metalTimer = null;
 
-		foreach (SpriteRenderer spr in movementScript.playerSpriteRenderers)
-		{
-			spr.color = Color.red;
-			spr.DOColor(Color.white, 0.2f);
-		}
+foreach (SpriteRenderer spr in movementScript.playerSpriteRenderers)
+{
+	spr.color = Color.red;
+	spr.DOColor(Color.white, 0.2f);
+}
+
+int choice = 0;
+choice = UnityEngine.Random.Range(0, playerHurt.Length);
+SoundManager.Instance.PlaySound(playerHurt[choice]);
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 
@@ -106,6 +116,8 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		if (fireTimer == null) 
 			fireTimer = new Timer(.5f);
 		timesFireDamaged = 0;
+		SoundManager.Instance.PlaySound(setOnFire);
+
 	}
 
 	public void SetOnOilFire()

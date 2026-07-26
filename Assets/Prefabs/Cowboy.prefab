@@ -480,6 +480,10 @@ MonoBehaviour:
   landParticles: {fileID: 1478261792099440017}
   canMove: 1
   isWet: 0
+  walkSounds:
+  - {fileID: 8300000, guid: 3730b1906f40b5d428105fa76e2bd650, type: 3}
+  - {fileID: 8300000, guid: f82c430641d7569479b3893a984b17eb, type: 3}
+  - {fileID: 8300000, guid: e0acb18053bd2fb479a20bf78295742c, type: 3}
 --- !u!114 &7743094426229523484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +546,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   isMetalMarked: 0
   isWet: 0
+  playerHurt:
+  - {fileID: 8300000, guid: fec9abfb55cfe0f42b797f8bec3e2f88, type: 3}
+  - {fileID: 8300000, guid: 65d3802b132cc4d47adc3a40a8791380, type: 3}
+  - {fileID: 8300000, guid: dd80b9e7fa05527478d35ddd536bbcc8, type: 3}
+  playerDeath: {fileID: 0}
+  playerWalk: {fileID: 0}
+  setOnFire: {fileID: 0}
   movementScript: {fileID: 8259275662457604754}
   shootScript: {fileID: 7743094426229523484}
 --- !u!1 &5128560024803116672
