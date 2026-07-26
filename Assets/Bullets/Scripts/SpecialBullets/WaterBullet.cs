@@ -7,6 +7,7 @@ public class WaterBullet : BulletScript
 
 	// Prefabs
 	[SerializeField] GameObject oilSpill;
+	[SerializeField] private ParticleSystem waterParticles;
 
 	// Tracking
 	bool spreadingOil = false; 
@@ -46,6 +47,7 @@ public class WaterBullet : BulletScript
 
 	protected override void OnBulletDeath()
 	{
+		Instantiate(waterParticles, transform.position, Quaternion.identity);
 		float waterRadius = 5f;
 
 		LayerMask hurtMask = LayerMask.GetMask("Character");
