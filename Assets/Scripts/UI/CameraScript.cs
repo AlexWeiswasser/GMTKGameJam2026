@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class CameraScript : MonoBehaviour
 {
@@ -48,4 +49,14 @@ public class CameraScript : MonoBehaviour
                 break;
         }
     }
+
+	public static void ScreenShake(Transform cameraTransform, float strength, float duration = 0.1f)
+	{
+        strength /= 10;
+
+		cameraTransform.DOShakePosition(
+	        duration,
+        	new Vector3(strength, strength, 0f))
+            .SetUpdate(true);
+	}
 }

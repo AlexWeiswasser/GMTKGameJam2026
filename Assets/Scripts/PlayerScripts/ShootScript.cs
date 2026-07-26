@@ -19,6 +19,8 @@ public class ShootScript : MonoBehaviour
 			Bullet bullet = FireBullet();
 			if (bullet != null)
 			{
+				CameraScript.ScreenShake(Camera.main.transform, 1);
+
 				Vector2 direction = (bulletSpawnPos.position - transform.position).normalized;
 				float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

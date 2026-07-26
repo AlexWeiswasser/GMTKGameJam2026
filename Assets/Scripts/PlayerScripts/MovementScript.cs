@@ -63,6 +63,7 @@ public class MovementScript : MonoBehaviour
 
 	public void Knockback(Vector2 direction, float strength)
 	{
+		CameraScript.ScreenShake(Camera.main.transform, strength);
 		strength *= 50;
 
 		externalVelocity = Vector2.MoveTowards(
