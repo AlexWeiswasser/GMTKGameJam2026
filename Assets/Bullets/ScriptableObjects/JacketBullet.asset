@@ -16,5 +16,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6983272080299161828, guid: 28edeaa71a741c8439d7f50a28577b5f, type: 3}
   chamberSprite: {fileID: -1382188462, guid: 902c208366f85544c811f8580d13ea5d, type: 3}
   bulletName: FMJ Bullet
-  bulletDescription: 'Inflicts enemies with the metallic condition, increasinng the
-    damage they take for a time. '
+  bulletDescription: 'Inflicts enemies with the metallic condition, increasing the
+    damage they take for a bit. '
