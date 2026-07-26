@@ -205,7 +205,7 @@ MonoBehaviour:
   damping: 10
   detectionRange: 20
   externalVelocity: {x: 0, y: 0}
-  bullet: {fileID: 6983272080299161828, guid: 28edeaa71a741c8439d7f50a28577b5f, type: 3}
+  bullet: {fileID: 6983272080299161828, guid: b5a689996b50843418e965e58cfab418, type: 3}
   spriteObject: {fileID: 6720001947372109313}
   gunTransform: {fileID: 7169741913905479936}
   gunSprite: {fileID: 4029125549201837180}
