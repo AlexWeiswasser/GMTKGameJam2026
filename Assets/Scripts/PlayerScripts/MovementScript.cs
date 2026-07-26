@@ -102,9 +102,15 @@ public class MovementScript : MonoBehaviour
 				animating = true;
 				spriteObject.DOLocalJump(Vector2.zero, hopStrength, 1, hopDuration)
 					.SetEase(hopEasing)
-					.OnComplete(() => { animating = false; landParticles.Play();	int choice = 0;
-																					choice = UnityEngine.Random.Range(0, walkSounds.Length);
-																					SoundManager.Instance.PlaySound(walkSounds[choice]);});
+					.OnComplete(() => 
+					{ 
+						animating = false;
+						landParticles.Play();	
+
+						int choice = 0;
+						choice = UnityEngine.Random.Range(0, walkSounds.Length);
+						SoundManager.Instance.PlaySound(walkSounds[choice]);
+					});
 			}
 		}
 		externalVelocity *= 0.9f;
