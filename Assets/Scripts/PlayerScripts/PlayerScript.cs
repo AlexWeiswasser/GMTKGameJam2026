@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour, ICharInterface
 {
 	// Stats
-	public static readonly int MAX_HEALTH = 50;
-	int health = 50;
+	public static readonly int MAX_HEALTH = 100;
+	int health = 100;
 	int hitStreak = 0;
 	private static bool dead = false;
 	public static bool IsDead() { return dead; }
