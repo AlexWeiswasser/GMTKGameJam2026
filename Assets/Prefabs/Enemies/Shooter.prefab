@@ -191,7 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShooterScript
   isWet: 0
   canBehavior: 1
-  rend: {fileID: 3211657680324239156}
+  rend:
+  - {fileID: 3211657680324239156}
   maxSpeed: 4
   acceleration: 40
   damping: 10

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -65,6 +66,12 @@ public class PlayerScript : MonoBehaviour, ICharInterface
 		health -= damageTaken;
 		//isMetalMarked = false;
 		//metalTimer = null;
+
+		foreach (SpriteRenderer spr in movementScript.playerSpriteRenderers)
+		{
+			spr.color = Color.red;
+			spr.DOColor(Color.white, 0.2f);
+		}
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 

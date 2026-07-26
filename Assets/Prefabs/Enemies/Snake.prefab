@@ -173,7 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SnakeScript
   isWet: 0
   canBehavior: 1
-  rend: {fileID: 772474743389177780}
+  rend:
+  - {fileID: 772474743389177780}
   maxSpeed: 0
   acceleration: 0
   damping: 0

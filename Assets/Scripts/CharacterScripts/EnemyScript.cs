@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour, ICharInterface
@@ -28,6 +29,12 @@ public class EnemyScript : MonoBehaviour, ICharInterface
 		health -= damageTaken;
 		//isMetalMarked = false;
 		//metalTimer = null;
+
+		foreach (SpriteRenderer spr in behaviorScript.rend)
+		{
+			spr.color = Color.red;
+			spr.DOColor(Color.white, 0.2f);
+		}
 
 		EventBus<OnDamageTaken>.Call(new OnDamageTaken() {position = new Vector2(transform.position.x, transform.position.y), damageValue = damageTaken});
 	}

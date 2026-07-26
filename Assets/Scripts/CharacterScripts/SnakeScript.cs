@@ -58,22 +58,22 @@ public class SnakeScript : BehaviorScript
 			{
 				int firstDigit = (int)(rattleTimer.Progress * 10) % 10;
 				if (firstDigit % 2 == 0)
-					rend.sprite = rattleSprites[0];
+					rend[0].sprite = rattleSprites[0];
 				else
-					rend.sprite = rattleSprites[1];
+					rend[0].sprite = rattleSprites[1];
 
 				rattleTimer.Tick(Time.deltaTime);
 				if (rattleTimer.Finished)
 				{
 					attackTimer = new Timer(.5f, startFinished: true);
 					attacking = true;
-					rend.sprite = madSprite;
+					rend[0].sprite = madSprite;
 					rattleTimer = null;
 				}
 			}
 			else
 			{
-				rend.sprite = baseSprite;
+				rend[0].sprite = baseSprite;
 				rattleTimer.Reset();
 			}
 		}
